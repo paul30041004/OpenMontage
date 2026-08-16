@@ -1,13 +1,18 @@
-"""Fish Audio cloud TTS provider tool."""
+"""fish.audio text-to-speech provider tool.
+
+fish.audio offers high-quality S1/S2-generation models and reference_id voice
+cloning (reusing voice models created in the fish.audio playground). Strong
+for expressive, multilingual narration with inline emotion tags on S2 models.
+Billed per UTF-8 byte of input text.
+"""
 
 from __future__ import annotations
 
 import os
 import time
+from datetime import date
 from pathlib import Path
 from typing import Any
-
-import httpx
 
 from tools.base_tool import (
     BaseTool,
@@ -34,144 +39,369 @@ class FishAudioTTS(BaseTool):
     determinism = Determinism.STOCHASTIC
     runtime = ToolRuntime.API
 
-    dependencies = ["python:httpx"]
+    dependencies = ["env:FISH_AUDIO_API_KEY"]
     install_instructions = (
-        "Set the FISH_API_KEY environment variable:\n"
-        "  export FISH_API_KEY=your_key_here\n"
-        "Get a key at https://fish.audio/ (API key in account settings).\n"
+        "Set FISH_AUDIO_API_KEY to an API key from https://fish.audio/go-api/api-keys/\n"
+        "Create voice models in the fish.audio playground and pass their id as\n"
+        "reference_id to reuse a cloned voice."
     )
-    fallback = "voxcpm_tts"
-    fallback_tools = ["voxcpm_tts", "kokoro_tts"]
-    agent_skills = ["fish-audio"]
+    fallback = "elevenlabs_tts"
+    fallback_tools = ["elevenlabs_tts", "google_tts", "openai_tts", "piper_tts"]
+    agent_skills = ["fish-audio-tts", "text-to-speech"]
 
     capabilities = [
         "text_to_speech",
         "voice_selection",
         "voice_cloning",
+        "multilingual",
     ]
     supports = {
         "voice_cloning": True,
         "multilingual": True,
         "offline": False,
         "native_audio": True,
+        "ssml": False,
     }
     best_for = [
-        "high-quality cloud narration (Korean and other languages)",
-        "production TTS when local voices sound robotic",
-        "voice clone via reference_id or raw reference audio",
+        "high-quality voice-clone narration via reference_id",
+        "expressive S2-model read-throughs with inline emotion tags",
+        "multilingual narration",
     ]
     not_good_for = [
-        "offline / air-gapped workflows",
-        "zero-cost production",
+        "fully offline production",
+        "SSML markup control",
+        "deterministic reproducible output",
     ]
+
+    _VALID_MODELS = ("s1", "s2-pro", "s2.1-pro", "s2.1-pro-free")
 
     input_schema = {
         "type": "object",
-        "required": [],
+        "oneOf": [
+            # tts path
+            {
+                "required": ["text"],
+                "anyOf": [
+                    {"required": ["model"]},
+                    {"required": ["model_id"]},
+                ],
+            },
+            # create_voice path (clone a local anchor into a persistent model)
+            {
+                "properties": {
+                    "operation": {"const": "create_voice"},
+                    "reference_audio": {"type": "string"},
+                },
+                "required": ["operation", "reference_audio"],
+            },
+        ],
         "properties": {
             "operation": {
                 "type": "string",
                 "enum": ["tts", "create_voice"],
                 "default": "tts",
-                "description": "tts: text-to-speech synthesis. create_voice: clone an anchor audio sample into a persistent Fish Audio voice model (returns reference_id for reuse).",
-            },
-            "text": {"type": "string"},
-            "model": {
-                "type": "string",
-                "default": "s2.1-pro",
-                "enum": ["s2.1-pro", "s2.1-pro-free", "s2-pro", "s1"],
-                "description": "Fish Audio TTS model. s2-pro is multilingual (incl. Korean); s1 uses (parenthesis) emotion tags.",
-            },
-            "voice": {
-                "type": "string",
-                "description": "Fish Audio voice reference_id from the Voice Library (e.g. a Korean narrator voice). Optional — omit for default voice.",
-            },
-            "reference_id": {
-                "type": "string",
-                "description": "Alias for voice. Passed as the reference_id to POST /v1/tts.",
+                "description": (
+                    "tts: synthesize speech. create_voice: clone a local anchor audio "
+                    "sample into a persistent fish.audio voice model and return its "
+                    "reference_id (used to keep ONE consistent narrator voice across "
+                    "every segment of a multi-section / mid-form video)."
+                ),
             },
             "reference_audio": {
                 "type": "string",
-                "description": "Path to a local voice sample (WAV/MP3/M4A/OPUS). For operation=create_voice it is the cloning source. For operation=tts it triggers an instant (inline) clone via the `references` request body.",
+                "description": "Path to a local voice sample (WAV/MP3/M4A/OPUS). For operation=create_voice this is the cloning source; for operation=tts it is unused (JSON path can't carry inline binary — use create_voice then reuse reference_id).",
             },
             "reference_audio_text": {
                 "type": "string",
-                "description": "Transcript of reference_audio (sharpens instant-clone pronunciation). For create_voice, optionally the sample's transcript.",
+                "description": "Transcript of reference_audio (sharpens clone pronunciation).",
             },
             "voice_title": {
                 "type": "string",
-                "description": "Title for a created voice model (operation=create_voice). Defaults to project/sample-derived name.",
+                "description": "Title for a created voice model (operation=create_voice).",
+            },
+            "text": {"type": "string", "description": "Text to convert to speech"},
+            "model": {
+                "type": "string",
+                "enum": list(_VALID_MODELS),
+                "description": (
+                    "Backend TTS model (sent as the 'model' HTTP header). Required — no "
+                    "default; may also be supplied via the model_id alias. s2.1-pro = "
+                    "latest flagship (emotion tags, 80+ languages), s2.1-pro-free = free "
+                    "tier for drafts (promotional; see estimate_cost), s2-pro = first S2 "
+                    "generation, s1 = previous flagship kept for compatibility."
+                ),
+            },
+            "model_id": {
+                "type": "string",
+                "enum": list(_VALID_MODELS),
+                "description": (
+                    "Alias for model (selector compatibility — tts_selector exposes "
+                    "model_id). Used only when model is absent."
+                ),
+            },
+            "reference_id": {
+                "type": "string",
+                "description": "fish.audio voice model id (from the playground) to clone/reuse.",
+            },
+            "voice_id": {
+                "type": "string",
+                "description": "Alias for reference_id (selector compatibility). Used only when reference_id is absent.",
             },
             "format": {
                 "type": "string",
                 "default": "mp3",
                 "enum": ["mp3", "wav", "pcm", "opus"],
-                "description": "Output audio format.",
+                "description": "Audio output format.",
             },
-            "speed": {
+            "mp3_bitrate": {
+                "type": "integer",
+                "default": 128,
+                "enum": [64, 128, 192],
+                "description": "MP3 bitrate (kbps). Only applies when format=mp3.",
+            },
+            "chunk_length": {
+                "type": "integer",
+                "default": 300,
+                "minimum": 100,
+                "maximum": 300,
+                "description": "Text chunk length for streaming synthesis.",
+            },
+            "normalize": {
+                "type": "boolean",
+                "default": True,
+                "description": "Normalize numbers/dates for stable pronunciation.",
+            },
+            "latency": {
+                "type": "string",
+                "default": "normal",
+                "enum": ["low", "balanced", "normal"],
+                "description": (
+                    "Latency mode. 'normal' = best quality, 'balanced' trades a little "
+                    "quality for speed, 'low' = fastest."
+                ),
+            },
+            "temperature": {
                 "type": "number",
-                "default": 1.0,
-                "minimum": 0.5,
-                "maximum": 2.0,
-                "description": "Speech speed (0.5–2.0). Maps to prosody.speed.",
+                "default": 0.7,
+                "description": "Sampling temperature. Higher = more expressive, less stable.",
+            },
+            "top_p": {
+                "type": "number",
+                "default": 0.7,
+                "description": "Nucleus sampling threshold.",
+            },
+            "repetition_penalty": {
+                "type": "number",
+                "default": 1.2,
+                "description": "Penalty against repeated phrasing.",
             },
             "sample_rate": {
                 "type": "integer",
-                "description": "Sample rate when format=wav (e.g. 44100).",
+                "description": "Output sample rate in Hz (optional; API default when omitted).",
+            },
+            "prosody": {
+                "type": "object",
+                "description": "Optional prosody controls, e.g. {\"speed\": 1.0, \"volume\": 0}.",
             },
             "output_path": {"type": "string"},
         },
     }
 
+    output_schema = {
+        "type": "object",
+        "properties": {
+            "output": {"type": "string"},
+            "provider": {"type": "string"},
+            "model": {"type": "string"},
+            "reference_id": {"type": ["string", "null"]},
+            "format": {"type": "string"},
+            "text_length": {"type": "integer"},
+        },
+    }
+    artifact_schema = {
+        "type": "array",
+        "items": {"type": "string"},
+    }
+
     resource_profile = ResourceProfile(
         cpu_cores=1, ram_mb=256, vram_mb=0, disk_mb=50, network_required=True
     )
-    retry_policy = RetryPolicy(max_retries=2, retryable_errors=["rate_limit", "timeout"])
-    idempotency_key_fields = ["text", "voice", "reference_id", "model", "format", "speed"]
-    side_effects = ["writes audio file to output_path", "calls Fish Audio API"]
-    user_visible_verification = ["Listen to generated audio for intelligibility and tone"]
+    retry_policy = RetryPolicy(
+        max_retries=2, backoff_seconds=2.0, retryable_errors=["rate_limit", "timeout"]
+    )
+    idempotency_key_fields = [
+        "text",
+        "model",
+        "reference_id",
+        "format",
+        "mp3_bitrate",
+        "sample_rate",
+        "temperature",
+        "top_p",
+        "repetition_penalty",
+        "latency",
+        "prosody",
+        "normalize",
+        "chunk_length",
+    ]
+    side_effects = [
+        "writes audio file to output_path",
+        "calls the fish.audio TTS API",
+    ]
+    user_visible_verification = [
+        "Listen to generated audio for natural speech quality and voice-clone fidelity",
+    ]
+    quality_score = 0.9
+    latency_p50_seconds = 6.0
 
-    BASE_URL = "https://api.fish.audio"
+    API_URL = "https://api.fish.audio/v1/tts"
+    MODEL_URL = "https://api.fish.audio/model"
+
+    # Approximate fish.audio pricing per UTF-8 byte of input text. fish bills by
+    # bytes, not characters — matters for CJK/emoji where one char is 3-4 bytes.
+    # Kept here (not pricing.yaml, which is fal-only) to mirror google_tts /
+    # doubao_tts. Verify against https://fish.audio pricing when refreshing.
+    _FALLBACK_RATES = {
+        "s1": 0.000015,            # ~$15 / 1M bytes
+        "s2-pro": 0.000015,        # ~$15 / 1M bytes
+        "s2.1-pro": 0.000015,      # ~$15 / 1M bytes
+        "s2.1-pro-free": 0.0,      # promotional free tier — see _S21_PRO_FREE_PROMO_END
+    }
+    _DEFAULT_RATE = 0.000015
+
+    # s2.1-pro-free is a promotion, not a durable free tier: free API access runs
+    # through August 31, 2026, subject to Fair Use, with no SLA/latency
+    # guarantee, possible request retention, and commercial-use restrictions
+    # (https://fish.audio/ar/blog/s2-1-pro-free-api/?articleLocale=en). After the
+    # window, cost planning falls back to the paid s2.1-pro rate.
+    _S21_PRO_FREE_PROMO_END = date(2026, 8, 31)
+
+    # Effective API defaults for output-affecting inputs. Applied when computing
+    # the idempotency key so an omitted field and its explicit default hash the
+    # same (both produce identical audio).
+    _KEY_DEFAULTS = {
+        "format": "mp3",
+        "mp3_bitrate": 128,
+        "chunk_length": 300,
+        "normalize": True,
+        "latency": "normal",
+        "temperature": 0.7,
+        "top_p": 0.7,
+        "repetition_penalty": 1.2,
+    }
+
+    _EXT_MAP = {"mp3": "mp3", "wav": "wav", "pcm": "pcm", "opus": "opus"}
+
+    @classmethod
+    def _normalized_inputs(cls, inputs: dict[str, Any]) -> dict[str, Any]:
+        """Resolve selector-compatible aliases (model_id -> model, voice_id -> reference_id)."""
+        normalized = dict(inputs)
+        if not normalized.get("model") and normalized.get("model_id"):
+            normalized["model"] = normalized["model_id"]
+        if not normalized.get("reference_id") and normalized.get("voice_id"):
+            normalized["reference_id"] = normalized["voice_id"]
+        return normalized
+
+    @classmethod
+    def _effective_inputs(cls, inputs: dict[str, Any]) -> dict[str, Any]:
+        """Alias-normalized inputs with API defaults filled for output-affecting fields."""
+        provided = {k: v for k, v in cls._normalized_inputs(inputs).items() if v is not None}
+        effective = {**cls._KEY_DEFAULTS, **provided}
+        if effective.get("format") != "mp3":
+            effective["mp3_bitrate"] = None
+        return effective
+
+    def idempotency_key(self, inputs: dict[str, Any]) -> str:
+        return super().idempotency_key(self._effective_inputs(inputs))
+
+    @staticmethod
+    def _today() -> date:
+        return date.today()
+
+    def _get_api_key(self) -> str | None:
+        # Prefer the upstream canonical FISH_AUDIO_API_KEY, but also accept the
+        # shorter FISH_API_KEY so both integrations work interchangeably.
+        return os.environ.get("FISH_AUDIO_API_KEY") or os.environ.get("FISH_API_KEY")
 
     def get_status(self) -> ToolStatus:
-        if os.environ.get("FISH_API_KEY"):
+        if self._get_api_key():
             return ToolStatus.AVAILABLE
         return ToolStatus.UNAVAILABLE
 
     def estimate_cost(self, inputs: dict[str, Any]) -> float:
-        # ~$0.003 per 1k chars on s2-pro family; approximate.
-        # create_voice has no text; cost it at the free tier (0).
-        return round(len(inputs.get("text", "") or "") * 0.000003, 4)
+        inputs = self._normalized_inputs(inputs)
+        byte_count = len(str(inputs.get("text", "")).encode("utf-8"))
+        model = inputs.get("model", "")
+        rate = self._FALLBACK_RATES.get(model, self._DEFAULT_RATE)
+        if model == "s2.1-pro-free" and self._today() > self._S21_PRO_FREE_PROMO_END:
+            rate = self._FALLBACK_RATES["s2.1-pro"]
+        return round(byte_count * rate, 4)
 
     def execute(self, inputs: dict[str, Any]) -> ToolResult:
-        key = os.environ.get("FISH_API_KEY")
-        if not key:
+        api_key = self._get_api_key()
+        if not api_key:
             return ToolResult(
                 success=False,
-                error="No Fish Audio API key. " + self.install_instructions,
+                error="No fish.audio API key. " + self.install_instructions,
+            )
+
+        inputs = self._normalized_inputs(inputs)
+
+        # create_voice: clone a local anchor sample into a persistent voice model.
+        if inputs.get("operation") == "create_voice":
+            start = time.time()
+            try:
+                result = self._create_voice(api_key, inputs)
+            except Exception as exc:
+                return ToolResult(
+                    success=False, error=f"fish.audio voice clone failed: {self._safe_error(exc, api_key)}"
+                )
+            result.duration_seconds = round(time.time() - start, 2)
+            return result
+
+        model = inputs.get("model")
+        if not model:
+            return ToolResult(
+                success=False,
+                error=(
+                    "fish_audio_tts requires an explicit 'model' (or its 'model_id' alias). "
+                    f"Valid values: {', '.join(self._VALID_MODELS)}."
+                ),
+            )
+        if model not in self._VALID_MODELS:
+            return ToolResult(
+                success=False,
+                error=(
+                    f"Unknown fish.audio model '{model}'. "
+                    f"Valid values: {', '.join(self._VALID_MODELS)}."
+                ),
             )
 
         start = time.time()
         try:
-            operation = inputs.get("operation", "tts")
-            if operation == "create_voice":
-                result = self._create_voice(api_key, inputs)
-            else:
-                result = self._generate(api_key, inputs)
+            result = self._generate(inputs, api_key=api_key, model=model)
         except Exception as exc:
-            return ToolResult(success=False, error=f"Fish Audio TTS failed: {exc}")
+            return ToolResult(
+                success=False, error=f"fish.audio TTS failed: {self._safe_error(exc, api_key)}"
+            )
 
         result.duration_seconds = round(time.time() - start, 2)
-        result.cost_usd = self.estimate_cost(inputs)
+        if not result.cost_usd:
+            result.cost_usd = self.estimate_cost(inputs)
         return result
 
     def _create_voice(self, api_key: str, inputs: dict[str, Any]) -> ToolResult:
-        """Clone a local anchor sample into a persistent Fish Audio voice model."""
+        """Clone a local anchor sample into a persistent fish.audio voice model.
+
+        POST https://api.fish.audio/model with the sample file. Returns the voice
+        model's id (reference_id) for reuse across every narration segment so a
+        long (mid-form) piece keeps ONE consistent narrator voice.
+        """
         ref_audio = inputs.get("reference_audio")
         if not ref_audio:
             return ToolResult(
                 success=False,
-                error="create_voice requires reference_audio (path to a voice sample WAV/MP3).",
+                error="create_voice requires reference_audio (path to a voice sample WAV/MP3/M4A/OPUS).",
             )
         sample = Path(ref_audio)
         if not sample.is_file():
@@ -179,30 +409,26 @@ class FishAudioTTS(BaseTool):
 
         title = inputs.get("voice_title") or f"cloned-{time.strftime('%Y%m%d-%H%M%S')}"
 
-        with open(sample, "rb") as f:
-            files = {
-                "type": (None, "tts"),
-                "title": (None, title),
-                "visibility": (None, "private"),
-                "train_mode": (None, "fast"),
-                "voices": (sample.name, f.read(), "audio/wav"),
-            }
-            headers = {"Authorization": f"Bearer {api_key}"}
-            if inputs.get("reference_audio_text"):
-                files["texts"] = (None, inputs["reference_audio_text"])
+        files = {
+            "type": (None, "tts"),
+            "title": (None, title),
+            "visibility": (None, "private"),
+            "train_mode": (None, "fast"),
+            "voices": (sample.name, open(sample, "rb").read(), "audio/wav"),
+        }
+        if inputs.get("reference_audio_text"):
+            files["texts"] = (None, inputs["reference_audio_text"])
 
-            resp = httpx.post(
-                f"{self.BASE_URL}/model",
-                headers=headers,
-                files=files,
-                timeout=180.0,
-            )
-        if resp.status_code != 200:
+        headers = {"Authorization": f"Bearer {api_key}"}
+        response = requests.post(
+            f"{self.MODEL_URL}/model", headers=headers, files=files, timeout=180
+        )
+        if response.status_code != 200:
             raise RuntimeError(
-                f"Fish Audio create_voice returned {resp.status_code}: {resp.text[:400]}"
+                f"create_voice returned {response.status_code}: {response.text[:400]}"
             )
 
-        data = resp.json()
+        data = response.json()
         voice_id = data.get("_id") or data.get("id") or data.get("model_id")
         state = data.get("state") or "created"
         return ToolResult(
@@ -214,48 +440,41 @@ class FishAudioTTS(BaseTool):
                 "reference_id": voice_id,
                 "state": state,
                 "message": (
-                    "Voice model created. Pass reference_id to every subsequent "
-                    "tts call for a consistent cloned voice across all narration segments."
+                    "Voice model created. Pass reference_id to every subsequent tts "
+                    "call for a consistent cloned voice across all narration segments."
                 ),
             },
             model=self.provider,
         )
 
-    def _generate(self, api_key: str, inputs: dict[str, Any]) -> ToolResult:
-        from tools.analysis.audio_probe import probe_duration
+    def _generate(self, inputs: dict[str, Any], *, api_key: str, model: str) -> ToolResult:
+        import requests
 
         text = inputs["text"]
-        model = inputs.get("model", "s2.1-pro")
-        voice = inputs.get("voice") or inputs.get("reference_id")
         fmt = inputs.get("format", "mp3")
-        speed = float(inputs.get("speed", 1.0))
-        sample_rate = inputs.get("sample_rate")
+        reference_id = inputs.get("reference_id") or inputs.get("voice_id")
 
-        output_path = Path(inputs.get("output_path", f"fish_audio_tts.{fmt}"))
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-
-        payload: dict[str, Any] = {"text": text, "format": fmt}
-        if voice:
-            payload["reference_id"] = voice
-        elif inputs.get("reference_audio"):
-            # Instant clone is possible but requires a MessagePack body (raw binary in
-            # the `references` array), which the JSON path here can't carry efficiently.
-            # For one-voice-many-segments (mid-form/multi-section narration), use
-            # operation='create_voice' once to get a persistent reference_id, then send
-            # that reference_id on every tts call. Returning a clear error guides that.
-            return ToolResult(
-                success=False,
-                error=(
-                    "Instant clone needs a MessagePack request body, not supported via "
-                    "this JSON path. Use operation='create_voice' with reference_audio "
-                    "to make a persistent voice model, then pass its reference_id to "
-                    "each tts call for a consistent voice across all segments."
-                ),
-            )
-        if speed != 1.0:
-            payload["prosody"] = {"speed": speed}
-        if sample_rate:
-            payload["sample_rate"] = sample_rate
+        body: dict[str, Any] = {
+            "text": text,
+            "format": fmt,
+            "normalize": bool(inputs.get("normalize", True)),
+            "latency": inputs.get("latency", "normal"),
+            "chunk_length": int(inputs.get("chunk_length", 300)),
+        }
+        if fmt == "mp3":
+            body["mp3_bitrate"] = int(inputs.get("mp3_bitrate", 128))
+        if reference_id:
+            body["reference_id"] = reference_id
+        if inputs.get("temperature") is not None:
+            body["temperature"] = float(inputs["temperature"])
+        if inputs.get("top_p") is not None:
+            body["top_p"] = float(inputs["top_p"])
+        if inputs.get("repetition_penalty") is not None:
+            body["repetition_penalty"] = float(inputs["repetition_penalty"])
+        if inputs.get("sample_rate") is not None:
+            body["sample_rate"] = int(inputs["sample_rate"])
+        if isinstance(inputs.get("prosody"), dict):
+            body["prosody"] = inputs["prosody"]
 
         headers = {
             "Authorization": f"Bearer {api_key}",
@@ -263,35 +482,33 @@ class FishAudioTTS(BaseTool):
             "model": model,
         }
 
-        resp = httpx.post(
-            f"{self.BASE_URL}/v1/tts",
-            headers=headers,
-            json=payload,
-            timeout=120.0,
-        )
-        if resp.status_code != 200:
-            raise RuntimeError(
-                f"Fish Audio API returned {resp.status_code}: {resp.text[:400]}"
-            )
+        response = requests.post(self.API_URL, headers=headers, json=body, timeout=120)
+        response.raise_for_status()
+        audio_content = response.content
 
-        output_path.write_bytes(resp.content)
-        if output_path.stat().st_size < 1000:
-            raise RuntimeError("Fish Audio produced a near-empty audio file")
-
-        audio_duration = probe_duration(output_path)
+        ext = self._EXT_MAP.get(fmt, "mp3")
+        output_path = Path(inputs.get("output_path", f"fish_audio_tts.{ext}"))
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_bytes(audio_content)
 
         return ToolResult(
             success=True,
             data={
                 "provider": self.provider,
                 "model": model,
-                "voice": voice or "default",
+                "reference_id": reference_id,
                 "format": fmt,
-                "speed": speed,
                 "text_length": len(text),
-                "audio_duration_seconds": round(audio_duration, 2) if audio_duration else None,
                 "output": str(output_path),
             },
             artifacts=[str(output_path)],
-            model=model,
+            cost_usd=self.estimate_cost(inputs),
+            model=f"fish-audio/{model}",
         )
+
+    @staticmethod
+    def _safe_error(exc: Exception, api_key: str | None) -> str:
+        message = str(exc)
+        if api_key:
+            message = message.replace(api_key, "***")
+        return message
