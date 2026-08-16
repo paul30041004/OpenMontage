@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import time
@@ -120,10 +121,13 @@ class PiperTTS(BaseTool):
         output_path = Path(inputs.get("output_path", "tts_output.wav"))
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
+        model = inputs.get("model", "en_US-lessac-medium")
+        model_path = self._resolve_model(model)
+
         proc = subprocess.run(
             [
                 "piper",
-                "--model", inputs.get("model", "en_US-lessac-medium"),
+                "--model", str(model_path),
                 "--speaker", str(inputs.get("speaker_id", 0)),
                 "--length-scale", str(inputs.get("length_scale", 1.0)),
                 "--sentence-silence", str(inputs.get("sentence_silence", 0.3)),
@@ -144,12 +148,40 @@ class PiperTTS(BaseTool):
             success=True,
             data={
                 "provider": self.provider,
-                "model": inputs.get("model", "en_US-lessac-medium"),
+                "model": model,
                 "speaker_id": inputs.get("speaker_id", 0),
                 "text_length": len(inputs["text"]),
                 "output": str(output_path),
                 "format": "wav",
             },
             artifacts=[str(output_path)],
-            model=inputs.get("model", "en_US-lessac-medium"),
+            model=model,
         )
+
+    def _resolve_model(self, model: str) -> Path:
+        """Resolve a voice name to a local .onnx model path.
+
+        Newer piper-tts builds require an explicit model file path. If the
+        requested name is already a file, use it directly; otherwise download
+        the voice into ~/.piper/models (or $PIPER_DATA_DIR) and return the
+        .onnx path there.
+        """
+        candidate = Path(model).expanduser()
+        if candidate.is_file():
+            return candidate
+
+        data_dir = Path(os.environ.get("PIPER_DATA_DIR", Path.home() / ".piper" / "models"))
+        data_dir.mkdir(parents=True, exist_ok=True)
+        model_file = data_dir / f"{model}.onnx"
+        if not model_file.is_file():
+            try:
+                from piper.download_voices import download_voice
+            except ImportError:
+                raise RuntimeError(
+                    "Piper voice model missing and piper.download_voices unavailable. "
+                    "Run: piper --download-dir ~/.piper/models --model <voice>"
+                )
+            download_voice(model, data_dir)
+        if not model_file.is_file():
+            raise RuntimeError(f"Piper voice model not found after download: {model_file}")
+        return model_file

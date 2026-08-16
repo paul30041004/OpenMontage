@@ -88,6 +88,16 @@ class ToolRegistry:
         """Load .env file into os.environ if present, so tools can find API keys."""
         from pathlib import Path
         import os
+        import sys
+        # Ensure the active virtualenv's bin dir is on PATH so tools that
+        # depend on console scripts (manim, piper, ...) resolve correctly
+        # even when the registry is invoked outside an activated shell.
+        if sys.prefix and sys.prefix != sys.base_prefix:
+            bin_dir = Path(sys.prefix) / "bin"
+            if bin_dir.is_dir():
+                path_entries = os.environ.get("PATH", "").split(os.pathsep)
+                if str(bin_dir) not in path_entries:
+                    os.environ["PATH"] = os.pathsep.join([str(bin_dir), *path_entries])
         env_path = Path(__file__).resolve().parent.parent / ".env"
         if not env_path.is_file():
             return

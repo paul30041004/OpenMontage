@@ -8,6 +8,13 @@ performance plan from script to asset generation, then verify it with a sample.
 
 ## Required Contract
 
+**Multi-segment narration must use one unified voice — anchor on the FIRST
+sample and clone every later segment from it.** When generating narration split
+across script sections, read `.agents/skills/tts-sample-unification/SKILL.md`
+BEFORE batch generation. The approved TTS sample IS the anchor; all subsequent
+segments are generated in clone mode from it so the whole narration sounds like
+one speaker.
+
 Every narration-led script should include a top-level `voice_performance`
 object and section-level `delivery_cues` where the schema allows it.
 

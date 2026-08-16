@@ -10,6 +10,26 @@ build/
 *.onnx
 *.onnx.json
 
+# Vendored engine runtimes — venvs + downloaded weights are regenerable
+tools/_bert_vits2/venv/
+tools/_bert_vits2/pretrained/
+tools/_bert_vits2/.cache/
+tools/_bert_vits2_kr/venv/
+tools/_bert_vits2_kr/models/
+tools/_bert_vits2_kr/bert/
+tools/_echomimic/venv/
+tools/_echomimic/pretrained_weights/
+tools/_echomimic/outputs/
+tools/_wav2lip/venv/
+tools/_wav2lip/checkpoints/
+tools/_wav2lip/face_detection/
+tools/_sadtalker/venv/
+tools/_sadtalker/checkpoints/
+tools/_sadtalker/gfpgan/
+tools/_latentsync_mlx/checkpoints/
+tools/_latentsync_mlx/venv/
+tools/_latentsync_mlx/upstream/
+
 # Test/IDE
 .pytest_cache/
 .mypy_cache/
@@ -97,3 +117,6 @@ venv/
 
 # Backlot local cache (thumbnails)
 .backlot/
+
+# firecrawl search cache
+.firecrawl/
