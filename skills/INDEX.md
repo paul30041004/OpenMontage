@@ -115,6 +115,14 @@ Key capability families to look for in the output:
 | Image Gen Usage | `creative/image-gen-usage.md` | Prompt consistency, hero reference, batch strategy | `flux-best-practices`, `bfl-api` |
 | Image Provider Usage | `creative/image-provider-usage.md` | Provider selection (FLUX/Grok/OpenAI/Recraft/stock), cost-quality tradeoffs | `flux-best-practices`, `bfl-api`, `grok-media` |
 | 3D World Generation | `creative/3d-world-generation.md` | Semantic world planning, asset sourcing/generation, Blender assembly, and fidelity review | `3d-asset-generation`, `threejs-world-generation` |
+| Zero-GPU Viral Shorts | `creative/zero-gpu-viral-shorts.md` | 100% free CPU-only shorts/reels workflow (EdgeTTS, BeatSyncCutter, Remotion) | `remotion`, `ffmpeg` |
+| Free Public Domain Documentary | `creative/free-public-domain-documentary.md` | High-value archival documentaries from NASA, Wikimedia, Archive.org, LOC | `video-edit`, `ffmpeg` |
+| Synthetic VFX Components | `creative/synthetic-vfx-components.md` | Procedural waveforms, 3D device mockups, split-screens, social quotes, geo routes | `remotion-best-practices` |
+| Apple MLX Local Pipeline | `creative/apple-mlx-local-pipeline.md` | 100% offline Metal/UMA-accelerated STT, VLM frame QA, and LLM scripting on Apple Silicon | `speech-to-text`, `video-understand` |
+| E-Knowledge Channel Style | `creative/e-knowledge-channel-style.md` | e지식채널 스타일 타이포그래피 조판 슬라이드, 타이핑/키네틱 애니메이션, 에디토리얼 레이아웃 | `remotion-best-practices`, `typography` |
+| Remotion OSS Libraries | `creative/remotion-oss-libraries.md` | remotion-bits(84개 컴포넌트), remotion-animated, 한국 인기 폰트 통합 가이드 | `remotion-best-practices` |
+| Korean Viral Shorts Templates | `creative/korean-viral-shorts-templates.md` | 한국 바이럴 숏폼 5대 유형 + 편집기법 13가지 + 자막 템플릿 10종 + 성공사례 크롤링 | `remotion-best-practices`, `short-form` |
+| Video Effect Template Catalog | `creative/video-effect-template-catalog.md` | 600+ 매체 고유 영상효과 템플릿 카탈로그 (뉴스/스포츠/퀴즈/레트로/소셜 등) | `remotion-best-practices` |
 | B-Roll Planning | `creative/broll-planning.md` | Stock vs. generated decision, query construction, footage evaluation | — |
 | Stock Sourcing Usage | `creative/stock-sourcing-usage.md` | Pexels/Pixabay usage, parameters, licensing, integration | — |
 | Scene Detect Usage | `creative/scene-detect-usage.md` | Threshold tuning, algorithm selection, content presets | â€" |
@@ -139,6 +147,10 @@ Pipeline type skills provide production guidance for specific video formats, ind
 | Animation Pipeline | `creative/animation-pipeline.md` | Motion graphics, easing, transitions, composition |
 | 3D World Generation | `creative/3d-world-generation.md` | Continuous Three.js terrain worlds with semantic regions, explicit blockout/production tiers, licensed GLTF/PBR assets, diagnostics, and deterministic camera paths |
 | Character Animation Pipeline | `pipelines/character-animation/` | Rigged local cartoon characters, pose libraries, action timelines, SVG/Canvas/Remotion/HyperFrames rendering |
+| Character Consistency (cloud video-gen) | `.agents/skills/character-consistency/SKILL.md` | Keep one character's look identical across many cloud-generated scenes via reference-image anchoring + binding into video_selector/seedance/veo/higgsfield |
+| Novel-to-Video Pipeline | `pipelines/novel-to-video/` | Long-form text → episodic video: narrative compression into episodes, character-consistency anchoring, reference-bound scene generation, per-episode production queue (ViMax-style Novel2Video) |
+| Feature Film Pipeline | `pipelines/feature-film/` | Long-form cinematic narrative & feature film: Story Bible, 8-sequence act breakdown, multi-character consistency anchoring, shot list cinematography, multi-speaker emotion TTS & lipsync, automated shot QC & retakes, chunked parallel render |
+| VPD Authenticity Protocol | `creative/vpd-authenticity.md` | Verifiable Proof Data (5% authenticity injection): anonymized real-world evidence, rights-cleared public domain harvesting, and PiP/split-screen proof inserts |
 | Cinematic | `creative/cinematic.md` | Letterbox, film pacing, layered audio, color grading |
 
 ## Pipeline Stage Director Skills

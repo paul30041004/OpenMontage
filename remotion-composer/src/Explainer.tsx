@@ -30,6 +30,48 @@ import type { TerminalStep } from "./components/TerminalScene";
 import { ScreenshotScene } from "./components/ScreenshotScene";
 import type { ScreenshotStep } from "./components/ScreenshotScene";
 import { ProviderChip } from "./components/ProviderChip";
+import { AudioWaveformVisualizer } from "./components/AudioWaveformVisualizer";
+import { SplitScreen } from "./components/SplitScreen";
+import { SocialQuoteCard } from "./components/SocialQuoteCard";
+import { DeviceMockup } from "./components/DeviceMockup";
+import { GeoRouteMap } from "./components/GeoRouteMap";
+import { TypewriterText } from "./components/TypewriterText";
+import { KineticTypography } from "./components/KineticTypography";
+import { EditorialSlide } from "./components/EditorialSlide";
+import { WordPopCaption } from "./components/WordPopCaption";
+import { NewsBreaking } from "./components/NewsBreaking";
+import { Scoreboard } from "./components/Scoreboard";
+import { CountdownTimer } from "./components/CountdownTimer";
+import { LowerThird } from "./components/LowerThird";
+import { QuizCard } from "./components/QuizCard";
+import { WeatherCard } from "./components/WeatherCard";
+import { VHSGlitch } from "./components/VHSGlitch";
+import { CRTScanlines } from "./components/CRTScanlines";
+import { FilmGrain } from "./components/FilmGrain";
+import { PollCard } from "./components/PollCard";
+import { EndCredits } from "./components/EndCredits";
+import { BreakingAlert } from "./components/BreakingAlert";
+import { CCTVCamera } from "./components/CCTVCamera";
+import { CutBlack } from "./components/CutBlack";
+import { ReactionEmoji } from "./components/ReactionEmoji";
+import { Text3D } from "./components/Text3D";
+import { ChatBubble } from "./components/ChatBubble";
+import { SubscribeButton } from "./components/SubscribeButton";
+import { NeonText } from "./components/NeonText";
+import { NotificationPopup } from "./components/NotificationPopup";
+import { LikeButton } from "./components/LikeButton";
+import { HashtagOverlay } from "./components/HashtagOverlay";
+import { Flashback } from "./components/Flashback";
+import { LocationCard } from "./components/LocationCard";
+import { Cliffhanger } from "./components/Cliffhanger";
+import {
+  MatrixRainScene,
+  AnimatedCounterScene,
+  AnimatedTextScene,
+  GradientTransitionScene,
+  TypeWriterScene,
+  ParticleScene,
+} from "./components/RemotionBitsScenes";
 import { resolveAsset } from "./lib/resolveAsset";
 import type { ParticleType } from "./components/ParticleOverlay";
 import { resolveTheme, type ThemeConfig, DEFAULT_THEME } from "./Root";
@@ -268,6 +310,174 @@ interface Cut {
   screenshotSteps?: ScreenshotStep[];
   screenshotSize?: { width: number; height: number };
   cursorStartAt?: [number, number];
+  // Audio waveform props (type: "audio_waveform")
+  waveColor?: string;
+  barCount?: number;
+  styleMode?: "bars" | "circle" | "mirror";
+  // Split screen props (type: "split_screen")
+  left?: any;
+  right?: any;
+  orientation?: "horizontal" | "vertical";
+  dividerColor?: string;
+  // Social quote props (type: "social_quote")
+  authorName?: string;
+  authorHandle?: string;
+  avatarUrl?: string;
+  quoteText?: string;
+  highlightWords?: string[];
+  verified?: boolean;
+  dateText?: string;
+  likesCount?: string;
+  retweetsCount?: string;
+  // Device mockup props (type: "device_mockup")
+  deviceType?: "smartphone" | "laptop";
+  screenMediaUrl?: string;
+  screenMediaType?: "video" | "image";
+  // Geo route map props (type: "geo_route")
+  waypoints?: any[];
+  pathColor?: string;
+  // Typewriter props (type: "typewriter")
+  charsPerSecond?: number;
+  startDelaySeconds?: number;
+  showCursor?: boolean;
+  cursorColor?: string;
+  align?: "left" | "center" | "right";
+  // Kinetic typography props (type: "kinetic_type")
+  lines?: string[];
+  staggerFrames?: number;
+  // Editorial slide props (type: "editorial_slide")
+  headline?: string;
+  body?: string;
+  kicker?: string;
+  footnote?: string;
+  headlineFont?: string;
+  bodyFont?: string;
+  layout?: "centered" | "left-aligned" | "magazine";
+  headlineSize?: number;
+  bodySize?: number;
+  showRule?: boolean;
+  // Word pop caption props (type: "word_pop_caption")
+  maxWordsPerLine?: number;
+  bottomPadding?: number;
+  words?: { word: string; startMs: number; endMs: number }[];
+  // News breaking props (type: "news_breaking")
+  subheadline?: string;
+  category?: string;
+  timeText?: string;
+  headlineColor?: string;
+  showBreakingBanner?: boolean;
+  showLowerThird?: boolean;
+  showTicker?: boolean;
+  tickerItems?: string[];
+  // Scoreboard props (type: "scoreboard")
+  homeTeam?: string;
+  awayTeam?: string;
+  homeScore?: number;
+  awayScore?: number;
+  periodLabel?: string;
+  homeColor?: string;
+  awayColor?: string;
+  // Countdown timer props (type: "countdown_timer")
+  fromSeconds?: number;
+  showProgressRing?: boolean;
+  // Lower third props (type: "lower_third")
+  name?: string;
+  position?: "bottom-left" | "bottom-right" | "bottom-center";
+  // Quiz card props (type: "quiz_card")
+  question?: string;
+  options?: string[];
+  correctIndex?: number;
+  revealAnswer?: boolean;
+  // Weather card props (type: "weather_card")
+  city?: string;
+  temperature?: number;
+  condition?: string;
+  icon?: string;
+  highTemp?: number;
+  lowTemp?: number;
+  // VHS glitch props (type: "vhs_glitch")
+  intensity?: number;
+  // CRT scanlines props (type: "crt_scanlines")
+  scanlineOpacity?: number;
+  curvature?: number;
+  showFlicker?: boolean;
+  // Film grain props (type: "film_grain")
+  monochrome?: boolean;
+  // Poll card props (type: "poll_card")
+  pollOptions?: { label: string; percentage: number }[];
+  // End credits props (type: "end_credits")
+  credits?: { role: string; name: string }[];
+  scrollSpeed?: number;
+  // Breaking alert props (type: "breaking_alert")
+  // (reuses headline/subheadline/accentColor)
+  // remotion-bits props
+  matrixColor?: string;
+  matrixSpeed?: number;
+  matrixDensity?: number;
+  matrixStreamLength?: number;
+  counterFrom?: number;
+  counterTo?: number;
+  counterPrefix?: string;
+  counterPostfix?: string;
+  counterToFixed?: number;
+  split?: "none" | "word" | "character" | "line";
+  splitStagger?: number;
+  glitch?: boolean;
+  gradients?: string[];
+  typeSpeed?: number;
+  errorRate?: number;
+  bitsParticleType?: "fireflies" | "snow" | "fountain" | "grid" | "confetti";
+  bitsParticleCount?: number;
+  // CCTV camera props (type: "cctv_camera")
+  cameraId?: string;
+  location?: string;
+  showRecIndicator?: boolean;
+  showCornerBrackets?: boolean;
+  showScanlines?: boolean;
+  showTimestamp?: boolean;
+  showCameraId?: boolean;
+  cctvVideoSrc?: string;
+  greenTint?: number;
+  // Cut black props (type: "cut_black")
+  holdSeconds?: number;
+  fadeOutSeconds?: number;
+  // Reaction emoji props (type: "reaction_emoji")
+  emoji?: string;
+  emojiCount?: string;
+  emojiPosition?: "top-left" | "top-right" | "bottom-left" | "bottom-right" | "center";
+  emojiSize?: number;
+  // Text 3D props (type: "text_3d")
+  shadowColor?: string;
+  depth?: number;
+  rotateX?: number;
+  rotateY?: number;
+  float?: boolean;
+  // Chat bubble props (type: "chat_bubble")
+  messages?: { text: string; sender?: string; avatar?: string; isMe?: boolean }[];
+  chatStaggerFrames?: number;
+  // Subscribe button props (type: "subscribe_button")
+  channelName?: string;
+  subscriberCount?: string;
+  // Neon text props (type: "neon_text")
+  flicker?: boolean;
+  glowIntensity?: number;
+  // Notification popup props (type: "notification_popup")
+  message?: string;
+  appName?: string;
+  appIcon?: string;
+  // Like button props (type: "like_button")
+  // (reuses emoji/emojiCount/emojiPosition/emojiSize/position from reaction_emoji)
+  burst?: boolean;
+  // Hashtag overlay props (type: "hashtag_overlay")
+  hashtags?: string[];
+  hashtagStaggerFrames?: number;
+  // Flashback props (type: "flashback")
+  sepiaAmount?: number;
+  blurAmount?: number;
+  // Location card props (type: "location_card")
+  locationDate?: string;
+  // Cliffhanger props (type: "cliffhanger")
+  // (reuses title/subtitle/accentColor)
 }
 
 interface Overlay {
@@ -651,6 +861,494 @@ const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme 
         steps={cut.screenshotSteps as ScreenshotStep[]}
         accentColor={accent}
         cursorStartAt={cut.cursorStartAt}
+      />
+    );
+  }
+  if (cut.type === "audio_waveform") {
+    return maybeWrapWithBg(
+      <AudioWaveformVisualizer
+        title={cut.title || cut.text}
+        subtitle={cut.subtitle}
+        barCount={cut.barCount}
+        waveColor={cut.waveColor || accent}
+        accentColor={cut.accentColor || theme.primaryColor}
+        styleMode={cut.styleMode}
+      />
+    );
+  }
+  if (cut.type === "split_screen" && cut.left && cut.right) {
+    return (
+      <SplitScreen
+        left={cut.left}
+        right={cut.right}
+        title={cut.title}
+        orientation={cut.orientation}
+        dividerColor={cut.dividerColor || accent}
+      />
+    );
+  }
+  if (cut.type === "social_quote" && cut.quoteText) {
+    return maybeWrapWithBg(
+      <SocialQuoteCard
+        authorName={cut.authorName || "Featured Speaker"}
+        authorHandle={cut.authorHandle}
+        avatarUrl={cut.avatarUrl}
+        quoteText={cut.quoteText}
+        highlightWords={cut.highlightWords}
+        verified={cut.verified !== false}
+        dateText={cut.dateText}
+        likesCount={cut.likesCount}
+        retweetsCount={cut.retweetsCount}
+        accentColor={cut.accentColor || accent}
+      />
+    );
+  }
+  if (cut.type === "device_mockup") {
+    return maybeWrapWithBg(
+      <DeviceMockup
+        deviceType={cut.deviceType}
+        screenMediaUrl={cut.screenMediaUrl || cut.source}
+        screenMediaType={cut.screenMediaType}
+        title={cut.title}
+        subtitle={cut.subtitle}
+        accentColor={cut.accentColor || accent}
+      />
+    );
+  }
+  if (cut.type === "geo_route" && cut.waypoints) {
+    return maybeWrapWithBg(
+      <GeoRouteMap
+        title={cut.title}
+        waypoints={cut.waypoints}
+        accentColor={cut.accentColor || accent}
+        pathColor={cut.pathColor}
+      />
+    );
+  }
+  if (cut.type === "typewriter" && cut.text) {
+    return maybeWrapWithBg(
+      <TypewriterText
+        text={cut.text}
+        title={cut.title}
+        subtitle={cut.subtitle}
+        fontSize={cut.fontSize}
+        color={cut.color || textColor}
+        cursorColor={cut.cursorColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        charsPerSecond={cut.charsPerSecond}
+        startDelaySeconds={cut.startDelaySeconds}
+        showCursor={cut.showCursor !== false}
+        align={cut.align}
+      />
+    );
+  }
+  if (cut.type === "kinetic_type" && cut.lines) {
+    return maybeWrapWithBg(
+      <KineticTypography
+        lines={cut.lines}
+        title={cut.title}
+        fontSize={cut.fontSize}
+        color={cut.color || textColor}
+        highlightColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        highlightWords={cut.highlightWords}
+        staggerFrames={cut.staggerFrames}
+        align={cut.align}
+      />
+    );
+  }
+  if (cut.type === "editorial_slide" && cut.headline) {
+    return (
+      <EditorialSlide
+        headline={cut.headline}
+        body={cut.body}
+        kicker={cut.kicker}
+        footnote={cut.footnote}
+        backgroundColor={cut.backgroundColor || bgColor || theme.backgroundColor}
+        textColor={cut.color || textColor}
+        accentColor={cut.accentColor || accent}
+        headlineFont={cut.headlineFont}
+        bodyFont={cut.bodyFont}
+        layout={cut.layout}
+        headlineSize={cut.headlineSize}
+        bodySize={cut.bodySize}
+        showRule={cut.showRule !== false}
+      />
+    );
+  }
+  if (cut.type === "word_pop_caption" && cut.words) {
+    return (
+      <WordPopCaption
+        words={cut.words}
+        fontSize={cut.fontSize}
+        color={cut.color || textColor}
+        highlightColor={cut.accentColor || accent}
+        backgroundColor={cut.backgroundColor || theme.captionBackgroundColor}
+        maxWordsPerLine={cut.maxWordsPerLine}
+        bottomPadding={cut.bottomPadding}
+      />
+    );
+  }
+  if (cut.type === "news_breaking" && cut.headline) {
+    return (
+      <NewsBreaking
+        headline={cut.headline}
+        subheadline={cut.subheadline}
+        category={cut.category}
+        timeText={cut.timeText}
+        backgroundColor={cut.backgroundColor || bgColor || theme.backgroundColor}
+        accentColor={cut.accentColor || accent}
+        headlineColor={cut.headlineColor || textColor}
+        showBreakingBanner={cut.showBreakingBanner !== false}
+        showLowerThird={cut.showLowerThird !== false}
+        showTicker={cut.showTicker !== false}
+        tickerItems={cut.tickerItems}
+      />
+    );
+  }
+  if (cut.type === "scoreboard" && cut.homeTeam && cut.awayTeam) {
+    return maybeWrapWithBg(
+      <Scoreboard
+        homeTeam={cut.homeTeam}
+        awayTeam={cut.awayTeam}
+        homeScore={cut.homeScore ?? 0}
+        awayScore={cut.awayScore ?? 0}
+        periodLabel={cut.periodLabel}
+        timeText={cut.timeText}
+        homeColor={cut.homeColor}
+        awayColor={cut.awayColor}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "countdown_timer" && cut.fromSeconds) {
+    return maybeWrapWithBg(
+      <CountdownTimer
+        fromSeconds={cut.fromSeconds}
+        label={cut.title}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        showProgressRing={cut.showProgressRing !== false}
+      />
+    );
+  }
+  if (cut.type === "lower_third" && cut.name) {
+    return maybeWrapWithBg(
+      <LowerThird
+        name={cut.name}
+        title={cut.title}
+        accentColor={cut.accentColor || accent}
+        position={cut.position}
+      />
+    );
+  }
+  if (cut.type === "quiz_card" && cut.question && cut.options) {
+    return maybeWrapWithBg(
+      <QuizCard
+        question={cut.question}
+        options={cut.options}
+        correctIndex={cut.correctIndex}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        revealAnswer={cut.revealAnswer}
+      />
+    );
+  }
+  if (cut.type === "weather_card" && cut.city) {
+    return maybeWrapWithBg(
+      <WeatherCard
+        city={cut.city}
+        temperature={cut.temperature ?? 0}
+        condition={cut.condition || ""}
+        icon={cut.icon}
+        highTemp={cut.highTemp}
+        lowTemp={cut.lowTemp}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "vhs_glitch") {
+    return maybeWrapWithBg(
+      <VHSGlitch
+        intensity={cut.intensity}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "crt_scanlines") {
+    return maybeWrapWithBg(
+      <CRTScanlines
+        scanlineOpacity={cut.scanlineOpacity}
+        curvature={cut.curvature}
+        backgroundColor={bgColor || theme.backgroundColor}
+        showFlicker={cut.showFlicker !== false}
+      />
+    );
+  }
+  if (cut.type === "film_grain") {
+    return maybeWrapWithBg(
+      <FilmGrain intensity={cut.intensity} monochrome={cut.monochrome !== false} />
+    );
+  }
+  if (cut.type === "poll_card" && cut.question && cut.pollOptions) {
+    return maybeWrapWithBg(
+      <PollCard
+        question={cut.question}
+        options={cut.pollOptions}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "end_credits" && cut.title && cut.credits) {
+    return (
+      <EndCredits
+        title={cut.title}
+        credits={cut.credits}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        scrollSpeed={cut.scrollSpeed}
+      />
+    );
+  }
+  if (cut.type === "breaking_alert" && cut.headline) {
+    return maybeWrapWithBg(
+      <BreakingAlert
+        headline={cut.headline}
+        subheadline={cut.subheadline}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "matrix_rain") {
+    return maybeWrapWithBg(
+      <MatrixRainScene
+        fontSize={cut.fontSize}
+        color={cut.matrixColor || accent}
+        speed={cut.matrixSpeed}
+        density={cut.matrixDensity}
+        streamLength={cut.matrixStreamLength}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "animated_counter" && cut.counterTo !== undefined) {
+    return maybeWrapWithBg(
+      <AnimatedCounterScene
+        from={cut.counterFrom ?? 0}
+        to={cut.counterTo}
+        prefix={cut.counterPrefix}
+        postfix={cut.counterPostfix}
+        toFixed={cut.counterToFixed}
+        fontSize={cut.fontSize}
+        color={cut.color || textColor}
+        backgroundColor={bgColor || theme.backgroundColor}
+        durationSeconds={cut.out_seconds - cut.in_seconds}
+      />
+    );
+  }
+  if (cut.type === "animated_text" && cut.text) {
+    return maybeWrapWithBg(
+      <AnimatedTextScene
+        text={cut.text}
+        split={cut.split}
+        splitStagger={cut.splitStagger}
+        glitch={cut.glitch}
+        fontSize={cut.fontSize}
+        color={cut.color || textColor}
+        backgroundColor={bgColor || theme.backgroundColor}
+        durationSeconds={cut.out_seconds - cut.in_seconds}
+      />
+    );
+  }
+  if (cut.type === "gradient_transition" && cut.gradients) {
+    return (
+      <GradientTransitionScene
+        gradients={cut.gradients}
+        durationSeconds={cut.out_seconds - cut.in_seconds}
+      />
+    );
+  }
+  if (cut.type === "typewriter_bits" && cut.text) {
+    return maybeWrapWithBg(
+      <TypeWriterScene
+        text={cut.text}
+        typeSpeed={cut.typeSpeed}
+        errorRate={cut.errorRate}
+        fontSize={cut.fontSize}
+        color={cut.color || textColor}
+        cursorColor={cut.cursorColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "particle_scene") {
+    return maybeWrapWithBg(
+      <ParticleScene
+        particleType={cut.bitsParticleType}
+        count={cut.bitsParticleCount}
+        color={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+      />
+    );
+  }
+  if (cut.type === "cctv_camera") {
+    return (
+      <CCTVCamera
+        cameraId={cut.cameraId}
+        location={cut.location}
+        matrixColor={cut.matrixColor || accent}
+        matrixSpeed={cut.matrixSpeed}
+        matrixDensity={cut.matrixDensity}
+        matrixStreamLength={cut.matrixStreamLength}
+        showRecIndicator={cut.showRecIndicator !== false}
+        showCornerBrackets={cut.showCornerBrackets !== false}
+        showScanlines={cut.showScanlines !== false}
+        showTimestamp={cut.showTimestamp !== false}
+        showCameraId={cut.showCameraId !== false}
+        backgroundColor={bgColor || theme.backgroundColor}
+        videoSrc={cut.source ? resolveAsset(cut.source) : undefined}
+        greenTint={cut.greenTint}
+      />
+    );
+  }
+  if (cut.type === "cut_black") {
+    return (
+      <CutBlack
+        title={cut.text || cut.title}
+        subtitle={cut.subtitle}
+        backgroundColor={cut.backgroundColor || bgColor || theme.backgroundColor}
+        accentColor={cut.color || textColor}
+        holdSeconds={cut.holdSeconds}
+        fadeOutSeconds={cut.fadeOutSeconds}
+      />
+    );
+  }
+  if (cut.type === "reaction_emoji") {
+    return (
+      <ReactionEmoji
+        emoji={cut.emoji}
+        count={cut.emojiCount}
+        position={cut.emojiPosition}
+        accentColor={cut.accentColor || accent}
+        size={cut.emojiSize}
+      />
+    );
+  }
+  if (cut.type === "text_3d" && cut.text) {
+    return maybeWrapWithBg(
+      <Text3D
+        text={cut.text}
+        fontSize={cut.fontSize}
+        color={cut.color || textColor}
+        shadowColor={cut.shadowColor}
+        backgroundColor={bgColor || theme.backgroundColor}
+        depth={cut.depth}
+        rotateX={cut.rotateX}
+        rotateY={cut.rotateY}
+        float={cut.float !== false}
+      />
+    );
+  }
+  if (cut.type === "chat_bubble" && cut.messages) {
+    return maybeWrapWithBg(
+      <ChatBubble
+        messages={cut.messages}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        staggerFrames={cut.chatStaggerFrames}
+      />
+    );
+  }
+  if (cut.type === "subscribe_button") {
+    return (
+      <SubscribeButton
+        channelName={cut.channelName}
+        subscriberCount={cut.subscriberCount}
+        accentColor={cut.accentColor || accent}
+        position={cut.position as any}
+      />
+    );
+  }
+  if (cut.type === "neon_text" && cut.text) {
+    return maybeWrapWithBg(
+      <NeonText
+        text={cut.text}
+        fontSize={cut.fontSize}
+        color={cut.accentColor || cut.color || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        flicker={cut.flicker !== false}
+        glowIntensity={cut.glowIntensity}
+      />
+    );
+  }
+  if (cut.type === "notification_popup") {
+    return (
+      <NotificationPopup
+        title={cut.title}
+        message={cut.message}
+        appName={cut.appName}
+        appIcon={cut.appIcon}
+        timeText={cut.timeText}
+        accentColor={cut.accentColor || accent}
+        position={cut.position as any}
+      />
+    );
+  }
+  if (cut.type === "like_button") {
+    return (
+      <LikeButton
+        emoji={cut.emoji}
+        count={cut.emojiCount}
+        accentColor={cut.accentColor || accent}
+        position={cut.position as any}
+        burst={cut.burst !== false}
+      />
+    );
+  }
+  if (cut.type === "hashtag_overlay" && cut.hashtags) {
+    return (
+      <HashtagOverlay
+        hashtags={cut.hashtags}
+        accentColor={cut.accentColor || accent}
+        position={cut.position as any}
+        staggerFrames={cut.hashtagStaggerFrames}
+      />
+    );
+  }
+  if (cut.type === "flashback") {
+    return maybeWrapWithBg(
+      <Flashback
+        label={cut.title || cut.text}
+        backgroundColor={bgColor || theme.backgroundColor}
+        accentColor={cut.accentColor || accent}
+        sepiaAmount={cut.sepiaAmount}
+        blurAmount={cut.blurAmount}
+      />
+    );
+  }
+  if (cut.type === "location_card" && cut.location) {
+    return maybeWrapWithBg(
+      <LocationCard
+        location={cut.location}
+        dateText={cut.locationDate}
+        accentColor={cut.accentColor || accent}
+        align={cut.align as any}
+      />
+    );
+  }
+  if (cut.type === "cliffhanger") {
+    return (
+      <Cliffhanger
+        title={cut.title || cut.text}
+        subtitle={cut.subtitle}
+        accentColor={cut.accentColor || accent}
+        backgroundColor={bgColor || theme.backgroundColor}
+        fadeOutSeconds={cut.fadeOutSeconds}
       />
     );
   }
