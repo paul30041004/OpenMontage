@@ -58,6 +58,12 @@ corpus/
 # User music library (personal royalty-free tracks — not part of repo)
 music_library/
 
+# Voice library (generated anchor samples — regenerable via build_voice_library.py)
+voice_library/
+
+# Collected voice samples (harvested from SNS videos for TTS quality improvement)
+voice_samples/
+
 # Environment & credentials
 .env
 .env.local
