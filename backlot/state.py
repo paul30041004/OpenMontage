@@ -38,12 +38,12 @@ LIVE_WINDOW_SECONDS = 5 * 60
 STALL_WINDOW_SECONDS = 10 * 60
 
 
-def _read_json(path: Path) -> Optional[dict]:
+def _read_json(path: Path) -> Optional[Any]:
     """Read a JSON file, returning None on any failure."""
     try:
         with open(path, encoding="utf-8", errors="replace") as f:
             data = json.load(f)
-        return data if isinstance(data, dict) else None
+        return data if isinstance(data, (dict, list)) else None
     except (OSError, json.JSONDecodeError, UnicodeError):
         return None
 
@@ -231,15 +231,20 @@ def _build_stage_rail(
 ARTIFACT_FILES = {
     "research_brief": "research_brief.json",
     "brief": "brief.json",
+    "story_bible": "story_bible.json",
+    "adaptation_plan": "adaptation_plan.json",
     "proposal_packet": "proposal_packet.json",
     "script": "script.json",
     "scene_plan": "scene_plan.json",
+    "character_consistency": "character_consistency.json",
+    "character_qa_report": "character_qa_report.json",
     "asset_manifest": "asset_manifest.json",
     "edit_decisions": "edit_decisions.json",
     "render_report": "render_report.json",
     "final_review": "final_review.json",
     "publish_log": "publish_log.json",
     "decision_log": "decision_log.json",
+    "retake_requests": "retake_requests.json",
 }
 
 
@@ -484,15 +489,119 @@ def _build_storyboard(
             "generating_tool": (generating.get(sid) or {}).get("tool"),
         })
 
+    # Retake requests integration
+    retakes = artifacts.get("retake_requests")
+    retake_by_scene: dict[str, dict] = {}
+    if isinstance(retakes, list):
+        for r in retakes:
+            if isinstance(r, dict) and r.get("scene_id"):
+                retake_by_scene[str(r["scene_id"])] = r
+
+    for card in cards:
+        r = retake_by_scene.get(card["id"])
+        if r:
+            card["retake_requested"] = True
+            card["retake_reason"] = r.get("reason")
+            card["retake_instructions"] = r.get("instructions")
+            card["retake_timestamp"] = r.get("timestamp")
+        else:
+            card["retake_requested"] = False
+
+    # Multi-act / Sequence hierarchy extraction
+    sequences: list[dict] = []
+    adaptation = artifacts.get("adaptation_plan")
+    if adaptation and isinstance(adaptation.get("episodes"), list):
+        for ep in adaptation["episodes"]:
+            ep_id = str(ep.get("id") or f"ep_{ep.get('index', 1)}")
+            ep_title = ep.get("title") or f"Sequence {ep.get('index', 1)}"
+            ep_scenes_raw = ep.get("scenes") or []
+            ep_scene_ids = {str(sc.get("id") if isinstance(sc, dict) else sc) for sc in ep_scenes_raw}
+            matched_cards = [c for c in cards if c["id"] in ep_scene_ids]
+            seq_dur = sum((c.get("duration_seconds") or 0) for c in matched_cards)
+            sequences.append({
+                "id": ep_id,
+                "index": ep.get("index", len(sequences) + 1),
+                "title": ep_title,
+                "summary": ep.get("summary") or "",
+                "scenes": matched_cards if matched_cards else cards,
+                "total_duration_seconds": seq_dur,
+            })
+    elif scene_plan.get("sequences") and isinstance(scene_plan["sequences"], list):
+        for seq in scene_plan["sequences"]:
+            seq_id = str(seq.get("id") or f"seq_{seq.get('index', 1)}")
+            seq_title = seq.get("title") or f"Sequence {seq.get('index', 1)}"
+            seq_scene_ids = {str(sid) for sid in (seq.get("scene_ids") or [])}
+            matched_cards = [c for c in cards if c["id"] in seq_scene_ids]
+            seq_dur = sum((c.get("duration_seconds") or 0) for c in matched_cards)
+            sequences.append({
+                "id": seq_id,
+                "index": seq.get("index", len(sequences) + 1),
+                "title": seq_title,
+                "act": seq.get("act"),
+                "summary": seq.get("summary") or "",
+                "scenes": matched_cards,
+                "total_duration_seconds": seq_dur,
+            })
+
     total = scene_plan.get("metadata", {}).get("total_duration_seconds")
     if total is None and cards:
         ends = [c["end_seconds"] for c in cards if c["end_seconds"] is not None]
         total = max(ends) if ends else None
     return {
         "scenes": cards,
+        "sequences": sequences,
         "total_duration_seconds": total,
         "style_playbook": scene_plan.get("style_playbook"),
     }
+
+
+def _build_characters(project_dir: Path, artifacts: dict[str, dict]) -> list[dict]:
+    """Character contact sheet from the character_consistency artifact.
+
+    Renders per-character anchor frames so a reviewer can confirm identity
+    consistency BEFORE the assets stage binds them into video generation.
+    """
+    cc = artifacts.get("character_consistency")
+    if not cc or not isinstance(cc.get("characters"), list):
+        return []
+
+    cards: list[dict] = []
+    for char in cc["characters"]:
+        if not isinstance(char, dict):
+            continue
+        frames: list[dict] = []
+        for frame in char.get("reference_frames") or []:
+            if not isinstance(frame, dict):
+                continue
+            raw_path = frame.get("path") or ""
+            resolved = _resolve_asset_path(project_dir, raw_path)
+            exists = False
+            rel = raw_path
+            if resolved is not None:
+                try:
+                    resolved.resolve().relative_to(Path(project_dir).resolve())
+                    file_path = resolved
+                    exists = file_path.is_file() and file_path.suffix.lower() in MEDIA_IMAGE_EXT
+                    if exists:
+                        rel = _rel(project_dir, file_path)
+                except (ValueError, OSError):
+                    exists = False
+            frames.append({
+                "view": frame.get("view"),
+                "path": rel,
+                "exists": exists,
+            })
+        hints = char.get("binding_hints") or {}
+        cards.append({
+            "id": char.get("id"),
+            "display_name": char.get("display_name") or char.get("id"),
+            "role": char.get("role"),
+            "appearance": char.get("appearance"),
+            "frames": frames,
+            "reference_image_paths": hints.get("reference_image_paths") or [],
+            "preferred_providers": hints.get("preferred_providers") or [],
+        })
+    return cards
 
 
 # ---------------------------------------------------------------------------
@@ -608,6 +717,7 @@ def load_board_state(project_dir: Path) -> dict[str, Any]:
     artifacts = _collect_artifacts(project_dir, checkpoints)
     events = read_events(project_dir, limit=250)
     storyboard = _build_storyboard(project_dir, artifacts, events)
+    characters = _build_characters(project_dir, artifacts)
     media = _scan_media(project_dir)
 
     stages = _build_stage_rail(pipeline_meta, checkpoints, history)
@@ -648,6 +758,7 @@ def load_board_state(project_dir: Path) -> dict[str, Any]:
         "stages": stages,
         "artifacts": artifacts,
         "storyboard": storyboard,
+        "characters": characters,
         "media": media,
         "events": events,
         "cost": cost,

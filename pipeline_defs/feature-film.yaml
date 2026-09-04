@@ -1,0 +1,292 @@
+name: feature-film
+version: "1.0"
+description: >
+  End-to-end cinematic feature film and long-form narrative production pipeline.
+  Built for long-form visual coherence (Story Bible -> 3-Act Structure -> Character
+  Consistency Anchoring -> Cinematography Shot List -> Multi-Speaker Emotion TTS & LipSync
+  -> Automated Quality Assurance & Retakes -> Deterministic Multi-Track Chunk Rendering).
+category: cinematic
+stability: beta
+default_checkpoint_policy: guided
+
+reference_input:
+  supported: true
+  analysis_depth: deep
+  analysis_tools:
+    - video_analyzer
+    - transcript_fetcher
+    - video_downloader
+    - scene_detect
+    - frame_sampler
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/feature-film/executive-producer
+  budget_default_usd: 15.00
+  max_revisions_per_stage: 3
+  max_send_backs: 3
+  max_wall_time_minutes: 60
+
+extensions:
+  custom_scripts: true
+  custom_playbooks: true
+  custom_skills: true
+  custom_tools: false
+
+required_skills:
+  - pipelines/feature-film/executive-producer
+  - pipelines/feature-film/bible-director
+  - pipelines/feature-film/treatment-director
+  - pipelines/feature-film/proposal-director
+  - pipelines/feature-film/screenplay-director
+  - pipelines/feature-film/continuity-director
+  - pipelines/feature-film/cinematography-director
+  - pipelines/feature-film/asset-director
+  - pipelines/feature-film/shot-qc-director
+  - pipelines/feature-film/edit-director
+  - pipelines/feature-film/compose-director
+  - pipelines/feature-film/publish-director
+  - meta/reviewer
+  - meta/checkpoint-protocol
+  - meta/taste-direction
+  - meta/animation-runtime-selector
+
+compatible_playbooks:
+  recommended:
+    - cinematic
+  also_works:
+    - premium-minimalist
+    - clean-professional
+  custom_allowed: true
+
+stages:
+  - name: bible
+    skill: pipelines/feature-film/bible-director
+    produces:
+      - story_bible
+    tools_available:
+      - web_search
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Logline and dramatic premise are compelling and focused
+      - World-building rules and visual motifs are internally consistent
+      - Character wants, needs, flaws, and visual token anchors are rigorously defined
+      - 3-Act structural anchor points (Inciting Incident, Midpoint, Dark Night, Climax) are clear
+    success_criteria:
+      - Schema-valid story_bible artifact
+      - All principal characters have visual_anchor and voice_profile
+
+  - name: treatment
+    skill: pipelines/feature-film/treatment-director
+    required_artifacts_in:
+      - story_bible
+    produces:
+      - adaptation_plan
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - 8-sequence breakdown delivers continuous emotional escalation
+      - Scene count per sequence is realistic and production-feasible
+      - Key thematic and visual motifs are assigned across sequences
+    success_criteria:
+      - Schema-valid adaptation_plan artifact
+      - Every scene explicitly references character IDs from the story bible
+
+  - name: proposal
+    skill: pipelines/feature-film/proposal-director
+    required_artifacts_in:
+      - story_bible
+      - adaptation_plan
+    produces:
+      - proposal_packet
+      - decision_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Full vendor strategy (Video, Image, TTS, LipSync, Music) explicitly declared
+      - Both Remotion and HyperFrames runtimes presented with tradeoffs
+      - Sample test shot plan defined before batch generation
+      - Cost breakdown, quota headroom, and render duration estimated
+    success_criteria:
+      - Schema-valid proposal_packet artifact
+      - Human gate approval logged in decision_log
+
+  - name: screenplay
+    skill: pipelines/feature-film/screenplay-director
+    required_artifacts_in:
+      - story_bible
+      - adaptation_plan
+      - proposal_packet
+    produces:
+      - script
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Industry-standard screenplay formatting (Sluglines, Action lines, Dialogue, Parentheticals)
+      - Subtext-driven dialogue without on-the-nose exposition
+      - Target duration and speech pacing accurately budgeted per scene
+    success_criteria:
+      - Schema-valid script artifact
+      - Every speaking line mapped to character voice profile
+
+  - name: continuity
+    skill: pipelines/feature-film/continuity-director
+    required_artifacts_in:
+      - story_bible
+      - script
+    produces:
+      - character_consistency
+    tools_available:
+      - image_selector
+      - flux_schnell
+      - flux_dev
+      - google_imagen
+      - character_consistency
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Multi-view turnaround character sheets generated and locked
+      - Voice anchor samples generated and verified for each actor
+      - Scene-by-scene wardrobe, injury, and lighting continuity table locked
+    success_criteria:
+      - Schema-valid character_consistency artifact
+      - High-resolution visual anchor files created and saved to assets/
+
+  - name: cinematography
+    skill: pipelines/feature-film/cinematography-director
+    required_artifacts_in:
+      - story_bible
+      - script
+      - character_consistency
+    produces:
+      - scene_plan
+    tools_available:
+      - threejs_world
+      - blender_world
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Cinematic coverage grammar applied (Master, Medium, Close-up, OTS, Dutch)
+      - Camera motion syntax explicitly defined (Dolly, Pan, Orbit, Tracking, Crane)
+      - Lighting setups, color temperature, and LUT tokens assigned per scene
+    success_criteria:
+      - Schema-valid scene_plan artifact
+      - Every cut specifies camera_direction, lens_focal_length, and lighting_token
+
+  - name: assets
+    skill: pipelines/feature-film/asset-director
+    required_artifacts_in:
+      - scene_plan
+      - character_consistency
+    produces:
+      - asset_manifest
+    tools_available:
+      - video_selector
+      - seedance_video
+      - gemini_omni_video
+      - minimax_h3_video
+      - ltx2_video
+      - tts_selector
+      - voxcpm_tts
+      - fish_audio_tts
+      - chatterbox_tts
+      - latentsync_avatar
+      - sadtalker_avatar
+      - wav2lip_avatar
+      - stem_separator
+      - upscale
+      - face_restore
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Video clips generated using character reference anchors
+      - Multi-speaker TTS generated with consistent emotion and tone
+      - Lip-sync applied accurately to speaking character shots
+      - Sound effects and music score generated or sourced matching scene mood
+    success_criteria:
+      - Schema-valid asset_manifest artifact
+      - All required video, voice, and audio tracks generated on disk
+
+  - name: shot_qc
+    skill: pipelines/feature-film/shot-qc-director
+    required_artifacts_in:
+      - asset_manifest
+      - character_consistency
+    produces:
+      - character_qa_report
+      - review
+    tools_available:
+      - video_analyzer
+      - frame_sampler
+      - upscale
+      - face_restore
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Character identity similarity verification against anchor images
+      - Visual defect detection (limb distortion, flickering, uncanny valley)
+      - Automatic retake triggering for failed shots
+    success_criteria:
+      - Schema-valid character_qa_report artifact
+      - Pass rate >= 90% across all generated shots
+
+  - name: edit
+    skill: pipelines/feature-film/edit-director
+    required_artifacts_in:
+      - scene_plan
+      - asset_manifest
+      - character_qa_report
+    produces:
+      - edit_decisions
+    tools_available:
+      - video_trimmer
+      - video_stitch
+      - audio_mixer
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Pacing, rhythm, and dramatic beat synchronization
+      - J-cut and L-cut audio transitions across dialogue scenes
+      - Subtitle timing and safe-zone compliance
+    success_criteria:
+      - Schema-valid edit_decisions artifact
+      - "Multitrack audio mixing levels balanced (Dialogue: -3dB, SFX: -12dB, BGM: -18dB)"
+
+  - name: compose
+    skill: pipelines/feature-film/compose-director
+    required_artifacts_in:
+      - edit_decisions
+    produces:
+      - render_report
+    tools_available:
+      - video_compose
+      - chunk_render
+      - ffmpeg
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Sequence-by-sequence chunked parallel rendering execution
+      - Master timeline assembly without frame drops or audio desync
+      - Final color grade LUT application and audio normalization (-14 LUFS)
+    success_criteria:
+      - Schema-valid render_report artifact
+      - Final deliverable MP4 verified with ffprobe
+
+  - name: publish
+    skill: pipelines/feature-film/publish-director
+    required_artifacts_in:
+      - render_report
+    produces:
+      - publish_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Export formats (4K DCI, 1080p Web, Vertical teaser cuts)
+      - Chapter marks, metadata, and thumbnail extraction
+    success_criteria:
+      - Schema-valid publish_log artifact

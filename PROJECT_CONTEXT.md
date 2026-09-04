@@ -78,6 +78,7 @@ Each tool's `agent_skills[]` field bridges Layer 1 → Layer 3. See `skills/INDE
 | `tools/graphics/fal_3d.py` | fal.ai Hunyuan 3D and SAM 3D routes for image-conditioned and multi-object GLB generation |
 | `tools/graphics/blender_world.py` | Blender 4.5 LTS production world assembly, terrain, lighting, camera, and Eevee Next rendering |
 | `tools/character/character_animation.py` | Local character-animation tools — character specs, SVG rig plans, pose libraries, action timelines, HyperFrames packages, and QA reports |
+| `tools/character/character_consistency.py` | Cloud video-gen character consistency — builds `character_consistency` artifact, generates per-character anchor reference frames, and fills video-gen binding hints (`reference_image_paths`) |
 | `lib/hyperframes_style_bridge.py` | Playbook → CSS custom properties + `DESIGN.md` bridge for HyperFrames workspaces |
 | `remotion-composer/src/components/` | 8 Remotion components (TextCard, StatCard, ProgressBar, CalloutBox, ComparisonCard + charts/) |
 | `.agents/skills/hyperframes*/` | Vendored HyperFrames Layer 3 skills (authoring contract, CLI, registry, website-to-video) |
@@ -101,6 +102,7 @@ Each tool's `agent_skills[]` field bridges Layer 1 → Layer 3. See `skills/INDE
 | `hybrid` | `pipeline_defs/hybrid.yaml` | Source-plus-support hybrid |
 | `avatar-spokesperson` | `pipeline_defs/avatar-spokesperson.yaml` | Avatar presenter |
 | `localization-dub` | `pipeline_defs/localization-dub.yaml` | Localization and dubbing |
+| `novel-to-video` | `pipeline_defs/novel-to-video.yaml` | Long-form text to episodic video with character consistency |
 | `framework-smoke` | `pipeline_defs/framework-smoke.yaml` | Test harness |
 
 ## When Building New Pipelines

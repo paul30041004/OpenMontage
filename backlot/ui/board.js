@@ -562,6 +562,93 @@ function openNarrModal(card) {
   modal.classList.add("open");
 }
 
+function openRetakeModal(card) {
+  modal.innerHTML = "";
+  const meta = [sceneLabel(card.id), card.section_label, fmtDuration(card.duration_seconds)]
+    .filter(Boolean).join(" · ");
+
+  const reasons = [
+    "Face / Character identity drift",
+    "Anatomy / Hand distortion",
+    "Motion artifact / flickering",
+    "Lip sync out of alignment",
+    "Lighting / Color grading mismatch",
+    "Camera framing / movement incorrect",
+    "Other / Custom director notes",
+  ];
+
+  const reasonSelect = el("select", {
+    class: "retake-select",
+    style: "width:100%;padding:8px 10px;background:var(--bg-elevated);color:var(--ink);border:1px solid var(--border-line);border-radius:4px;font-family:var(--sans);font-size:13px;margin:8px 0 14px",
+  }, ...reasons.map((r) => el("option", { value: r }, r)));
+
+  const notesInput = el("textarea", {
+    placeholder: "Specific retake directions (e.g. 'Fix eye gaze towards actor on right, keep warm tungsten lighting, slow down pan speed')...",
+    style: "width:100%;height:84px;padding:8px 10px;background:var(--bg-elevated);color:var(--ink);border:1px solid var(--border-line);border-radius:4px;font-family:var(--sans);font-size:13px;resize:vertical",
+  });
+
+  const statusMsg = el("div", { style: "font-size:12px;color:var(--ink-dim);margin-top:10px" });
+
+  const submitBtn = el("button", {
+    type: "button",
+    class: "gate-btn approve",
+    style: "width:100%;margin-top:14px;padding:10px 14px;font-weight:600;letter-spacing:.04em",
+    onclick: async () => {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "REGISTERING RETAKE...";
+      try {
+        const res = await fetch(`/api/project/${state.project_id}/retake`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            scene_id: card.id,
+            reason: reasonSelect.value,
+            instructions: notesInput.value.trim(),
+          }),
+        });
+        if (res.ok) {
+          card.retake_requested = true;
+          card.retake_reason = reasonSelect.value;
+          statusMsg.textContent = "✓ Retake scheduled! Logged to Backlot and Pipeline QC engine.";
+          statusMsg.style.color = "#10b981";
+          setTimeout(() => {
+            closeModal();
+            render();
+          }, 800);
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "SUBMIT RETAKE REQUEST";
+          statusMsg.textContent = "Failed to submit retake request.";
+          statusMsg.style.color = "#ef4444";
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SUBMIT RETAKE REQUEST";
+        statusMsg.textContent = "Network error while submitting retake.";
+        statusMsg.style.color = "#ef4444";
+      }
+    },
+  }, "SUBMIT RETAKE REQUEST");
+
+  modal.append(
+    el("span", { class: "modal-close", onclick: closeModal }, "ESC · CLOSE"),
+    el("div", { class: "modal-page" },
+      el("div", { class: "script-card", style: "cursor:default;padding:24px" },
+        el("div", { class: "sp-title", style: "font-size:15px;letter-spacing:.04em;display:flex;align-items:center;gap:8px" },
+          el("span", { style: "color:#f59e0b" }, "↺"),
+          `Shot Retake Request — ${sceneLabel(card.id)}`),
+        el("div", { class: "sp-meta", style: "margin-bottom:14px" }, meta),
+        el("div", { style: "font-size:11.5px;font-weight:600;color:var(--ink-dim);letter-spacing:.05em;margin-bottom:4px" }, "PRIMARY REASON"),
+        reasonSelect,
+        el("div", { style: "font-size:11.5px;font-weight:600;color:var(--ink-dim);letter-spacing:.05em;margin-bottom:4px" }, "DIRECTOR'S INSTRUCTIONS / PROMPT ADJUSTMENTS"),
+        notesInput,
+        submitBtn,
+        statusMsg,
+      )),
+  );
+  modal.classList.add("open");
+}
+
 function closeModal() { modal.classList.remove("open"); }
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
@@ -671,13 +758,26 @@ function sceneLabel(id) {
 function sceneCard(s, card) {
   const dur = card.duration_seconds;
   const width = Math.max(132, Math.min(300, 70 + (dur || 3) * 26));
-  const wrap = el("div", { class: "scene-card", style: `width:${width}px` });
+  const wrap = el("div", { class: `scene-card${card.retake_requested ? " retake-flagged" : ""}`, style: `width:${width}px` });
+
+  const retakeBtn = el("button", {
+    type: "button",
+    class: "retake-trigger-btn",
+    title: "Request shot retake / 씬 재촬영 요청",
+    onclick: (e) => {
+      e.stopPropagation();
+      openRetakeModal(card);
+    },
+  }, "↺");
 
   const slate = el("div", { class: "sc-slate" },
     el("span", { class: "num" }, sceneLabel(card.id)),
-    card.takes.length > 1 ? el("span", { class: "take" }, `T${card.takes.length}`) : null,
+    card.retake_requested
+      ? el("span", { class: "take", style: "background:#b45309;color:#fff", title: card.retake_reason || "Retake requested" }, "↺ RETAKE")
+      : (card.takes.length > 1 ? el("span", { class: "take" }, `T${card.takes.length}`) : null),
     card.hero_moment ? el("span", { class: "hero" }, "★ HERO") : null,
     el("span", { class: "dur" }, fmtDuration(dur)),
+    retakeBtn,
   );
   wrap.append(slate);
 
@@ -803,6 +903,37 @@ function sceneCard(s, card) {
 function renderStoryboard(s) {
   const board = s.storyboard;
   if (!board) return null;
+
+  if (board.sequences && board.sequences.length > 1) {
+    const seqBlocks = [];
+    for (const seq of board.sequences) {
+      if (!seq.scenes || !seq.scenes.length) continue;
+      const seqStrip = el("div", { class: "filmstrip" });
+      for (const card of seq.scenes) seqStrip.append(sceneCard(s, card));
+
+      const seqHeader = el("div", {
+        class: "seq-header",
+        style: "margin:20px 0 8px;display:flex;align-items:baseline;justify-content:space-between;padding-bottom:6px;border-bottom:1px solid var(--border-line)",
+      },
+        el("div", { style: "display:flex;align-items:center;gap:8px" },
+          el("span", { style: "font-family:var(--mono);font-weight:700;font-size:11.5px;color:var(--accent);letter-spacing:.06em;background:var(--accent-glow);padding:2px 6px;border-radius:3px" }, `SEQ ${String(seq.index || 1).padStart(2, "0")}`),
+          el("span", { style: "font-weight:600;font-size:13.5px;color:var(--ink)" }, seq.title || `Sequence ${seq.index}`),
+          seq.act ? el("span", { style: "font-size:11px;color:var(--ink-dim);background:var(--bg-elevated);border:1px solid var(--border-line);padding:1px 6px;border-radius:3px" }, seq.act) : null),
+        el("span", { class: "meta" }, `${seq.scenes.length} scenes · ${fmtDuration(seq.total_duration_seconds)}`));
+
+      seqBlocks.push(el("div", { class: "seq-block", style: "margin-bottom:24px" },
+        seqHeader,
+        seq.summary ? el("div", { style: "font-size:12px;color:var(--ink-dim);margin:4px 0 10px;line-height:1.4" }, seq.summary) : null,
+        el("div", { class: "strip-outer" }, seqStrip)));
+    }
+
+    return el("div", {},
+      el("div", { class: "section-title" }, "Storyboard & Sequence Timeline",
+        el("span", { class: "meta" },
+          `${board.sequences.length} sequences · ${board.scenes.length} scenes${board.total_duration_seconds ? ` · ${fmtDuration(board.total_duration_seconds)}` : ""} · card width ∝ duration`)),
+      ...seqBlocks);
+  }
+
   const strip = el("div", { class: "filmstrip" });
   for (const card of board.scenes) strip.append(sceneCard(s, card));
   return el("div", {},
@@ -810,6 +941,49 @@ function renderStoryboard(s) {
       el("span", { class: "meta" },
         `${board.scenes.length} scenes${board.total_duration_seconds ? ` · ${fmtDuration(board.total_duration_seconds)}` : ""} · card width ∝ duration`)),
     el("div", { class: "strip-outer" }, strip));
+}
+
+// ---------------------------------------------------------------------------
+// characters — contact sheet of anchor frames for identity consistency
+// ---------------------------------------------------------------------------
+
+function renderCharacters(s) {
+  const chars = s.characters;
+  if (!Array.isArray(chars) || !chars.length) return null;
+  const sheet = el("div", { class: "filmstrip" });
+  for (const c of chars) {
+    const card = el("div", { class: "scene-card", style: "width:220px" });
+    card.append(el("div", { class: "sc-slate" },
+      el("span", { class: "num" }, (c.display_name || c.id || "CHAR").toUpperCase().slice(0, 12)),
+      c.preferred_providers && c.preferred_providers.length
+        ? el("span", { class: "take" }, String(c.preferred_providers[0]))
+        : null));
+    const frame = (c.frames || []).find((f) => f.exists) || null;
+    if (frame) {
+      const img = el("img", { src: thumbURL(s.project_id, frame.path, 440), loading: "lazy", alt: c.display_name || c.id || "" });
+      img.onerror = () => { img.remove(); };
+      card.append(el("div", { class: "thumb approved" }, img,
+        el("span", { class: "badge" }, frame.view || "anchor")));
+    } else {
+      card.append(el("div", { class: "thumb missing" },
+        el("div", { class: "spec-in" },
+          el("span", { class: "warn-ic" }, "⚑"),
+          el("div", { class: "spec-desc" }, "no anchor frame yet"))));
+    }
+    card.append(el("div", { class: "shotchips", style: "display:flex;flex-wrap:wrap;gap:4px;padding:6px 2px 0" },
+      el("span", { style: "font-size:calc(8.5px * var(--fs-scale));color:#62626c" },
+        `${(c.frames || []).length} view${(c.frames || []).length === 1 ? "" : "s"} · ${(c.reference_image_paths || []).length} bound`)));
+    if (c.appearance) {
+      card.append(el("div", { class: "spec-shot", style: "padding:2px 2px 4px;font-size:calc(9px * var(--fs-scale));color:#54545e" },
+        c.appearance.slice(0, 90)));
+    }
+    sheet.append(card);
+  }
+  return el("div", {},
+    el("div", { class: "section-title" }, "Characters",
+      el("span", { class: "meta" },
+        `${chars.length} character${chars.length === 1 ? "" : "s"} · anchor frames for identity consistency`)),
+    el("div", { class: "strip-outer" }, sheet));
 }
 
 // ---------------------------------------------------------------------------
@@ -1082,18 +1256,19 @@ function render() {
 
   // Media sections live INSIDE the main column so a tall decisions rail
   // never pushes them below the fold — the column flows beside the rail.
+  const characters = renderCharacters(s);
   const storyboard = renderStoryboard(s);
   const found = renderFoundMedia(s);
   const renders = renderRenders(s);
 
   if (approvalReview || script || decisions || activity) {
-    for (const section of [storyboard, found, renders]) {
+    for (const section of [characters, storyboard, found, renders]) {
       if (section) main.append(section);
     }
     const hasAside = Boolean(decisions || activity);
     app.append(el("div", { class: `board${hasAside ? "" : " solo"}` }, main, hasAside ? aside : null));
   } else {
-    for (const section of [storyboard, found, renders]) {
+    for (const section of [characters, storyboard, found, renders]) {
       if (section) app.append(section);
     }
   }

@@ -397,6 +397,8 @@ class FishAudioTTS(BaseTool):
         model's id (reference_id) for reuse across every narration segment so a
         long (mid-form) piece keeps ONE consistent narrator voice.
         """
+        import requests
+
         ref_audio = inputs.get("reference_audio")
         if not ref_audio:
             return ToolResult(
@@ -421,9 +423,9 @@ class FishAudioTTS(BaseTool):
 
         headers = {"Authorization": f"Bearer {api_key}"}
         response = requests.post(
-            f"{self.MODEL_URL}/model", headers=headers, files=files, timeout=180
+            self.MODEL_URL, headers=headers, files=files, timeout=180
         )
-        if response.status_code != 200:
+        if response.status_code not in (200, 201):
             raise RuntimeError(
                 f"create_voice returned {response.status_code}: {response.text[:400]}"
             )

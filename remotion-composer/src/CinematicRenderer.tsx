@@ -4,6 +4,7 @@ import {
   AbsoluteFill,
   Audio,
   CalculateMetadataFunction,
+  Loop,
   OffthreadVideo,
   Sequence,
   interpolate,
@@ -14,6 +15,7 @@ import {
 
 import { CinematicRendererProps, CinematicTone, CinematicVideoScene } from "./cinematic/types";
 import { CaptionOverlay } from "./components/CaptionOverlay";
+import { ParticleOverlay } from "./components/ParticleOverlay";
 import { resolveAsset } from "./lib/resolveAsset";
 
 const FPS = 30;
@@ -41,8 +43,8 @@ const SceneVideo: React.FC<{ scene: CinematicVideoScene }> = ({ scene }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const durationInFrames = Math.max(1, Math.round(scene.durationSeconds * fps));
-  const fadeInFrames = scene.fadeInFrames ?? 10;
-  const fadeOutFrames = scene.fadeOutFrames ?? 10;
+  const fadeInFrames = scene.fadeInFrames ?? 12;
+  const fadeOutFrames = scene.fadeOutFrames ?? 12;
   const fadeOutStart = Math.max(0, durationInFrames - fadeOutFrames);
   const fadeInOpacity =
     fadeInFrames === 0
@@ -60,7 +62,13 @@ const SceneVideo: React.FC<{ scene: CinematicVideoScene }> = ({ scene }) => {
         });
   const opacity = Math.min(fadeInOpacity, fadeOutOpacity);
 
-  const scale = interpolate(frame, [0, durationInFrames], [1.015, 1], {
+  const scale = interpolate(frame, [0, durationInFrames], [1.04, 1.0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Soft cinematic warm light leak on scene entrance
+  const flareIntensity = interpolate(frame, [0, 15, 35], [0.55, 0.15, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -74,40 +82,61 @@ const SceneVideo: React.FC<{ scene: CinematicVideoScene }> = ({ scene }) => {
       ? Math.round(scene.trimAfterSeconds * fps)
       : undefined;
 
+  // The source video has sourceSec seconds (e.g. 10s = 300 frames).
+  // <Loop durationInFrames={sourceFrames}> seamlessly loops the video every sourceFrames,
+  // so a 10s video continues playing without ANY black screen for the entire scene duration!
+  const sourceSec =
+    scene.trimAfterSeconds !== undefined && scene.trimBeforeSeconds !== undefined
+      ? Math.max(1, scene.trimAfterSeconds - scene.trimBeforeSeconds)
+      : 10;
+  const loopCycleFrames = Math.max(1, Math.round(sourceSec * fps));
+
   return (
     <AbsoluteFill style={{ backgroundColor: "#020407", opacity }}>
-      <OffthreadVideo
-        muted
-        src={resolveAsset(scene.src)}
-        trimBefore={trimBefore}
-        trimAfter={trimAfter}
-        playbackRate={scene.playbackRate}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          transform: `scale(${scale})`,
-          filter:
-            scene.filter ?? "contrast(1.06) saturate(0.88) brightness(0.92)",
-        }}
-      />
+      <Loop durationInFrames={loopCycleFrames}>
+        <OffthreadVideo
+          muted
+          src={resolveAsset(scene.src)}
+          trimBefore={trimBefore}
+          trimAfter={trimAfter}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transform: `scale(${scale})`,
+            filter:
+              scene.filter ?? "contrast(1.08) saturate(0.94) brightness(0.96)",
+          }}
+        />
+      </Loop>
       <AbsoluteFill
         style={{
           background: toneGradient(scene.tone ?? "cold"),
           mixBlendMode: "multiply",
         }}
       />
+      {flareIntensity > 0 ? (
+        <AbsoluteFill
+          style={{
+            pointerEvents: "none",
+            background:
+              "radial-gradient(ellipse at 80% 20%, rgba(255, 210, 140, 0.4) 0%, rgba(255, 150, 70, 0.18) 40%, transparent 70%)",
+            mixBlendMode: "screen",
+            opacity: flareIntensity,
+          }}
+        />
+      ) : null}
       <AbsoluteFill
         style={{
           background:
-            "radial-gradient(circle at center, transparent 52%, rgba(0,0,0,0.52) 100%)",
+            "radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.65) 100%)",
         }}
       />
       <AbsoluteFill
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 8%, transparent 92%, rgba(255,255,255,0.02) 100%)",
-          opacity: 0.6,
+            "linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 8%, transparent 92%, rgba(255,255,255,0.03) 100%)",
+          opacity: 0.7,
         }}
       />
     </AbsoluteFill>
@@ -228,6 +257,12 @@ const TitleCard: React.FC<{
       ? Math.round(backgroundTrimAfterSeconds * fps)
       : undefined;
 
+  const bgSourceSec =
+    backgroundTrimAfterSeconds !== undefined && backgroundTrimBeforeSeconds !== undefined
+      ? Math.max(1, backgroundTrimAfterSeconds - backgroundTrimBeforeSeconds)
+      : 10;
+  const bgLoopFrames = Math.max(1, Math.round(bgSourceSec * fps));
+
   const plateBg =
     variant === "overlay"
       ? "transparent"
@@ -244,18 +279,20 @@ const TitleCard: React.FC<{
       {backgroundSrc ? (
         <>
           <AbsoluteFill style={{ transform: `scale(${bgScale})`, opacity: 0.62 }}>
-            <OffthreadVideo
-              muted
-              src={resolveAsset(backgroundSrc)}
-              trimBefore={bgTrimBefore}
-              trimAfter={bgTrimAfter}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                filter: "contrast(1.08) saturate(0.55) brightness(0.55) blur(4px)",
-              }}
-            />
+            <Loop durationInFrames={bgLoopFrames}>
+              <OffthreadVideo
+                muted
+                src={resolveAsset(backgroundSrc)}
+                trimBefore={bgTrimBefore}
+                trimAfter={bgTrimAfter}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  filter: "contrast(1.08) saturate(0.65) brightness(0.6) blur(3px)",
+                }}
+              />
+            </Loop>
           </AbsoluteFill>
           <AbsoluteFill
             style={{
@@ -513,6 +550,13 @@ export const CinematicRenderer: React.FC<CinematicRendererProps> = ({
           )}
         </Sequence>
       ))}
+      {/* Layer 3.5: Ambient Cinematic Particle Overlay (mist / atmospheric drift) */}
+      <ParticleOverlay
+        type="mist"
+        count={20}
+        intensity={0.35}
+        color="rgba(255, 240, 210, 0.35)"
+      />
       {/* Layer 4: TikTok-style captions */}
       {captions?.words ? (
         <CaptionOverlay

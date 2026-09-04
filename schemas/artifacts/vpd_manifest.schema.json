@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "openmontage/artifacts/vpd_manifest",
+  "title": "VPD (Verifiable Proof Data) Manifest",
+  "description": "Registry of verified, rights-cleared, anonymized real-world proof data assets used to anchor 5% authenticity in synthetic productions.",
+  "type": "object",
+  "required": ["version", "records"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0" },
+    "vault_path": { "type": "string" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "file_path", "rights", "anonymization", "verification"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": { "type": "string", "enum": ["screenshot", "physical_photo", "telemetry_data", "document", "teardown_video", "diagram"] },
+          "title": { "type": "string" },
+          "file_path": { "type": "string" },
+          "rights": {
+            "type": "object",
+            "required": ["status", "provenance"],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["work_for_hire_assigned", "public_domain_cc0", "gov_open_data", "licensed_commercial", "internal_mining"]
+              },
+              "provenance": { "type": "string", "description": "Source URL, contract ID, or crowdsource task ID" },
+              "attribution_required": { "type": "boolean" },
+              "attribution_text": { "type": "string" }
+            },
+            "additionalProperties": false
+          },
+          "anonymization": {
+            "type": "object",
+            "required": ["pii_cleared"],
+            "properties": {
+              "pii_cleared": { "type": "boolean" },
+              "face_redacted": { "type": "boolean" },
+              "text_redacted": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          },
+          "verification": {
+            "type": "object",
+            "required": ["problem_domain", "target_entity", "proof_claim"],
+            "properties": {
+              "problem_domain": { "type": "string", "description": "e.g. software_config, hardware_repair, scientific_fact" },
+              "target_entity": { "type": "string", "description": "e.g. Breville_870, Figma_Autolayout, Quantum_Tunneling" },
+              "proof_claim": { "type": "string", "description": "Concrete fact or step this asset objectively proves" },
+              "step_index": { "type": "integer" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

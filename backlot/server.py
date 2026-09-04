@@ -180,6 +180,63 @@ def create_app() -> FastAPI:
         project_dir = _safe_project_dir(project_id)
         return await asyncio.to_thread(load_board_state, project_dir)
 
+    @app.post("/api/project/{project_id}/retake")
+    async def project_retake(project_id: str, request: Request) -> dict:
+        project_dir = _safe_project_dir(project_id)
+        try:
+            body = await request.json()
+        except Exception:
+            raise HTTPException(status_code=400, detail="invalid JSON body")
+        
+        scene_id = str(body.get("scene_id") or "")
+        shot_id = str(body.get("shot_id") or "")
+        reason = str(body.get("reason") or "Manual retake requested")
+        instructions = str(body.get("instructions") or "")
+
+        if not scene_id and not shot_id:
+            raise HTTPException(status_code=400, detail="scene_id or shot_id required")
+
+        art_dir = project_dir / "artifacts"
+        art_dir.mkdir(parents=True, exist_ok=True)
+        retake_file = art_dir / "retake_requests.json"
+
+        existing = []
+        if retake_file.is_file():
+            try:
+                with open(retake_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        existing = data
+            except Exception:
+                pass
+
+        req_entry = {
+            "id": f"retake_{int(time.time() * 1000)}",
+            "scene_id": scene_id,
+            "shot_id": shot_id,
+            "reason": reason,
+            "instructions": instructions,
+            "timestamp": time.time(),
+            "status": "pending",
+        }
+        existing.append(req_entry)
+        with open(retake_file, "w", encoding="utf-8") as f:
+            json.dump(existing, f, indent=2, ensure_ascii=False)
+
+        # Log event for live feed
+        events_file = project_dir / "events.jsonl"
+        with open(events_file, "a", encoding="utf-8") as f:
+            f.write(json.dumps({
+                "ts": time.time(),
+                "event": "retake_request",
+                "scene_id": scene_id,
+                "tool": "user_ui",
+                "data": req_entry,
+            }) + "\n")
+
+        hub.publish(project_id)
+        return {"ok": True, "retake": req_entry}
+
     @app.get("/api/project/{project_id}/events")
     async def project_events(project_id: str, request: Request) -> StreamingResponse:
         _safe_project_dir(project_id)  # 404 early for unknown projects

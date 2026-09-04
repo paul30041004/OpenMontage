@@ -2895,10 +2895,16 @@ class VideoCompose(BaseTool):
 
         # Layer 2: edit_decisions subtitle style
         if edit_decisions:
-            ed_style = edit_decisions.get("subtitles", {}).get("style", {})
-            for k, v in ed_style.items():
-                if v is not None:
-                    resolved[k] = v
+            subtitles_cfg = edit_decisions.get("subtitles", {})
+            if isinstance(subtitles_cfg, dict):
+                ed_style = subtitles_cfg.get("style")
+                if isinstance(ed_style, dict):
+                    for k, v in ed_style.items():
+                        if v is not None:
+                            resolved[k] = v
+                for k, v in subtitles_cfg.items():
+                    if k != "style" and v is not None:
+                        resolved[k] = v
 
         # Layer 3: Explicit override (highest priority)
         if explicit_style:

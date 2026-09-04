@@ -1,0 +1,203 @@
+name: short-form-factory
+version: "2.0"
+description: >
+  Autonomous MoneyPrinterV2/Turbo-style short-form video generator. Transforms a topic
+  into a viral 9:16 vertical short (TikTok, YouTube Shorts, Instagram Reels) with automated
+  keyword-driven stock/AI video matching, VoxCPM/Edge-TTS emotional narration, dynamic word-by-word
+  karaoke subtitles, and beat-synced background music.
+category: generated
+stability: production
+
+default_checkpoint_policy: guided
+
+reference_input:
+  supported: true
+  analysis_depth: standard
+  analysis_tools:
+    - video_analyzer
+    - transcript_fetcher
+    - scene_detect
+    - frame_sampler
+
+extensions:
+  custom_scripts: true
+  custom_playbooks: true
+  custom_skills: true
+  custom_tools: false
+
+required_skills:
+  - pipelines/short-form-factory/executive-producer
+  - pipelines/short-form-factory/idea-director
+  - pipelines/short-form-factory/script-director
+  - pipelines/short-form-factory/scene-director
+  - pipelines/short-form-factory/asset-director
+  - pipelines/short-form-factory/edit-director
+  - pipelines/short-form-factory/compose-director
+  - pipelines/short-form-factory/publish-director
+  - meta/reviewer
+  - meta/checkpoint-protocol
+  - meta/animation-runtime-selector
+  - meta/voice-performance-director
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/short-form-factory/executive-producer
+  budget_default_usd: 1.00
+  max_revisions_per_stage: 3
+  max_send_backs: 3
+  max_wall_time_minutes: 10
+
+compatible_playbooks:
+  recommended:
+    - flat-motion-graphics
+    - clean-professional
+  also_works: []
+  custom_allowed: true
+
+stages:
+  - name: idea
+    skill: pipelines/short-form-factory/idea-director
+    produces:
+      - brief
+      - decision_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - High-hook 3-second opening for 9:16 vertical format
+      - Target duration optimized for shorts (30-60 seconds)
+      - Clear single-take core premise and emotional retention anchor
+    success_criteria:
+      - Schema-valid brief artifact with 9:16 aspect ratio target
+      - Target duration between 15 and 60 seconds
+
+  - name: script
+    skill: pipelines/short-form-factory/script-director
+    required_artifacts_in:
+      - brief
+    produces:
+      - script
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Word count strictly budgeted for 150-180 wpm short-form delivery
+      - Per-sentence search_terms extracted for stock/AI video matching
+      - Expressive speaker directions and delivery cues for VoxCPM/TTS
+    success_criteria:
+      - Schema-valid script with search_terms or enhancement_cues per section
+      - No narrative lag or filler words
+
+  - name: scene_plan
+    skill: pipelines/short-form-factory/scene-director
+    required_artifacts_in:
+      - script
+    optional_artifacts_in:
+      - brief
+    produces:
+      - scene_plan
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - 9:16 vertical framing with platform safe-zone compliance
+      - Rapid cut rhythm (2-4 seconds per visual shot)
+      - Clear allocation between stock video retrieval, AI generation, and motion graphics
+    success_criteria:
+      - Schema-valid scene_plan with 9:16 framing parameters
+      - Fast visual pacing matching short-form retention standards
+
+  - name: assets
+    skill: pipelines/short-form-factory/asset-director
+    required_artifacts_in:
+      - scene_plan
+      - script
+    optional_artifacts_in:
+      - brief
+    produces:
+      - asset_manifest
+    required_tools:
+      - tts_selector
+    optional_tools:
+      - image_selector
+      - video_selector
+      - music_gen
+    tools_available:
+      - tts_selector
+      - image_selector
+      - video_selector
+      - music_gen
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - VoxCPM or Edge-TTS narration audio generated and measured
+      - Stock video clips or AI images retrieved per scene keywords
+      - Energetic background music track selected
+    success_criteria:
+      - Schema-valid asset_manifest with all audio and visual files existing on disk
+      - Real measured audio durations recorded
+
+  - name: edit
+    skill: pipelines/short-form-factory/edit-director
+    required_artifacts_in:
+      - scene_plan
+      - asset_manifest
+    optional_artifacts_in:
+      - script
+    produces:
+      - edit_decisions
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Auto-slicing video clips and images to exact narration sentence boundaries
+      - Word-by-word karaoke / popup motion subtitle styling
+      - Dynamic music ducking under narration
+    success_criteria:
+      - Schema-valid edit_decisions covering full timeline without gaps
+
+  - name: compose
+    skill: pipelines/short-form-factory/compose-director
+    required_artifacts_in:
+      - edit_decisions
+      - asset_manifest
+    optional_artifacts_in:
+      - scene_plan
+    produces:
+      - render_report
+      - final_review
+    required_tools:
+      - video_compose
+      - audio_mixer
+    tools_available:
+      - video_compose
+      - hyperframes_compose
+      - audio_mixer
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - 1080x1920 (9:16) high-bitrate MP4 render
+      - Clean audio mix with punchy voice and balanced BGM
+      - Accurate subtitle synchronization
+    success_criteria:
+      - Schema-valid render_report with output paths
+      - Output file exists and passes ffprobe verification
+
+  - name: publish
+    skill: pipelines/short-form-factory/publish-director
+    required_artifacts_in:
+      - render_report
+      - final_review
+    optional_artifacts_in:
+      - brief
+    produces:
+      - publish_log
+    tools_available:
+      - export_bundle
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Viral hashtags and title variants for TikTok, Shorts, Reels
+      - Safe-zone thumbnail frame recommendation
+    success_criteria:
+      - Schema-valid publish_log

@@ -1,6 +1,6 @@
 ---
 name: voxcpm-tts
-description: VoxCPM2 local emotional TTS (OpenBMB) for OpenMontage. Use when generating Korean narration that needs emotional acting, voice design, or consistent voice cloning — the preferred narrator TTS for hype/dopamine-style videos. Requires the openbmb/VoxCPM2 model (~5GB) and Apple MPS/CPU. Use when the dopamine-hype-motion-graphic workflow mandates VoxCPM narration.
+description: VoxCPM2 local emotional TTS (OpenBMB) for OpenMontage. Use when generating Korean narration that needs emotional acting, voice design, or consistent voice cloning — the preferred narrator TTS for hype/dopamine-style videos. Requires the openbmb/VoxCPM2 model (~5GB) and Apple MPS/CPU. Use when the dopamine-hype-motion-graphic workflow mandates VoxCPM narration. MANDATORY for all Korean voice cloning — VoxCPM2 is the measured best Korean clone engine (SIM 0.919).
 ---
 
 # VoxCPM2 — Local Emotional TTS
@@ -13,6 +13,43 @@ Supports:
   audio needed. "캐릭터 감정연기" tier.
 - **Voice Cloning** — consistent speaker across a long video via
   `reference_audio` (clone mode).
+
+## Korean Voice Cloning — MANDATORY (binding)
+
+**All Korean voice cloning in OpenMontage MUST use VoxCPM2.** This is a
+measured, binding decision (2026-09), not a preference.
+
+Benchmark (same reference `voice_library/emotional.wav`, Resemblyzer SIM):
+
+| Engine | Korean SIM | Verdict |
+|--------|-----------|---------|
+| **VoxCPM2** | **0.919** | ✅ use this |
+| Fish Audio S2-Pro | 0.878 | ❌ not for cloning |
+| Qwen3-TTS Base 1.7B | 0.841 | ❌ not for cloning |
+| Chatterbox (Resemble AI) | 0.788 | ❌ not for cloning |
+
+Language routing (do NOT cross-use):
+
+| Language | Engine |
+|----------|--------|
+| **Korean** | **VoxCPM2** (this skill) |
+| English | Chatterbox |
+| Chinese / Japanese / multilingual | Qwen3-TTS |
+
+Rules:
+
+- A Korean clone request → route to `voxcpm_tts` clone mode. Never substitute
+  Fish/Qwen3/Chatterbox for Korean cloning.
+- **Parallel / fast-generation exception:** only when throughput matters (batch
+  narration, many segments, tight deadline) may you use `fish_audio_local_tts`
+  or `qwen3_tts_local` for Korean cloning as a speed fallback. VoxCPM2 remains
+  the quality default; the fast engines are the throughput fallback, not the
+  first choice. Log the substitution in `decision_log` (category
+  `voice_selection`, subject "Narration TTS provider").
+- If VoxCPM2 is unavailable, escalate (see Hard Rule 5) — do not silently fall
+  back to another engine for a Korean clone.
+- Reference audio for Korean cloning: pick from `voice_library/` (curated
+  `voice_library.json` voices) or `voice_samples/`/`assets/`/`test_audio/`.
 
 Tool: `tools/audio/voxcpm_tts.py`, provider `voxcpm`, runtime LOCAL.
 Access via the registry (never import directly). VoxCPM2 model (~5GB) lives
@@ -58,6 +95,10 @@ voxcpm.execute({
 5. **Do not silently substitute another TTS.** If VoxCPM is unavailable or a
    segment fails, escalate — never fall back to Kokoro/Google/Piper for this
    workflow.
+6. **Korean clone = VoxCPM2 only.** See "Korean Voice Cloning — MANDATORY"
+   above. This overrides any other TTS routing for Korean cloning. Exception:
+   parallel/fast batch generation may use Fish Audio or Qwen3-TTS (see the
+   "parallel / fast-generation exception" in the MANDATORY section).
 
 ## Device Notes
 

@@ -1,0 +1,39 @@
+name: Golden Bough Video — 무한동력 에이전트
+
+on:
+  schedule:
+    # 매일 09:00 UTC (한국 18:00) 자동 실행
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}  # 수동 실행
+
+jobs:
+  golden-bough-video:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install httpx feedparser
+
+      - name: Run Golden Bough Video pipeline
+        env:
+          OLLAMA_URL: ${{ secrets.OLLAMA_URL }}
+          GOLDEN_BOUGH_LLM_MODEL: ${{ secrets.GOLDEN_BOUGH_LLM_MODEL }}
+        run: |
+          python golden_bough_video/pipeline.py --quiet
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-bough-video-output
+          path: |
+            golden_bough_video/data/output/
+            golden_bough_video/logs/
+          if-no-files-found: ignore

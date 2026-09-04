@@ -122,6 +122,8 @@ Key capability families to look for in the output:
 | E-Knowledge Channel Style | `creative/e-knowledge-channel-style.md` | e지식채널 스타일 타이포그래피 조판 슬라이드, 타이핑/키네틱 애니메이션, 에디토리얼 레이아웃 | `remotion-best-practices`, `typography` |
 | Remotion OSS Libraries | `creative/remotion-oss-libraries.md` | remotion-bits(84개 컴포넌트), remotion-animated, 한국 인기 폰트 통합 가이드 | `remotion-best-practices` |
 | Korean Viral Shorts Templates | `creative/korean-viral-shorts-templates.md` | 한국 바이럴 숏폼 5대 유형 + 편집기법 13가지 + 자막 템플릿 10종 + 성공사례 크롤링 | `remotion-best-practices`, `short-form` |
+| Golden Bough Video | `creative/golden-bough-video.md` | 황금가지 패턴의 무한동력 자율 영상 제작 에이전트 (ingest→filter→transform→emit→feedback + 로컬 LLM) | `remotion-best-practices`, `text-to-speech` |
+| Voice Library | `creative/voice-library.md` | 상황별 anchor 음성 샘플 클론으로 일관된 롱폼/미드폼 내레이션 생성 | `tts-sample-unification`, `voxcpm-tts` |
 | Video Effect Template Catalog | `creative/video-effect-template-catalog.md` | 600+ 매체 고유 영상효과 템플릿 카탈로그 (뉴스/스포츠/퀴즈/레트로/소셜 등) | `remotion-best-practices` |
 | B-Roll Planning | `creative/broll-planning.md` | Stock vs. generated decision, query construction, footage evaluation | — |
 | Stock Sourcing Usage | `creative/stock-sourcing-usage.md` | Pexels/Pixabay usage, parameters, licensing, integration | — |

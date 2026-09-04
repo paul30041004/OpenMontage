@@ -1,0 +1,256 @@
+name: novel-to-video
+version: "1.0"
+description: >
+  Long-form to episodic video adaptation pipeline (ViMax-style Novel2Video).
+  Takes a long text (novel, short story, article, transcript), splits it into
+  episodes with narrative compression, extracts a consistent cast, and produces
+  multi-scene video episodes with per-character reference anchoring so one
+  character keeps the same look across every scene. Reuses the
+  character_consistency layer and the cloud video-generation fleet.
+category: cinematic
+stability: beta
+default_checkpoint_policy: guided
+
+reference_input:
+  supported: true
+  analysis_depth: deep
+  analysis_tools:
+    - video_analyzer
+    - transcript_fetcher
+    - video_downloader
+    - scene_detect
+    - frame_sampler
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/novel-to-video/executive-producer
+  budget_default_usd: 5.00
+  max_revisions_per_stage: 3
+  max_send_backs: 3
+  max_wall_time_minutes: 30
+
+extensions:
+  custom_scripts: true
+  custom_playbooks: true
+  custom_skills: true
+  custom_tools: false
+
+required_skills:
+  - pipelines/novel-to-video/executive-producer
+  - pipelines/novel-to-video/adaptation-director
+  - pipelines/novel-to-video/proposal-director
+  - pipelines/novel-to-video/script-director
+  - pipelines/novel-to-video/character-director
+  - pipelines/novel-to-video/scene-director
+  - pipelines/novel-to-video/asset-director
+  - pipelines/novel-to-video/edit-director
+  - pipelines/novel-to-video/compose-director
+  - pipelines/novel-to-video/publish-director
+  - meta/reviewer
+  - meta/checkpoint-protocol
+  - meta/animation-runtime-selector
+
+compatible_playbooks:
+  recommended:
+    - flat-motion-graphics
+  also_works:
+    - clean-professional
+    - cinematic
+  custom_allowed: true
+
+stages:
+  - name: adaptation
+    skill: pipelines/novel-to-video/adaptation-director
+    produces:
+      - adaptation_plan
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Episodes are genuinely distinct narrative units (not arbitrary text chunks)
+      - Narrative compression caps scenes per episode to a filmable count
+      - Cast extraction is identity-anchoring (appearance strings reusable verbatim)
+      - Emotional arcs are preserved through compression, not flattened
+    success_criteria:
+      - Schema-valid adaptation_plan
+      - Every episode has summary, hook, emotional_arc, and capped scenes
+      - Every scene lists its characters referencing cast[].id
+
+  - name: proposal
+    skill: pipelines/novel-to-video/proposal-director
+    required_artifacts_in:
+      - adaptation_plan
+    produces:
+      - proposal_packet
+      - decision_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Episode order and visual treatment are explicit
+      - Render runtime selection presents Remotion and HyperFrames when both are available
+      - Motion requirement is preserved; character consistency is committed (not optional)
+      - Sample-first plan included before full production
+    success_criteria:
+      - Schema-valid proposal_packet
+      - Delivery promise includes motion_required and character-consistency commitment
+      - User approval recorded before character assets generate
+    sub_stages:
+      - name: sample
+        description: "One scene rendered with character binding before full production"
+        condition: "approved_concept_exists"
+        human_approval_default: true
+        tools_available: [character_consistency_builder, image_selector, video_selector, video_compose, audio_mixer]
+        review_focus:
+          - Sample proves character look holds across the bound reference and generated motion
+
+  - name: script
+    skill: pipelines/novel-to-video/script-director
+    required_artifacts_in:
+      - adaptation_plan
+      - proposal_packet
+    produces:
+      - script
+    tools_available:
+      - transcriber
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Narration/dialogue follows the compressed episode beats, not the raw source prose
+      - Each episode script fits its target duration
+      - Emotional beats map to expressible scenes
+    success_criteria:
+      - Schema-valid script covering the first episode (or a chosen episode)
+      - Word count within +/-10% of episode duration target
+
+  - name: character_design
+    skill: pipelines/novel-to-video/character-director
+    required_artifacts_in:
+      - adaptation_plan
+      - script
+    produces:
+      - character_consistency
+    tools_available:
+      - character_consistency_builder
+      - image_selector
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Each cast member has identity-anchoring appearance reused verbatim in reference prompts
+      - Anchor frames exist for every character appearing in the chosen episode
+      - Anchor QA confirms face/build/outfit consistency across views
+    success_criteria:
+      - Schema-valid character_consistency
+      - Every scene character in the episode has binding_hints.reference_image_paths
+
+  - name: scene_plan
+    skill: pipelines/novel-to-video/scene-director
+    required_artifacts_in:
+      - script
+      - adaptation_plan
+      - character_consistency
+    produces:
+      - scene_plan
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Scenes follow the compressed episode beats (not new invented beats)
+      - Each scene names its featured characters for binding
+      - Hero frames and reveal moments are defined
+    success_criteria:
+      - Schema-valid scene_plan
+      - Every scene maps characters to character_consistency bindings
+
+  - name: assets
+    skill: pipelines/novel-to-video/asset-director
+    required_artifacts_in:
+      - scene_plan
+      - character_consistency
+      - script
+    optional_artifacts_in:
+      - proposal_packet
+    produces:
+      - asset_manifest
+    tools_available:
+      - video_selector
+      - image_selector
+      - tts_selector
+      - character_consistency_builder
+      - pixabay_music
+      - music_gen
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Every scene video binds its characters via reference_image_paths
+      - Motion-required beats use actual video clips (reference-bound), not stills
+      - Anchor frames and generated motion visually match
+      - All referenced asset files exist
+    success_criteria:
+      - Schema-valid asset_manifest
+      - Character-bound video assets exist for each motion beat
+
+  - name: edit
+    skill: pipelines/novel-to-video/edit-director
+    required_artifacts_in:
+      - scene_plan
+      - asset_manifest
+    optional_artifacts_in:
+      - script
+    produces:
+      - edit_decisions
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Edit preserves episode emotional arc
+      - render_runtime carried from proposal unchanged
+    success_criteria:
+      - Schema-valid edit_decisions
+      - Full episode duration covered
+
+  - name: compose
+    skill: pipelines/novel-to-video/compose-director
+    required_artifacts_in:
+      - edit_decisions
+      - asset_manifest
+    optional_artifacts_in:
+      - scene_plan
+    produces:
+      - render_report
+      - final_review
+    tools_available:
+      - video_compose
+      - audio_mixer
+      - color_grade
+      - video_stitch
+      - video_trimmer
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Output mood matches episode pacing
+      - Character consistency held in final output (no identity drift between scenes)
+      - render_runtime in edit_decisions matches proposal_packet
+    success_criteria:
+      - Schema-valid render_report
+      - Output exists and passes ffprobe validation
+
+  - name: publish
+    skill: pipelines/novel-to-video/publish-director
+    required_artifacts_in:
+      - render_report
+      - final_review
+    optional_artifacts_in:
+      - adaptation_plan
+      - script
+    produces:
+      - publish_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Episode packaging clearly labeled (index, title, source span)
+      - Remaining episodes queued or listed for follow-up production
+      - Thumbnail features the lead character with identity intact
+    success_criteria:
+      - Schema-valid publish_log

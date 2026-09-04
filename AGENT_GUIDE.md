@@ -256,6 +256,9 @@ If the folder has tracks, the proposal and asset stages should present them as o
 | `hybrid` | Source footage plus support visuals | production |
 | `avatar-spokesperson` | Presenter-led avatar or lip-sync videos | production |
 | `localization-dub` | Subtitle, dub, and translated variants | beta |
+| `novel-to-video` | Long-form text (novel/story/article) to episodic video with character-consistency anchoring | beta |
+| `feature-film` | Long-form cinematic narrative & feature film with Story Bible, act breakdown, character locking, shot QC, and chunked render | beta |
+| `short-form-factory` | MoneyPrinter-style automated 9:16 vertical shorts (TikTok, Reels, Shorts) with keyword-driven visual matching and karaoke subtitles | production |
 | `framework-smoke` | Test: minimal 2-stage smoke test | test |
 
 > **Beta pipelines** have not been fully audited. They work, but expect rough edges. Mention this when the user selects one.

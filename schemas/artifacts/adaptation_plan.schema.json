@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "openmontage/artifacts/adaptation_plan",
+  "title": "Adaptation Plan",
+  "description": "Long-form to episodic video adaptation contract: splits a long text (novel, story, article, transcript) into episodes, applies narrative compression per episode, and extracts the recurring cast that flows into character_consistency.",
+  "type": "object",
+  "required": ["version", "source", "episodes", "cast"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0" },
+    "source": {
+      "type": "object",
+      "required": ["title", "input_kind"],
+      "properties": {
+        "title": { "type": "string" },
+        "input_kind": {
+          "type": "string",
+          "enum": ["novel", "short_story", "article", "transcript", "essay", "custom"],
+          "description": "What kind of long-form text is being adapted"
+        },
+        "source_text_ref": { "type": "string", "description": "Path or reference to the source text file" },
+        "estimated_word_count": { "type": "number" },
+        "language": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "target_format": {
+      "type": "object",
+      "properties": {
+        "episode_duration_seconds": { "type": "number", "description": "Target duration per episode" },
+        "episode_count": { "type": "number", "description": "Planned number of episodes" },
+        "aspect_ratio": { "type": "string" },
+        "platform": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "compression": {
+      "type": "object",
+      "description": "Narrative compression policy applied to each episode",
+      "properties": {
+        "max_scenes_per_episode": { "type": "number", "description": "Hard cap on visual scenes per episode (ViMax-style narrative compression)" },
+        "compression_ratio": { "type": "string", "description": "e.g. '1 chapter : 1 episode', '3 chapters : 1 episode'" },
+        "keep_beats": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Narrative beats that must survive compression (emotional peaks, reveals, turning points)"
+        },
+        "drop_beats": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "What gets cut for pacing (exposition, subplots, redundant description)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "episodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "index", "title", "summary", "scenes"],
+        "properties": {
+          "id": { "type": "string" },
+          "index": { "type": "number", "description": "1-based episode order" },
+          "title": { "type": "string" },
+          "source_span": { "type": "string", "description": "Which chapters/section of the source this episode covers" },
+          "summary": { "type": "string", "description": "Compressed narrative summary of the episode" },
+          "hook": { "type": "string", "description": "Opening hook line for the episode" },
+          "emotional_arc": { "type": "string", "description": "Episode-level emotional arc (tension→reveal, etc.)" },
+          "estimated_duration_seconds": { "type": "number" },
+          "scenes": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Compressed scene beats for this episode (already capped by max_scenes_per_episode)",
+            "items": {
+              "type": "object",
+              "required": ["id", "description", "characters"],
+              "properties": {
+                "id": { "type": "string" },
+                "description": { "type": "string", "description": "Visual/narrative description of the scene beat" },
+                "setting": { "type": "string" },
+                "characters": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Character ids present in this scene (must reference cast[].id)"
+                },
+                "narrative_role": {
+                  "type": "string",
+                  "enum": ["establish", "build", "turn", "climax", "resolve"],
+                  "description": "Role of this scene beat within the episode's arc"
+                },
+                "emotional_intensity": { "type": "number", "minimum": 0, "maximum": 10 }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "cast": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Recurring characters extracted from the whole source — feeds character_consistency_builder",
+      "items": {
+        "type": "object",
+        "required": ["id", "appearance"],
+        "properties": {
+          "id": { "type": "string" },
+          "display_name": { "type": "string" },
+          "role": { "type": "string" },
+          "appearance": { "type": "string", "description": "Identity-anchoring physical description reused verbatim in reference prompts" },
+          "first_seen_episode": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "metadata": { "type": "object" }
+  },
+  "additionalProperties": false
+}

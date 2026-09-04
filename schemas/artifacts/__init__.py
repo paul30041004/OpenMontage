@@ -16,6 +16,8 @@ ARTIFACT_NAMES = [
     "brief",
     "script",
     "character_design",
+    "character_consistency",
+    "adaptation_plan",
     "rig_plan",
     "pose_library",
     "scene_plan",
@@ -31,6 +33,8 @@ ARTIFACT_NAMES = [
     "final_review",
     "character_qa_report",
     "video_analysis_brief",
+    "story_bible",
+    "vpd_manifest",
 ]
 
 

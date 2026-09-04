@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "openmontage/artifacts/story_bible",
+  "title": "Story Bible",
+  "description": "Comprehensive long-form narrative bible establishing world rules, character arcs, visual motif system, and multi-act structure for feature-film production.",
+  "type": "object",
+  "required": ["version", "title", "logline", "theme", "world", "characters", "act_structure"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0" },
+    "title": { "type": "string" },
+    "genre": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "logline": { "type": "string", "description": "Single-sentence dramatic premise" },
+    "theme": {
+      "type": "object",
+      "required": ["central_dramatic_question", "moral_premise"],
+      "properties": {
+        "central_dramatic_question": { "type": "string" },
+        "moral_premise": { "type": "string" },
+        "visual_motifs": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "world": {
+      "type": "object",
+      "required": ["setting", "rules", "time_period", "visual_tone"],
+      "properties": {
+        "setting": { "type": "string" },
+        "rules": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Inviolable rules of the story universe (physics, magic, tech, social laws)"
+        },
+        "time_period": { "type": "string" },
+        "visual_tone": { "type": "string" },
+        "color_palette_tokens": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "role", "archetype", "want", "need", "flaw", "visual_anchor", "voice_profile"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "role": { "type": "string", "enum": ["protagonist", "antagonist", "deuteragonist", "mentor", "ally", "supporting"] },
+          "archetype": { "type": "string" },
+          "want": { "type": "string", "description": "Conscious external goal" },
+          "need": { "type": "string", "description": "Unconscious internal growth" },
+          "flaw": { "type": "string" },
+          "visual_anchor": {
+            "type": "string",
+            "description": "Invariable visual tokens (facial feature, hair, signature attire, color) used in every prompt"
+          },
+          "voice_profile": {
+            "type": "object",
+            "required": ["tone", "pitch_pace", "provider_preference"],
+            "properties": {
+              "tone": { "type": "string" },
+              "pitch_pace": { "type": "string" },
+              "provider_preference": { "type": "string" },
+              "reference_audio_path": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "act_structure": {
+      "type": "object",
+      "required": ["act1", "act2a", "act2b", "act3"],
+      "properties": {
+        "act1": {
+          "type": "object",
+          "required": ["ordinary_world", "inciting_incident", "plot_point_1"],
+          "properties": {
+            "ordinary_world": { "type": "string" },
+            "inciting_incident": { "type": "string" },
+            "plot_point_1": { "type": "string" }
+          }
+        },
+        "act2a": {
+          "type": "object",
+          "required": ["rising_action", "midpoint"],
+          "properties": {
+            "rising_action": { "type": "string" },
+            "midpoint": { "type": "string", "description": "False victory or false defeat; shift from passive to active" }
+          }
+        },
+        "act2b": {
+          "type": "object",
+          "required": ["stakes_escalation", "all_is_lost", "dark_night_of_soul"],
+          "properties": {
+            "stakes_escalation": { "type": "string" },
+            "all_is_lost": { "type": "string" },
+            "dark_night_of_soul": { "type": "string" }
+          }
+        },
+        "act3": {
+          "type": "object",
+          "required": ["climax", "resolution"],
+          "properties": {
+            "climax": { "type": "string" },
+            "resolution": { "type": "string" }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

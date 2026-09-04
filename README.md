@@ -367,6 +367,7 @@ Each pipeline is a complete production workflow, from idea to finished video.
 | **Documentary Montage** | Thematic montage cut from a CLIP-indexed corpus of free stock footage and open archives (Pexels, Archive.org, NASA, Wikimedia, Unsplash) | Video essays, mood pieces, retrieval-first B-roll edits, real-footage videos without paid generation APIs |
 | **Hybrid** | Source footage + AI-generated support visuals | Enhancing existing footage with graphics |
 | **Localization & Dub** | Subtitle, dub, and translate existing video | Multi-language distribution |
+| **Novel-to-Video** | Episodic video adaptation from long-form text: narrative compression into episodes, character-consistency anchoring, reference-bound scene generation | Story/book/article adaptations, episodic series, consistent-character narratives |
 | **Podcast Repurpose** | Podcast highlights to video | Podcast marketing, audiogram videos |
 | **Screen Demo** | Polished software screen recordings and walkthroughs | Product demos, tutorials, documentation |
 | **Talking Head** | Footage-led speaker videos | Presentations, vlogs, interviews |
