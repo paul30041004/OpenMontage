@@ -89,6 +89,38 @@ def inspect_text_content(content: str, source_name: str = "text") -> List[Dict[s
     return violations
 
 
+def inspect_git_diff(diff_text: str) -> List[Dict[str, Any]]:
+    """Parses git diff, extracting added lines and associating them with their file path."""
+    violations = []
+    current_file = "unknown"
+    is_safe = False
+
+    for line in diff_text.splitlines():
+        if line.startswith("diff --git "):
+            parts = line.split(" b/")
+            current_file = parts[1].strip() if len(parts) >= 2 else "unknown"
+            is_safe = (
+                current_file in SAFE_FILES or
+                current_file.startswith("tests/") or
+                current_file.endswith(".md") or
+                current_file.endswith(".mdx")
+            )
+            continue
+
+        if not line.startswith("+") or line.startswith("+++"):
+            continue
+
+        added_line = line[1:]
+        # If in documentation or test file, ignore example/dummy keys
+        if is_safe and any(p in added_line.lower() for p in ("abc123", "abcde", "example", "placeholder", "dummy", "sk-1234", "fake", "your_key")):
+            continue
+
+        v = inspect_text_content(added_line, source_name=current_file)
+        violations.extend(v)
+
+    return violations
+
+
 class PrivacyPrepushInspector(BaseTool):
     name = "privacy_prepush_inspector"
     version = "0.1.0"
@@ -157,7 +189,7 @@ class PrivacyPrepushInspector(BaseTool):
                         "message": "스캔할 변경 사항(Diff)이 없거나 안전합니다."
                     }
                 )
-            violations = inspect_text_content(diff_text, source_name=f"git_diff_{mode}")
+            violations = inspect_git_diff(diff_text)
 
         # Filter out safe files
         filtered_violations = [
