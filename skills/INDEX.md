@@ -347,5 +347,6 @@ Claude Code accesses them via symlinks in `.claude/skills/`.
 | **AI Video (Free / Zero-Credit)** | `flow-shorts` — 100% free video generation via Google Flow Veo 3.1 - Lite [Lower Priority] in x4 batches, tool `flow_video`; `flow-storyboard` — Google Flow 3x3 storyboard contact sheet grid, Google Maps street-view location grounding, character locking, and 10s cinematic video expansion | Local OpenMontage skill |
 | **Architecture & Engineering** | `system-design` — 28 BigTech system design blueprints (YouTube, Google Drive, Chat, S3, Rate Limiters) and engineering shorts video recipes, `diagram-design` — editorial diagrams | Local OpenMontage skill |
 | **Productivity & Agent Style** | `i-have-adhd` — action-first, ADHD-friendly, concise output style for coding agents (no polite filler, concrete next steps) | `ayghri/i-have-adhd` |
+| **Agent Memory & Knowledge Graph** | `okf-memory` — Google OKF v0.2 Git-native persistent project memory, sub-300µs BM25 search, progressive disclosure | `okf-memory/okf-agent-memory` |
 | **Engineering Rigor & Security (ECC)** | `tdd-workflow` (test-driven development), `security-review` (secrets & injection prevention), `continuous-learning` (instinct-based learning) | `affaan-m/ECC` |
 | **Infrastructure** | `acestep`, `ltx2`, `playwright-recording` | `digitalsamba/claude-code-video-toolkit` |

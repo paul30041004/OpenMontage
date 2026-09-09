@@ -692,7 +692,7 @@ The `.agents/skills/` directory is large. When you're not coming in through a to
 | **Capture** | `playwright-recording` (browser flows), `ffmpeg` (post) |
 | **Visualization** | `beautiful-mermaid`, `d3-viz`, `manim-composer`, `manimce-best-practices`, `manimgl-best-practices`, `system-design`, `diagram-design` |
 | **Media editing** | `video-edit`, `video-download`, `video-understand`, `video-toolkit`, `visual-style`, `flow-storyboard` (3x3 grid slicing and frame interpolation) |
-| **Productivity & Agent Style** | `i-have-adhd` (action-first, ADHD-friendly, concise output style) |
+| **Productivity & Agent Style** | `i-have-adhd` (action-first, ADHD-friendly, concise output style), `okf-memory` (Google OKF v0.2 Git-native persistent memory & sub-300µs BM25 search) |
 | **Engineering Rigor (ECC)** | `tdd-workflow` (test-driven development), `security-review` (secrets & injection prevention), `continuous-learning` (instinct-based learning) |
 
 **When in doubt, read the category's meta routing file first:**
