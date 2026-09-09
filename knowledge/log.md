@@ -1,4 +1,12 @@
 ## 2026-09-09
+* **Update**: Linked `architecture/audio-pipeline.md` to `tools/video-production.md` (powers audio tracks rendered in video compositions).
+* **Update**: Updated concept `architecture/audio-pipeline.md`.
+* **Update**: Linked `architecture/audio-pipeline.md` to `tools/voice-libraries.md` (defines the audio pipeline using these voice engines).
+* **Update**: Updated concept `architecture/audio-pipeline.md`.
+* **Update**: Linked `tools/video-production.md` to `tools/voice-libraries.md` (integrates synthesized voices and masters audio into compositions).
+* **Update**: Updated concept `tools/video-production.md`.
+* **Creation**: Documented concept `tools/voice-libraries.md` (Voice Libraries & Audio Generation Stack).
+* **Creation**: Documented concept `tools/video-production.md` (Video Production Tools & Composition Rules).
 * **Update**: Linked `architecture/audio-pipeline.md` to `decisions/security-guard.md` (governed by the security validation contract).
 * **Update**: Updated concept `architecture/audio-pipeline.md`.
 * **Update**: Linked `project/overview.md` to `architecture/audio-pipeline.md` (powers the vocal and audio production layer).
