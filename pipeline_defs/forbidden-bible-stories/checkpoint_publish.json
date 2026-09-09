@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "project_id": "forbidden-bible-stories",
+  "pipeline_type": "cinematic",
+  "stage": "publish",
+  "status": "awaiting_human",
+  "timestamp": "2026-08-15T04:36:47.335408+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "publish_log": {
+      "version": "1.0",
+      "entries": [
+        {
+          "platform": "youtube",
+          "status": "exported",
+          "export_path": "/Users/paul/Documents/OpenMontage/projects/forbidden-bible-stories/exports",
+          "timestamp": "2026-08-15T04:36:28.633786+00:00",
+          "metadata_used": {
+            "title": "\uc131\uacbd \uc18d \uae08\uc9c0\ub41c \uc774\uc57c\uae30\ub4e4 \u2014 \uac70\uc778 \ub124\ud53c\ub9bc\uc758 \uc9c4\uc2e4",
+            "description": "\uc131\uacbd\uc774 \uae30\ub85d\ud55c \uac70\uc778, \ub124\ud53c\ub9bc. \ucc9c\uc0ac\uc758 \uc544\ub4e4\uc774 \uc544\ub2c8\ub77c \uc0ac\ub78c\uc758 \uc544\ub4e4\ub4e4\uc774\uc5c8\ub2e4. \ucc3d\uc138\uae30 6\uc7a5\uc758 \uc14b\uc758 \ud6c4\uc190, \uc5d0\ub179\uc11c\uc758 \ud574\uc11d \ub17c\uc7c1, \ub178\uc544 \ud64d\uc218\uc758 \uc2ec\ud310\uacfc \uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c\uc758 \uba78\ub9dd\uae4c\uc9c0. \uc2e0\ud654\uac00 \uc544\ub2cc \uae30\ub85d\uc758 \ubb34\uac8c\ub97c \ub2f4\uc740 \uc2dc\ub124\ub9c8\ud2f1 \ub2e4\ud050.",
+            "hashtags": [
+              "#\uc131\uacbd",
+              "#\ub124\ud53c\ub9bc",
+              "#\uac70\uc778",
+              "#\uc2e0\ube44",
+              "#\ub2e4\ud050\uba58\ud130\ub9ac",
+              "#\uae30\ub3c5\uad50"
+            ],
+            "chapters": [
+              {
+                "start_seconds": 0,
+                "title": "\uc11c\ubb38: \uac70\uc778\uc758 \uae30\ub85d"
+              },
+              {
+                "start_seconds": 16,
+                "title": "\ucc3d\uc138\uae30 6\uc7a5"
+              },
+              {
+                "start_seconds": 41,
+                "title": "\ub124\ud53c\ub9bc\uc758 \uc815\uccb4"
+              },
+              {
+                "start_seconds": 66,
+                "title": "\uc5d0\ub179\uc11c\uc758 \ud574\uc11d"
+              },
+              {
+                "start_seconds": 91,
+                "title": "\ub178\uc544 \ud64d\uc218\uc758 \uc2ec\ud310"
+              },
+              {
+                "start_seconds": 116,
+                "title": "\uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c"
+              },
+              {
+                "start_seconds": 141,
+                "title": "\uae30\ub85d\uc758 \ubb34\uac8c"
+              }
+            ]
+          },
+          "visibility": "unlisted"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "hero_output": "renders/final.mp4",
+    "export_dir": "projects/forbidden-bible-stories/exports"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "adaptation",
+  "status": "completed",
+  "timestamp": "2026-08-16T03:49:36.066983+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "adaptation_plan": {
+      "version": "1.0",
+      "source": {
+        "title": "\ub4f1\ubd88\uc9c0\uae30 (The Lantern Keeper)",
+        "input_kind": "novel",
+        "source_text_ref": "projects/lantern-keeper/source_lantern-keeper.txt",
+        "estimated_word_count": 520,
+        "language": "ko"
+      },
+      "target_format": {
+        "episode_duration_seconds": 90,
+        "episode_count": 1,
+        "aspect_ratio": "16:9",
+        "platform": "youtube"
+      },
+      "compression": {
+        "max_scenes_per_episode": 6,
+        "compression_ratio": "3 chapters : 1 episode",
+        "keep_beats": [
+          "\ub4f1\ubd88\uc774 \uaebc\uc9c0\uba74 \uc548 \ub41c\ub2e4\ub294 \uaddc\uce59",
+          "\uccad\ub144 \ub3c4\uc724\uc758 \ub3c4\ucc29",
+          "\uc544\ub4e4\uc744 \uc783\uc740 \ub178\uc778\uc758 \uace0\ubc31",
+          "\ube5b\uc744 \uc774\uc5b4\uac00\ub294 \uacb0\ub9d0"
+        ],
+        "drop_beats": [
+          "\uc77c\uc0c1 \ubb18\uc0ac\uc758 \ubc18\ubcf5",
+          "\uc138\ubd80 \ubc30\uacbd \uc124\uba85",
+          "\ub290\ub9b0 \uc2dc\uac04 \uacbd\uacfc \ud45c\ud604"
+        ]
+      },
+      "episodes": [
+        {
+          "id": "ep01",
+          "index": 1,
+          "title": "\uaebc\uc9c0\uc9c0 \uc54a\ub294 \ube5b",
+          "source_span": "\uc81c1\uc7a5~\uc81c3\uc7a5 (\uc804\uccb4)",
+          "summary": "\ud3ed\ud48d\uc758 \ubc24, \ub4f1\ubd88\uc744 \uc9c0\ud0a4\ub294 \ub178\uc778 \uac15\uc218\ud638\uac00 \ubc14\ub2e4\uc5d0\uc11c \ud5e4\uc5c4\uccd0 \uc628 \uc80a\uc740\uc774 \ub3c4\uc724\uc744 \uad6c\ud55c\ub2e4. \ub3c4\uc724\uc740 \ud68c\ubcf5\ud558\uba70 \ub4f1\ubd88 \uc9c0\ud0a4\uae30\ub97c \ubc30\uc6b0\uace0, \uc218\ud638\ub294 \ud3ed\ud48d\uc5d0 \ub4f1\ubd88\uc774 \uaebc\uc838 \uc783\uc740 \uc544\ub4e4 \uc774\uc57c\uae30\ub97c \ud55c\ub2e4. \ub5a0\ub098\ub294 \ub3c4\uc724\uc5d0\uac8c \uc218\ud638\ub294 '\ubd88\uc740 \uc9c0\ud0a4\ub294 \uc0ac\ub78c\uc774 \uc788\uc5b4\uc57c \uaebc\uc9c0\uc9c0 \uc54a\ub294\ub2e4'\ub294 \ub9d0\uc744 \ub0a8\uae34\ub2e4.",
+          "hook": "\uadf8\ub0a0 \ubc24, \ub4f1\ub300\uac00 \ud754\ub4e4\ub9b4 \ub9cc\ud07c\uc758 \ud3ed\ud48d\uc774\uc5c8\ub2e4.",
+          "emotional_arc": "\ud3ed\ud48d\uc758 \uae34\uc7a5 \u2192 \uc778\uc5f0\uc758 \ub530\ub73b\ud568 \u2192 \uc0c1\uc2e4\uc758 \uace0\ubc31 \u2192 \uc774\uc5b4\uc9c0\ub294 \ud76c\ub9dd",
+          "estimated_duration_seconds": 90,
+          "scenes": [
+            {
+              "id": "ep01s1",
+              "description": "\ud3ed\ud48d\uc6b0 \uc18d \uc808\ubcbd \uc704 \ub4f1\ub300, \ub450 \ud314\ub85c \uaebc\uc9c8 \ubed4\ud55c \ub4f1\ubd88\uc744 \uac10\uc2f8\ub294 \ub178\uc778",
+              "setting": "\ud3ed\ud48d\uc758 \ubc24, \ub4f1\ub300 \uc0c1\uce35",
+              "characters": [
+                "kang_suho"
+              ],
+              "narrative_role": "establish",
+              "emotional_intensity": 8
+            },
+            {
+              "id": "ep01s2",
+              "description": "\ube44\uc5d0 \ud760\ubed1 \uc816\uc740 \ucc44 \ubb38\uc744 \ub450\ub4dc\ub9ac\ub294 \uc80a\uc740\uc774, \ub178\uc778\uc774 \ubb38\uc744 \uc5f0\ub2e4",
+              "setting": "\ud3ed\ud48d \uc18d \ub4f1\ub300 \uc785\uad6c",
+              "characters": [
+                "kang_suho",
+                "do_yoon"
+              ],
+              "narrative_role": "build",
+              "emotional_intensity": 7
+            },
+            {
+              "id": "ep01s3",
+              "description": "\ub178\uc778\uc774 \uccad\ub144\uc5d0\uac8c \ub4f1\ubd88\uc744 \ub3cc\ubcf4\ub294 \ubc95\uc744 \uac00\ub974\uce58\ub294 \ubaa8\uc2b5, \ubd88\uaf43\uc774 \uc548\uc815\ub3fc \uc788\ub2e4",
+              "setting": "\uc0c8\ubcbd \ub4f1\ub300 \ub0b4\ubd80",
+              "characters": [
+                "kang_suho",
+                "do_yoon"
+              ],
+              "narrative_role": "build",
+              "emotional_intensity": 5
+            },
+            {
+              "id": "ep01s4",
+              "description": "\ubc14\ub2e4\ub97c \ud5a5\ud574 \uba48\ucdb0 \uc120 \ub178\uc778, \uc624\ub798 \uc804 \uc783\uc740 \uc544\ub4e4\uc744 \ub5a0\uc62c\ub9ac\ub294 \uc5bc\uad74",
+              "setting": "\ud574\uc548 \uc808\ubcbd, \ud68c\uc0c9 \ud558\ub298",
+              "characters": [
+                "kang_suho"
+              ],
+              "narrative_role": "turn",
+              "emotional_intensity": 9
+            },
+            {
+              "id": "ep01s5",
+              "description": "\uad6c\uc870\uc120\uc774 \uc624\uace0, \ub4f1\ub300 \uaf2d\ub300\uae30\uc5d0\uc11c \ubc14\ub2e4\ub97c \ub0b4\ub824\ub2e4\ubcf4\ub294 \ub450 \uc0ac\ub78c",
+              "setting": "\ud3ed\ud48d \uc9c0\ub09c \uc544\uce68, \ub4f1\ub300 \uaf2d\ub300\uae30",
+              "characters": [
+                "kang_suho",
+                "do_yoon"
+              ],
+              "narrative_role": "climax",
+              "emotional_intensity": 8
+            },
+            {
+              "id": "ep01s6",
+              "description": "\uc218\ub144 \ub4a4, \uc5ec\uc804\ud788 \uaebc\uc9c0\uc9c0 \uc54a\ub294 \ub4f1\ubd88\uacfc \uadf8 \uacc1\uc5d0 \uc120 \uc0c8\ub85c\uc6b4 \uc9c0\ud0a4\ub294 \uc774",
+              "setting": "\ud669\ud63c\uc758 \ub4f1\ub300, \ub530\ub73b\ud55c \ubd88\ube5b",
+              "characters": [
+                "do_yoon"
+              ],
+              "narrative_role": "resolve",
+              "emotional_intensity": 6
+            }
+          ]
+        }
+      ],
+      "cast": [
+        {
+          "id": "kang_suho",
+          "display_name": "\uac15\uc218\ud638",
+          "role": "\ub4f1\ubd88\uc9c0\uae30 \ub178\uc778 (\uc8fc\uc778\uacf5)",
+          "appearance": "A weathered East Asian man in his early 60s, short white hair, deep wrinkles around warm eyes, gray stubble beard, wearing a heavy dark wool fisherman's coat with brass buttons.",
+          "first_seen_episode": 1
+        },
+        {
+          "id": "do_yoon",
+          "display_name": "\ub3c4\uc724",
+          "role": "\ud3ed\ud48d\uc5d0 \uad6c\uc870\ub41c \uc80a\uc740 \uccad\ub144",
+          "appearance": "A lean East Asian young man in his late 20s, short black hair swept back, clean-shaven face with sharp cheekbones, wearing a soaked navy sailor jacket.",
+          "first_seen_episode": 1
+        }
+      ],
+      "metadata": {
+        "note": "\ud14c\uc2a4\ud2b8\uc6a9 \uc6d0\uc791 \ub2e8\ud3b8. 3\uc7a5 \uc804\uccb4\ub97c 1\uc5d0\ud53c\uc18c\ub4dc\ub85c \uc555\ucd95 (\uc7a5\uba74 6\uac1c \ucea1).",
+        "pipeline": "novel-to-video"
+      }
+    }
+  }
+}

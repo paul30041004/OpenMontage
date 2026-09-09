@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "flow.json",
+  "type": "object",
+  "required": ["aspect_ratio", "look_prompt", "images", "clips", "videos"],
+  "properties": {
+    "flow_url": {
+      "type": "string",
+      "default": "https://labs.google/fx/ko/tools/flow"
+    },
+    "aspect_ratio": {
+      "type": "string",
+      "enum": ["16:9", "9:16"],
+      "description": "Output aspect ratio for all generations"
+    },
+    "look_prompt": {
+      "type": "string",
+      "description": "Look sentence prepended to EVERY image prompt. Keep it positive-only — never use negations ('no text', 'no people'): generative models draw what is mentioned, so '노텍스트' literally draws text. State only what SHOULD be present."
+    },
+    "images": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "prompt"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Stable identifier used by state.json, filenames, and clips[].source_image"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Per-image prompt. The look_prompt is prepended automatically."
+          },
+          "anchor": {
+            "type": "boolean",
+            "description": "Exactly ONE image must be the anchor. It is generated first, without a reference; every other image is generated with the anchor attached as a reference image so the whole set shares one look."
+          }
+        }
+      }
+    },
+    "videos": {
+      "type": "array",
+      "description": "ZERO-credit video generation via the 'Veo 3.1 - Lite [Lower Priority]' model. Verified Sep 2026: 720p (9:16), 4s/6s/8s, 0 credits. Defaults to x4 batch generation (4 variants per prompt for offline selection). Lower-priority = queued behind paid requests; expect 3-10+ minutes per clip with long stalls at fixed percentages.",
+      "items": {
+        "type": "object",
+        "required": ["id", "prompt"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Video prompt. For image-look continuity keep it close to the look_prompt sentence."
+          },
+          "duration": {
+            "type": "string",
+            "enum": ["4s", "6s", "8s"],
+            "default": "8s"
+          },
+          "reference_image": {
+            "type": "string",
+            "description": "Optional images[] id to attach as a reference (Ingredients) so the video matches that image's look."
+          }
+        }
+      }
+    },
+    "clips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source_image"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "source_image": {
+            "type": "string",
+            "description": "ID of the image to animate. The source card is located by its Flow card TITLE (recorded in state.json), never by list position — Flow moves the selected card to the front, so positional picking spends credits on the wrong asset."
+          },
+          "prompt": {
+            "type": "string",
+            "default": "첫 프레임 그대로 유지하고 아주 느린 카메라 이동",
+            "description": "One slow camera move is enough. Rich prompts make the frame drift. Default: keep first frame, one very slow camera move."
+          }
+        }
+      }
+    }
+  },
+  "properties_images_anchor": {
+    "description": "validation note: exactly one images[] item should carry anchor:true"
+  }
+}

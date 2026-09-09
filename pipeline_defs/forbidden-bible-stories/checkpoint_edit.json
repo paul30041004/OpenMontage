@@ -1,0 +1,216 @@
+{
+  "version": "1.0",
+  "project_id": "forbidden-bible-stories",
+  "pipeline_type": "cinematic",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-08-15T03:39:47.176654+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "cuts": [
+        {
+          "id": "c1",
+          "source": "video_sc1",
+          "in_seconds": 0,
+          "out_seconds": 8,
+          "speed": 0.5,
+          "layer": "primary",
+          "transition_in": "fade",
+          "transition_duration": 1.0,
+          "backgroundColor": "#020407",
+          "reason": "\uc624\ud504\ub2dd \ud788\uc5b4\ub85c \u2014 \uac70\uc778 \uc2e4\ub8e8\uc5e3. \uc2ac\ub85c\ubaa8\uc158\uc73c\ub85c \uae34\uc7a5 \uc11c\uc11c\ud788 \uc870\uc131 (0-16s)"
+        },
+        {
+          "id": "c2",
+          "source": "video_sc2",
+          "in_seconds": 0,
+          "out_seconds": 8,
+          "speed": 0.32,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\ud544\uc0ac\ubcf8 \ud074\ub85c\uc988\uc5c5 \u2014 \ucc3d\uc138\uae30 6\uc7a5 \ube44\ud2b8 (16-41s)"
+        },
+        {
+          "id": "c3",
+          "source": "video_sc3",
+          "in_seconds": 0,
+          "out_seconds": 8,
+          "speed": 0.32,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\uc804\uc7a5 \uc704 \uac70\uc778 \uc804\uc0ac \u2014 \ub124\ud53c\ub9bc \uc815\uccb4 \ube44\ud2b8 (41-66s)"
+        },
+        {
+          "id": "c4",
+          "source": "video_sc4",
+          "in_seconds": 0,
+          "out_seconds": 8,
+          "speed": 0.32,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\ubd88\uaf43\uc5d0 \ube44\uce5c \uace0\ubb38\uc11c \u2014 \uc5d0\ub179\uc11c \ubbf8\ub4dc\ud3ec\uc778\ud2b8 (66-91s)"
+        },
+        {
+          "id": "c5",
+          "source": "video_sc5",
+          "in_seconds": 0,
+          "out_seconds": 8,
+          "speed": 0.32,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\ud64d\uc218 \ubcbd\ud30c \u2014 \ud074\ub77c\uc774\ub9e5\uc2a4 \ud788\uc5b4\ub85c (91-116s)"
+        },
+        {
+          "id": "c6",
+          "source": "video_sc6",
+          "in_seconds": 0,
+          "out_seconds": 8,
+          "speed": 0.32,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\uc720\ud669\ubd88 + \uc18c\uae08\uae30\ub465 \u2014 \ub9ac\ube4c \ud788\uc5b4\ub85c (116-141s)"
+        },
+        {
+          "id": "c7",
+          "source": "img_card_landing",
+          "in_seconds": 0,
+          "out_seconds": 31,
+          "speed": 1.0,
+          "layer": "primary",
+          "transform": {
+            "scale": 1.05,
+            "position": "center",
+            "animation": "ken-burns-slow-zoom"
+          },
+          "transition_in": "fade",
+          "transition_duration": 1.0,
+          "backgroundColor": "#020407",
+          "reason": "\ub79c\ub529 \u2014 \uc5b4\ub450\uc6b4 \uc9c8\uac10 \ubc30\uacbd \uc704 \ucd5c\uc885 \ud0c0\uc774\ud2c0 + \uad6c\ub3c5 CTA (141-172s)"
+        }
+      ],
+      "overlays": [],
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "nar_s1",
+              "start_seconds": 2
+            },
+            {
+              "asset_id": "nar_s2",
+              "start_seconds": 17
+            },
+            {
+              "asset_id": "nar_s3",
+              "start_seconds": 42
+            },
+            {
+              "asset_id": "nar_s4",
+              "start_seconds": 67
+            },
+            {
+              "asset_id": "nar_s5",
+              "start_seconds": 92
+            },
+            {
+              "asset_id": "nar_s6",
+              "start_seconds": 117
+            },
+            {
+              "asset_id": "nar_s7",
+              "start_seconds": 142
+            }
+          ]
+        },
+        "music": {
+          "asset_id": "music_bgm",
+          "volume": 0.35,
+          "fade_in_seconds": 2,
+          "fade_out_seconds": 3,
+          "ducking": {
+            "enabled": true,
+            "threshold_db": -16,
+            "reduction_db": 8,
+            "attack_ms": 120,
+            "release_ms": 400
+          }
+        },
+        "sfx": []
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "sentence",
+        "source": "assets/subtitles.srt",
+        "font": "Noto Sans KR",
+        "font_size": 44,
+        "color": "#FFFFFF",
+        "outline_color": "#000000",
+        "background": "#00000088",
+        "position": "bottom-center",
+        "max_words_per_line": 8
+      },
+      "renderer_family": "cinematic-trailer",
+      "render_runtime": "remotion",
+      "composition_mode": "templated",
+      "metadata": {
+        "beat_timing": {
+          "hook": "0-16",
+          "escalation1": "16-41",
+          "escalation2": "41-66",
+          "midpoint": "66-91",
+          "escalation3": "91-116",
+          "reveal": "116-141",
+          "landing": "141-172"
+        },
+        "audio_turns": {
+          "music_intro": 0,
+          "music_build": 41,
+          "music_peak": 91,
+          "music_resolve": 141
+        },
+        "title_card_windows": [
+          {
+            "text": "\uc131\uacbd \uc18d \uae08\uc9c0\ub41c \uc774\uc57c\uae30\ub4e4",
+            "window": "0-4",
+            "scene": "c1"
+          },
+          {
+            "text": "\ub124\ud53c\ub9bc \u2014 \uc0ac\ub78c\uc758 \uc544\ub4e4, \uac70\uc778",
+            "window": "44-50",
+            "scene": "c3"
+          },
+          {
+            "text": "\uc0ac\ub78c\uc758 \uc544\ub4e4\ub4e4\uc774\uc5c8\ub2e4",
+            "window": "142-148",
+            "scene": "c7"
+          }
+        ],
+        "total_duration_seconds": 172,
+        "video_clips_used": [
+          "sample_sc1_giant.mp4",
+          "sc2_manuscript.mp4",
+          "sc3_warrior.mp4",
+          "sc4_scroll.mp4",
+          "sc5_flood.mp4",
+          "sc6_sodom.mp4"
+        ],
+        "motion_led": true,
+        "narration_total_seconds": 124,
+        "notes": "VEO 8\ucd08 \ud074\ub9bd \uc2ac\ub85c\ubaa8\uc158(0.32-0.5x)\uc73c\ub85c \uac01 \ube44\ud2b8 \uc708\ub3c4\uc6b0\ub97c \ucee4\ubc84. \ud0c0\uc784\ub77c\uc778 172\ucd08 = \uc74c\uc545 \uae38\uc774\uc640 \uc815\ud569. \ud3b8\uc9d1\uc911\uc778 \ube44\ud2b8 \uc708\ub3c4\uc6b0\ub294 \uc6d0 \ub300\ubcf8(180s)\uc5d0\uc11c \uc2e4\uc81c \uc790\uc0b0 \uae38\uc774 \uae30\uc900\uc73c\ub85c \uc870\uc815."
+      }
+    }
+  },
+  "metadata": {
+    "total_duration_seconds": 172,
+    "render_runtime": "remotion"
+  }
+}

@@ -259,6 +259,7 @@ If the folder has tracks, the proposal and asset stages should present them as o
 | `novel-to-video` | Long-form text (novel/story/article) to episodic video with character-consistency anchoring | beta |
 | `feature-film` | Long-form cinematic narrative & feature film with Story Bible, act breakdown, character locking, shot QC, and chunked render | beta |
 | `short-form-factory` | MoneyPrinter-style automated 9:16 vertical shorts (TikTok, Reels, Shorts) with keyword-driven visual matching and karaoke subtitles | production |
+| `sheet-music-vocal` | MusicXML/MXL to AI Vocal, SATB Virtual Choir, and FreeShow broadcast presentation | production |
 | `framework-smoke` | Test: minimal 2-stage smoke test | test |
 
 > **Beta pipelines** have not been fully audited. They work, but expect rough edges. Mention this when the user selects one.
@@ -683,14 +684,14 @@ The `.agents/skills/` directory is large. When you're not coming in through a to
 | **Composition runtime** | `remotion`, `remotion-best-practices`, `synthetic-screen-recording` (fake terminal/UI demos via Remotion TerminalScene), `threejs-world-generation` (semantic terrain and free-viewpoint HyperFrames worlds) |
 | **Animation knowledge (generic)** | `gsap-core`, `gsap-timeline`, `gsap-plugins` (SplitText / MorphSVG / DrawSVG / MotionPath / Flip / CustomEase), `gsap-utils`, `gsap-react`, `gsap-performance`, `gsap-scrolltrigger`, `gsap-frameworks`, `framer-motion` (Disney 12 principles), `lottie-bodymovin` (Lottie export) |
 | **Character animation** | `character-rigging`, `svg-character-animation`, `pose-library-design`, `canvas-procedural-animation`, `character-animation-qa` |
-| **Image generation** | `bfl-api`, `flux-best-practices` |
-| **Video generation** | `seedance-2-0` (preferred premium default — cinematic, trailer, multi-shot, synced audio, lip-sync), `gemini-omni` (conversational video editing, reference tags, timecoded beats), `ai-video-gen`, `ltx2` |
-| **Audio** | `elevenlabs`, `music`, `sound-effects`, `acestep`, `text-to-speech`, `azure-text-to-speech` (optional cloud TTS — tool `azure_tts`, same Speech key as `azure_stt`), `setup-api-key` |
-| **Speech-to-text** | `speech-to-text` (whisper `transcriber` — default, offline), `azure-speech-to-text` (optional cloud STT — tool `azure_stt`, preferred when `AZURE_SPEECH_KEY` is set) |
+| **Image generation** | `bfl-api`, `flux-best-practices`, `flow-shorts` (Google Flow 0-credit free image generation via Nano Banana Pro, tool `flow_image`) |
+| **Video generation** | `seedance-2-0` (preferred premium default — cinematic, trailer, multi-shot, synced audio, lip-sync), `gemini-omni` (conversational video editing, reference tags, timecoded beats), `ai-video-gen`, `ltx2`, `flow-shorts` (Google Flow 0-credit free video generation via Veo 3.1 - Lite [Lower Priority] x4, tool `flow_video`), `flow-storyboard` (Google Flow 3x3 storyboard grid, Google Maps street-view grounding, and 10s cinematic video expansion) |
+| **Audio** | `elevenlabs`, `music`, `sound-effects`, `acestep`, `text-to-speech`, `azure-text-to-speech` (optional cloud TTS — tool `azure_tts`, same Speech key as `azure_stt`), `setup-api-key`, `musescore-synthv-freeshow`, `vibevoice`, `voicestudio`, `qwen3-tts`, `qwen3-tts-local`, `voxcpm-tts` |
+| **Speech-to-text** | `speech-to-text` (whisper `transcriber` — default, offline), `azure-speech-to-text` (optional cloud STT — tool `azure_stt`, preferred when `AZURE_SPEECH_KEY` is set), `vibevoice` |
 | **Avatar / lip-sync** | `avatar-video`, `heygen`, `create-video`, `faceswap`, `video-translate`, `agents` |
 | **Capture** | `playwright-recording` (browser flows), `ffmpeg` (post) |
 | **Visualization** | `beautiful-mermaid`, `d3-viz`, `manim-composer`, `manimce-best-practices`, `manimgl-best-practices` |
-| **Media editing** | `video-edit`, `video-download`, `video-understand`, `video-toolkit`, `visual-style` |
+| **Media editing** | `video-edit`, `video-download`, `video-understand`, `video-toolkit`, `visual-style`, `flow-storyboard` (3x3 grid slicing and frame interpolation) |
 
 **When in doubt, read the category's meta routing file first:**
 - Picking an animation runtime? → `skills/meta/animation-runtime-selector.md` routes between Remotion primitives, GSAP plugins, framer-motion, Lottie, Manim, D3.

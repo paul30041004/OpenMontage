@@ -1,0 +1,36 @@
+{
+  "flow_url": "https://labs.google/fx/ko/tools/flow",
+  "aspect_ratio": "9:16",
+  "look_prompt": "일러스트 렌더링 스타일, 밝은 베이지 배경의 스튜디오 씬, 부드러운 키 라이트와 그림자, 담백한 색감, 정물 구도",
+  "images": [
+    {
+      "id": "anchor-hero-lens",
+      "anchor": true,
+      "prompt": "테이블 위 다초점 안경 렌즈의 클로즈업, 렌즈 단면의 미묘한 곡률이 보이는 각도"
+    },
+    { "id": "hook-reading-glasses", "prompt": "신문을 읽으며 눈을 찌푸리는 중년의 손에 들린 돋보기 안경" },
+    { "id": "problem-bifocal-line", "prompt": "이중 초점 안경 렌즈의 경계선 클로즈업, 두 영역의 맞닿은 지점" },
+    { "id": "problem-stairs-blur", "prompt": "계단을 내려다보는 시점, 발밑 계단의 일부가 흐려 보이는 장면" },
+    { "id": "solution-zone-diagram", "prompt": "다초점 렌즈 단면의 사진, 위에서 아래로 이어지는 매끈한 곡률 변화" },
+    { "id": "closing-long-shot", "prompt": "스튜디오 테이블에 놓인 다초점 안경의 와이드 샷, 넉넉한 여백" }
+  ],
+  "videos": [
+    {
+      "id": "vclip-hook",
+      "prompt": "일러스트 렌더링 스타일, 밝은 베이지 배경의 스튜디오 씬. 테이블 위 다초점 안경 렌즈 클로즈업에서 아주 느린 카메라 이동",
+      "duration": "8s",
+      "reference_image": "anchor-hero-lens"
+    },
+    {
+      "id": "vclip-closing",
+      "prompt": "일러스트 렌더링 스타일, 밝은 베이지 배경의 스튜디오 씬. 놓인 다초점 안경의 와이드 샷에서 아주 느린 줌아웃",
+      "duration": "8s"
+    }
+  ],
+  "clips": [
+    { "id": "clip-hook", "source_image": "hook-reading-glasses" },
+    { "id": "clip-problem-stairs", "source_image": "problem-stairs-blur" },
+    { "id": "clip-solution-lens", "source_image": "solution-zone-diagram" },
+    { "id": "clip-closing", "source_image": "closing-long-shot" }
+  ]
+}

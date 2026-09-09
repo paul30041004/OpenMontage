@@ -1,0 +1,62 @@
+{
+  "version": "1.0",
+  "project_id": "forbidden-bible-stories",
+  "pipeline_type": "cinematic",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-08-15T04:35:46.063744+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "projects/forbidden-bible-stories/renders/final.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1920x1080",
+          "fps": 30,
+          "duration_seconds": 172.0,
+          "file_size_bytes": 46958122,
+          "platform_target": "youtube"
+        }
+      ],
+      "render_time_seconds": 540,
+      "warnings": [
+        "Remotion \ud328\ud0a4\uc9c0 \ubc84\uc804 \ubd88\uc77c\uce58(@remotion/three 4.0.506)\ub97c 4.0.484\ub85c \uace0\uc815",
+        "c7 \ub79c\ub529 \ubc30\uacbd: Imagen PNG\ub97c ffmpeg\ub85c 31\ucd08 \ube44\ub514\uc624\ub85c \ubcc0\ud658 (CinematicRenderer\uac00 PNG\ub97c OffthreadVideo\ub85c \ucc98\ub9ac\ud558\uc9c0 \ubabb\ud558\ub294 \ubb38\uc81c \uc6b0\ud68c)"
+      ],
+      "verification_notes": [
+        "ffprobe: 172.0\ucd08, 1920x1080, 30fps, h264/aac, has_audio=true",
+        "audio_levels: \uc804 \uad6c\uac04 -16.8 ~ -1.3 dB (\ub098\ub808\uc774\uc158+\uc74c\uc545 \ubbf9\uc2a4 \uc815\uc0c1)",
+        "final_review status=pass",
+        "render_runtime=remotion \uc77c\uce58 (proposal_packet\uacfc \ub3d9\uc77c) \u2014 silent swap \uc5c6\uc74c"
+      ],
+      "render_grammar": "cinematic-trailer",
+      "slideshow_risk_score": {
+        "average": 3.3,
+        "verdict": "acceptable"
+      },
+      "decision_log_ref": "projects/forbidden-bible-stories/artifacts/decision_log.json",
+      "final_review_ref": "video_compose final_review (status=pass)",
+      "metadata": {
+        "frame_treatment": "\ub2e4\ud06c \uc2dc\ub124\ub9c8\ud2f1 \uadf8\ub808\uc774\ub529 (CinematicRenderer \uae30\ubcf8 tone='cold', \ub300\ube44/\uadf8\ub808\uc778)",
+        "grade_profile": "CinematicRenderer \ub0b4\uc7a5 \ud544\ud130 (contrast 1.06, saturate 0.88, brightness 0.92)",
+        "mix_notes": "VoxCPM \ub098\ub808\uc774\uc158 7\uc138\uadf8\uba3c\ud2b8 + Lyria \uc74c\uc545, \ub355\ud0b9 -8dB, \ub178\uba40\ub77c\uc774\uc988",
+        "variant_outputs": [
+          "final.mp4 (\uc720\ud29c\ube0c 16:9 \ubbf8\ub4dc\ud3fc)"
+        ],
+        "composition_mode": "templated",
+        "total_cost_usd": 1.75
+      }
+    }
+  },
+  "metadata": {
+    "output": "renders/final.mp4",
+    "duration": 172,
+    "final_review": "pass"
+  }
+}

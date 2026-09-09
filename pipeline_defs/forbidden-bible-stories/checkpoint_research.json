@@ -1,0 +1,318 @@
+{
+  "version": "1.0",
+  "project_id": "forbidden-bible-stories",
+  "pipeline_type": "cinematic",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-08-15T02:40:54.115531+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "\uc131\uacbd \uc18d \uae08\uc9c0\ub41c \uc774\uc57c\uae30\ub4e4 (Forbidden Stories in the Bible)",
+      "research_date": "2026-08-15",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "\uc131\uacbd \uc18d \ucda9\uaca9\uc801\uc778 \uc228\uaca8\uc9c4 \uc774\uc57c\uae30 \ubaa8\uc74c",
+            "url": "https://www.youtube.com/playlist?list=PLZK4skpgJKTCei3JrihtK6MT2wGu-fB5f",
+            "source": "youtube",
+            "angle": "\ucda9\uaca9/\uc228\uaca8\uc9c4 \uc774\uc57c\uae30 \ubaa8\uc74c",
+            "what_it_covers": "\uc131\uacbd\uc758 \ub17c\ub780 \ub9ce\uc740 \uc774\uc57c\uae30\ub4e4\uc744 \ubaa9\ub85d\ud615\uc73c\ub85c \uc18c\uac1c",
+            "what_it_misses": "\uc2dc\uac01\uc801 \ubab0\uc785\uac10\uc774 \uc5c6\uace0 \ub098\uc5f4\uc2dd \u2014 \uc601\ud654\uc801 \uc7ac\ud604 \ubd80\uc7ac",
+            "engagement_signal": "\ud50c\ub808\uc774\ub9ac\uc2a4\ud2b8 \uc870\ud68c \uc9d1\uacc4 (K-\uc720\ud29c\ube0c \ub2e4\ud050 \uc7a5\ub974 \uc778\uae30)"
+          },
+          {
+            "title": "[\uc131\uacbd][\ubbf8\uc2a4\ud130\ub9ac] \ub124\ud53c\ub9bc\uc758 \uc815\uccb4 Q&A",
+            "url": "https://www.youtube.com/watch?v=Djt5NvuIkuI",
+            "source": "youtube",
+            "angle": "\ub124\ud53c\ub9bc \ubbf8\uc2a4\ud130\ub9ac Q&A",
+            "what_it_covers": "\ub124\ud53c\ub9bc \uc815\uccb4, \ud0c0\ub77d\ud55c \ucc9c\uc0ac, \ub178\uc544 \ud64d\uc218\uc758 \uc5f0\uad00",
+            "what_it_misses": "\uac15\uc88c \ud1a4 \u2014 \uae34\uc7a5\uac10/\uc2a4\ub9b4\ub7ec \ubb34\ub4dc \ubd80\uc871",
+            "engagement_signal": "\uc870\ud68c\uc218/\ub313\uae00 \ud65c\ubc1c (\ub124\ud53c\ub9bc \uc8fc\uc81c \uc778\uae30 \ud655\uc778)"
+          },
+          {
+            "title": "The Shocking Truth About the Forbidden Books of the Bible",
+            "url": "https://www.youtube.com/watch?v=5AFe2mXGpdA",
+            "source": "youtube",
+            "angle": "\uae08\uc9c0\ub41c \uacbd\uc678\uc11c(\uc5d0\ub179\uc11c \ub4f1) \ucda9\uaca9 \uc0ac\uc2e4",
+            "what_it_covers": "\uc815\uacbd\uc5d0\uc11c \uc81c\uc678\ub41c \ucc45\ub4e4 \u2014 \uc5d0\ub179\uc11c, \ud76c\ub144\uc11c",
+            "what_it_misses": "\uc601\uc5b4\uad8c \u2014 \ud55c\uad6d\uc5b4 \uc2dc\uccad\uc790\uc6a9 \ubab0\uc785\ud615 \ubc84\uc804 \uacf5\ubc31",
+            "engagement_signal": "\uc601\uc5b4\uad8c\uc5d0\uc11c 'forbidden books' \ud0a4\uc6cc\ub4dc \ud074\ub9ad\uc728 \ub192\uc74c"
+          },
+          {
+            "title": "What exactly are the Nephilim and how do they exist?",
+            "url": "https://www.reddit.com/r/AskAChristian/comments/1lgciqc/what_exactly_are_the_nephilim_and_how_do_they/",
+            "source": "reddit",
+            "angle": "\ub124\ud53c\ub9bc \uc874\uc7ac\ub860 \ub17c\uc7c1",
+            "what_it_covers": "\ub124\ud53c\ub9bc\uc774 \uc5b4\ub5bb\uac8c \uc874\uc7ac\ud558\ub294\uc9c0\uc5d0 \ub300\ud55c \uc9c8\ubb38",
+            "what_it_misses": "\uc601\uc0c1\ud654\ub418\uc9c0 \uc54a\uc740 \uc2ec\uce35 \uc9c8\ubb38",
+            "engagement_signal": "AskAChristian \uc9c0\uc18d \ub17c\uc758"
+          },
+          {
+            "title": "Hebrew Voices #30 \u2013 Nephilim and Demons in the Book of Enoch",
+            "url": "https://www.nehemiaswall.com/hebrew-voices-nephilim-and-demons-in-enoch",
+            "source": "podcast",
+            "angle": "\uc5d0\ub179\uc11c \uc18d \ub124\ud53c\ub9bc\u00b7\uadc0\uc2e0",
+            "what_it_covers": "\uc5d0\ub179\uc11c\uc758 \ud0c0\ub77d\ud55c \uac10\uc2dc\uc790\ub4e4",
+            "what_it_misses": "\uc74c\uc131 \ucf58\ud150\uce20 \u2014 \uc2dc\uac01\ud654 \ubd80\uc7ac",
+            "engagement_signal": "\ud559\uc220 \ud31f\uce90\uc2a4\ud2b8 \uccad\ucde8\uc790\uce35"
+          }
+        ],
+        "saturated_angles": [
+          "\ubaa9\ub85d\ud615 '\uc131\uacbd \ucda9\uaca9 \uc0ac\uc2e4 TOP10' (\uc81c\ubaa9\ub9cc \uc13c\uc138\uc774\uc154\ub110)",
+          "\uc124\uad50/\uac15\ud574\uc2dd \uac15\uc88c \ud1a4",
+          "\ub2e8\uc21c \uc131\uacbd \uad6c\uc808 \ub0ad\ub3c5"
+        ],
+        "underserved_gaps": [
+          "\ub124\ud53c\ub9bc \u2192 \ub178\uc544 \ud64d\uc218 \u2192 \uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c\ub85c \uc774\uc5b4\uc9c0\ub294 '\ud55c \ud3b8\uc758 \uc2a4\ub9b4\ub7ec \uc11c\uc0ac'\ub85c \uc555\ucd95\ud55c \ubbf8\ub4dc\ud3fc",
+          "\uace0\uace0\ud559/\uc131\uc11c\ud559 \ubc30\uacbd\uc744 \uacc1\ub4e4\uc778 '\uae30\ub85d\uc801 \uc99d\uac70' \uc2dc\ub124\ub9c8\ud2f1 \ub2e4\ud050",
+          "\ud55c\uad6d\uc5b4\ub85c \ub41c \uc601\ud654\uc801 \uc7ac\ud604 (VEO \ud074\ub9bd + \uae34\uc7a5\uac10 \uc74c\uc545) \ucf58\ud150\uce20"
+        ]
+      },
+      "trending": {
+        "recent_developments": [
+          {
+            "headline": "\uc131\uacbd \ub2e4\ud050 '\ub354 \ubc14\uc774\ube14' \ud070 \uc778\uae30",
+            "url": "https://www.kidok.com/news/articleView.html?idxno=79470",
+            "date": "2025",
+            "relevance": "\uc131\uacbd \uc2dc\uac01\ud654 \ucf58\ud150\uce20\uc5d0 \ub300\ud55c \ud55c\uad6d \uad00\uac1d \uc218\uc694 \ud655\uc778 \u2014 \uc774 \uc7a5\ub974\uc5d0 \ub300\ud55c \uc2dc\uc7a5\uc774 \uc874\uc7ac"
+          },
+          {
+            "headline": "Nephilim after the flood (Reddit \ud1a0\ub860)",
+            "url": "https://www.reddit.com/r/Bible/comments/1o2j85z/nephilim_after_the_flood/",
+            "date": "2026",
+            "relevance": "\ub124\ud53c\ub9bc-\ud64d\uc218 \uc5f0\uad00 \uc8fc\uc81c\uac00 \ud65c\ubc1c\ud788 \ub17c\uc758 \u2014 \uc6b0\ub9ac\uac00 \ub2e4\ub8e8\ub294 \uc11c\uc0ac\uac00 \uad00\uac1d \uc9c8\ubb38\uacfc \uc815\ud655\ud788 \uc77c\uce58"
+          }
+        ],
+        "active_discussions": [
+          {
+            "platform": "reddit",
+            "topic_or_url": "https://www.reddit.com/r/Bible/comments/1pba4mv/nephilim_and_unexplained_terms/",
+            "sentiment": "\ud638\uae30\uc2ec/\ud63c\ub780 \u2014 \ub124\ud53c\ub9bc\uacfc \uc131\uacbd \ubbf8\ud574\uacb0 \uc6a9\uc5b4\uc5d0 \ub300\ud55c \uac15\ud55c \uad81\uae08\uc99d",
+            "key_quotes": [
+              "What exactly are the Nephilim?",
+              "Were giants able to be saved?"
+            ]
+          },
+          {
+            "platform": "reddit",
+            "topic_or_url": "https://www.reddit.com/r/exchristian/comments/eo0thh/what_are_some_controversial_bible_stories_you/",
+            "sentiment": "\ud68c\uc758/\uad00\uc2ec \u2014 \uc124\uad50\uc5d0\uc11c \ub2e4\ub904\uc9c0\uc9c0 \uc54a\ub294 \ub17c\ub780 \ub9ce\uc740 \uc774\uc57c\uae30\uc5d0 \ub300\ud55c \ub300\uc911\uc801 \uad00\uc2ec",
+            "key_quotes": [
+              "\uc124\uad50\uc5d0\uc11c \uc808\ub300 \uc5b8\uae09 \uc548 \ub418\ub294 \ub17c\ub780 \ub9ce\uc740 \uc131\uacbd \uc774\uc57c\uae30"
+            ]
+          }
+        ],
+        "timeliness_window": "evergreen"
+      },
+      "data_points": [
+        {
+          "claim": "\ucc3d\uc138\uae30 6\uc7a5 1-4\uc808: '\ud558\ub098\ub2d8\uc758 \uc544\ub4e4\ub4e4'\uc774 \uc0ac\ub78c\uc758 \ub538\ub4e4\uacfc \uacb0\ud569\ud574 '\ub124\ud53c\ub9bc' \uace7 \uace0\ub300 \uc601\uc6c5\ub4e4\uc774 \ud0c4\uc0dd\ud588\uace0, \uc774\ub294 \ub178\uc544 \ud64d\uc218 \uc2ec\ud310\uc758 \uc9c1\uc811\uc801 \ubc30\uacbd\uc774\ub2e4.",
+          "source_url": "https://www.gotquestions.org/Korean/Korean-nephilim.html",
+          "source_name": "Got Questions \ud55c\uad6d\uc5b4\ud310",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "\uc5d0\ub179\uc11c 1\uc7a5 6-8\uc808\uc740 \ud0c0\ub77d\ud55c '\uac10\uc2dc\uc790\ub4e4'(\ucc9c\uc0ac\ub4e4)\uc774 \uc544\uc790\uc824\uc744 \ud544\ub450\ub85c \ud5e4\ub974\ubaac \uc0b0\uc5d0 \ub0b4\ub824\uc640 \uae08\uc9c0\ub41c \uc9c0\uc2dd(\ubb34\uae30, \uc810\uc131\uc220, \ud654\uc7a5\uc220)\uc744 \uac00\ub974\ucce4\ub2e4\uace0 \uc0c1\uc220\ud55c\ub2e4. \uc5d0\ub179\uc11c\ub294 \uc131\uacbd \uc815\uacbd(\uce74\ub17c)\uc5d0\uc11c \uc81c\uc678\ub41c \ub300\ud45c \uacbd\uc678\uc11c\ub2e4.",
+          "source_url": "https://readingacts.com/2016/05/31/the-fallen-angels-1-enoch-6-8/",
+          "source_name": "Reading Acts",
+          "credibility": "secondary_source",
+          "surprise_factor": "counterintuitive",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "\ucc3d\uc138\uae30 19\uc7a5: \uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c\ub294 \uc720\ud669\uacfc \ubd88\ub85c \uba78\ub9dd\ud588\uace0, \ub4a4\ub97c \ub3cc\uc544\ubcf8 \ub86f\uc758 \uc544\ub0b4\ub294 \uc18c\uae08\uae30\ub465\uc774 \ub418\uc5c8\ub2e4.",
+          "source_url": "https://www.youtube.com/watch?v=PZtt4lJjpW0",
+          "source_name": "\ucc3d\uc138\uae30 \uac15\ud574 (\ud76c\ub144\uc11c \ubcd1\ud589)",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "closing_punch"
+        },
+        {
+          "claim": "\ub124\ud53c\ub9bc\uc740 \uc131\uacbd \ubcf8\ubb38\uc5d0 '\ud64d\uc218 \uc774\ud6c4\uc5d0\ub3c4 \ub4f1\uc7a5\ud55c\ub2e4'(\ubbfc\uc218\uae30 13\uc7a5 \uc544\ub099 \uc790\uc190)\ub294 \ud574\uc11d\uc774 \uc788\uc5b4 \uc874\uc7ac\ub860\uc801 \ub17c\uc7c1\uc774 \uacc4\uc18d\ub41c\ub2e4.",
+          "source_url": "https://www.reddit.com/r/Bible/comments/1o2j85z/nephilim_after_the_flood/",
+          "source_name": "Reddit r/Bible",
+          "credibility": "anecdotal",
+          "surprise_factor": "notable",
+          "usable_as": "closing_punch"
+        },
+        {
+          "claim": "\uc131\uc11c\uace0\uace0\ud559\ud559\ud68c(BAS)\ub294 \ub124\ud53c\ub9bc\uc744 \uac00\ub098\uc548 \uc804\uc124\uc758 '\uace0\ub300 \uc601\uc6c5\ub4e4'\uacfc \uc5f0\uacb0\ud558\uba70, \ubcf8\ubb38\uc758 \ub9e5\ub77d \ud574\uc11d\uc774 \ud559\uc790\ub4e4 \uc0ac\uc774\uc5d0 \ubd84\ubd84\ud568\uc744 \ubcf4\uc5ec\uc900\ub2e4.",
+          "source_url": "https://www.biblicalarchaeology.org/daily/biblical-topics/hebrew-bible/who-are-the-nephilim/",
+          "source_name": "Biblical Archaeology Society",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "script_anchor"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "\ub124\ud53c\ub9bc\uc740 \uc815\ud655\ud788 \uc5b4\ub5a4 \uc874\uc7ac\uc778\uac00?",
+          "\ud0c0\ub77d\ud55c \ucc9c\uc0ac\ub4e4\uc774 \uc65c '\uae08\uc9c0\ub41c \uc9c0\uc2dd'\uc744 \uac00\ub974\ucce4\ub294\uac00?",
+          "\ub178\uc544 \ud64d\uc218\uc758 \uc9c4\uc9dc \uc774\uc720\uac00 \ud0c0\ub77d\ud55c \uc874\uc7ac\ub4e4\uacfc \uad00\ub828 \uc788\ub098?",
+          "\uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c\uc758 \uc9c4\uc9dc \uc8c4\ub294 \ubb34\uc5c7\uc778\uac00?",
+          "\uc131\uacbd\uc5d0 \ubbf8\uc2a4\ud130\ub9ac\uac00 \uc65c \uc774\ub807\uac8c \ub9ce\uc740\uac00?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "\ub124\ud53c\ub9bc\uc740 '\uac70\uc778'\uc774\ub77c\ub294 \ub73b\uc774\ub2e4",
+            "reality": "\ub124\ud53c\ub9bc\uc758 \uc5b4\uc6d0\uc740 '\uc4f0\ub7ec\ub728\ub9b0 \uc790/\ud0c0\ub77d\ud55c \uc790'\ub85c \ud574\uc11d\ub418\uba70, '\uac70\uc778'\uc740 70\uc778\uc5ed \ubc88\uc5ed\uc5d0\uc11c \uc720\ub798",
+            "source": "https://www.gotquestions.org/Korean/Korean-nephilim.html"
+          },
+          {
+            "myth": "\uc5d0\ub179\uc11c\ub294 \uc815\uacbd \uc131\uacbd\uc774\ub2e4",
+            "reality": "\uc5d0\ub179\uc11c\ub294 \uc720\ub2e4\uc11c\uac00 \uc778\uc6a9\ud558\uc9c0\ub9cc \uc720\ub300\uad50/\uae30\ub3c5\uad50 \ud45c\uc900 \uc815\uacbd\uc5d0\uc11c \uc81c\uc678\ub41c \uacbd\uc678\uc11c",
+            "source": "https://readingacts.com/2016/05/31/the-fallen-angels-1-enoch-6-8/"
+          }
+        ],
+        "knowledge_level": "\ub300\uc0c1 \uc2dc\uccad\uc790\ub294 '\uc131\uacbd\uc744 \ub4e4\uc5b4\ubd24\uc9c0\ub9cc \uae4a\uac8c \uacf5\ubd80\ud558\uc9c0 \uc54a\uc740' \ub300\uc911. \ucc3d\uc138\uae30/\uacc4\uc2dc\ub85d \uc774\ub984\uc740 \uc54c\uc9c0\ub9cc \ub124\ud53c\ub9bc\u00b7\uacbd\uc678\uc11c \uac19\uc740 \ub514\ud14c\uc77c\uc740 \ucc98\uc74c \uc811\ud558\ub294 \uc218\uc900\uc774 \ud765\ubbf8\ub97c \ub048\ub2e4.",
+        "pain_points": [
+          "\uc124\uad50\ub294 \ub17c\ub780 \ub9ce\uc740 \uc774\uc57c\uae30\ub97c \uac74\ub108\ub6f4\ub2e4",
+          "\ucda9\uaca9\uc801\uc778 \uc81c\ubaa9\uc758 \ucf58\ud150\uce20\ub294 \ub9ce\uc9c0\ub9cc \uc2e4\uc18d \uc788\ub294 \uc2dc\uac01\ud654\uac00 \uc5c6\ub2e4",
+          "\uc601\uc5b4\uad8c \uc591\uc9c8 \ub2e4\ud050\ub97c \ud55c\uad6d\uc5b4\ub85c \uc18c\ube44\ud558\uae30 \uc5b4\ub835\ub2e4"
+        ]
+      },
+      "expert_voices": [
+        {
+          "name": "Dr. Craig Evans",
+          "title_or_affiliation": "\uc131\uc11c\ud559\uc790 (Fragments of Truth \ub2e4\ud050 \ucd9c\uc5f0)",
+          "position": "\uc131\uacbd \ud544\uc0ac\ubcf8\uacfc \uc5ed\uc0ac\uc801 \uc99d\uac70\uc758 \uc2e0\ub8b0\uc131 \uac15\uc870 \u2014 '\uae30\ub85d\uc73c\ub85c\uc11c\uc758 \uc131\uacbd' \uac01\ub3c4",
+          "source_url": "https://www.youtube.com/watch?v=ubYd9mmz_XI",
+          "contrarian": false
+        },
+        {
+          "name": "Biblical Archaeology Society",
+          "title_or_affiliation": "\uc131\uc11c\uace0\uace0\ud559\ud559\ud68c",
+          "position": "\ub124\ud53c\ub9bc\uc744 \uace0\ub300 \uadfc\ub3d9\uc758 \uc601\uc6c5 \uc804\ud1b5\uacfc \uc5f0\uacb0\ud558\ub294 \ud559\uc220\uc801 \ud574\uc11d \uc81c\uc2dc",
+          "source_url": "https://www.biblicalarchaeology.org/daily/biblical-topics/hebrew-bible/who-are-the-nephilim/",
+          "contrarian": true
+        }
+      ],
+      "angles_discovered": [
+        {
+          "name": "\ud55c \ud3b8\uc758 \uc2a4\ub9b4\ub7ec\ub85c \uc555\ucd95\ub41c '\uae08\uc9c0\ub41c \uacc4\ubcf4' \uc11c\uc0ac",
+          "hook": "\ucc9c\uc0ac\uac00 \ub545\uc5d0 \ub0b4\ub824\uc628 \uc21c\uac04, \uc5ed\uc0ac\ub294 \ub4a4\uc9d1\ud614\ub2e4",
+          "type": "narrative",
+          "why_now": "\ub124\ud53c\ub9bc \u2192 \ud64d\uc218 \u2192 \uc18c\ub3d4\uc774\ub77c\ub294 \uc11c\uc0ac\uac00 \uad00\uac1d \uc9c8\ubb38(Reddit \ud65c\ubc1c \ud1a0\ub860)\uacfc \uc815\ud655\ud788 \uc77c\uce58\ud558\uba70, \ub098\uc5f4\uc2dd\uc774 \uc544\ub2cc \ubab0\uc785\ud615\uc73c\ub85c \ub9cc\ub4e4\uc5b4\uc838 \ucc28\ubcc4\ud654",
+          "grounded_in": [
+            "\ub124\ud53c\ub9bc-\ud64d\uc218 \uc5f0\uad00 Reddit \ud1a0\ub860",
+            "\ub124\ud53c\ub9bc \uc815\uccb4 Q&A \ucf58\ud150\uce20 \uc778\uae30"
+          ]
+        },
+        {
+          "name": "\uae30\ub85d\uc758 \uc99d\uac70, \uace0\uace0\ud559\uc801 \ubbf8\uc2a4\ud130\ub9ac \ub2e4\ud050",
+          "hook": "\uc804\uc124\uc774 \uc544\ub2c8\ub77c \uae30\ub85d\uc77c \uc218 \uc788\ub294 \uc774\uc720",
+          "type": "evergreen",
+          "why_now": "BAS/Dr. Craig Evans \ub4f1 \ud559\uc220 \uc790\uc6d0\uc774 \uc874\uc7ac\ud558\uba70 '\uc131\uacbd=\uae30\ub85d' \uac01\ub3c4\uac00 \uc885\uad50\uc801 \ud504\ub808\uc784\uc744 \ub118\uc5b4 \ub300\uc911 \ud638\uae30\uc2ec \uc720\ubc1c",
+          "grounded_in": [
+            "BAS \ub124\ud53c\ub9bc \uae30\uc0ac",
+            "Fragments of Truth \ub2e4\ud050"
+          ]
+        },
+        {
+          "name": "\uc815\uacbd\uc5d0\uc11c \uc9c0\uc6cc\uc9c4 \ucc45\ub4e4, \uacbd\uc678\uc11c \ubbf8\uc2a4\ud130\ub9ac",
+          "hook": "\uc131\uacbd\uc5d0 \uc5c6\ub2e4\uace0? \uadf8\ub7f0\ub370 \uc720\ub2e4\uc11c\uac00 \uc778\uc6a9\ud588\ub2e4",
+          "type": "contrarian",
+          "why_now": "\uc601\uc5b4\uad8c 'Forbidden Books' \ucf58\ud150\uce20 \uc131\uacfc\uc5d0 \ube44\ud574 \ud55c\uad6d\uc5b4 \uc2dc\uc7a5 \uacf5\ubc31\uc774 \ub69c\ub837",
+          "grounded_in": [
+            "Forbidden Books \uc601\uc0c1",
+            "\uc5d0\ub179\uc11c-\uc720\ub2e4\uc11c \uc778\uc6a9 \uad00\uacc4"
+          ]
+        }
+      ],
+      "visual_references": [
+        {
+          "description": "\uc131\uacbd \ub2e4\ud050 '\ub354 \ubc14\uc774\ube14' \u2014 \uc2e4\uc0ac \uc7ac\ud604 + \uc601\ud654\uc801 \ucd2c\uc601\uc73c\ub85c \uc131\uacbd\uc744 \ubcf4\uc5ec\uc8fc\ub294 \ud3ec\ub9f7",
+          "url": "https://www.kidok.com/news/articleView.html?idxno=79470",
+          "what_works": "\uc2e4\uc81c \uc778\ubb3c/\uc7a5\uba74 \uc7ac\ud604\uc758 \ubab0\uc785\uac10 \u2014 \ud55c\uad6d \uad00\uac1d \uc218\uc694 \uac80\uc99d"
+        },
+        {
+          "description": "Tension/\uae34\uc7a5 \uace0\uc870 \ubb34\ub8cc BGM \u2014 \ucd94\ub9ac\u00b7\uc2a4\ub9b4\ub7ec \uc7a5\uba74 \uc74c\uc545",
+          "url": "https://www.youtube.com/watch?v=0hNL53igR7M",
+          "what_works": "\uae34\uc7a5 \uace0\uc870\uc6a9 \ub4dc\ub860/\ud37c\ucee4\uc158 \uc0ac\uc6b4\ub4dc\uac00 \ubbf8\uc2a4\ud130\ub9ac \ubb34\ub4dc\uc758 \ucc99\ucd94"
+        },
+        {
+          "description": "Trailer Editing Guide \u2014 \uc2dc\ub124\ub9c8\ud2f1 \ud398\uc774\uc2f1, \uc74c\uc545 \ud050, \ube44\ud2b8 \uad6c\uc870",
+          "url": "https://epikton.net/blog-a-quick-guide-to-editing-trailers/",
+          "what_works": "\uc9e7\uc740 \ud074\ub9bd + \uc74c\uc545 \uae09\uac15\ud558\ub97c \ud65c\uc6a9\ud55c \ub9ac\ub4ec \ud3b8\uc9d1 \ubc29\ubc95\ub860"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.gotquestions.org/Korean/Korean-nephilim.html",
+          "title": "\ub124\ud53c\ub9bc\uc740 \uc5b4\ub5a4 \uc874\uc7ac\uc600\ub294\uac00? (Got Questions \ud55c\uad6d\uc5b4)",
+          "used_for": "\ub124\ud53c\ub9bc \uc815\uc758\u00b7\uc5b4\uc6d0 \ub370\uc774\ud130 \ud3ec\uc778\ud2b8",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://readingacts.com/2016/05/31/the-fallen-angels-1-enoch-6-8/",
+          "title": "The Fallen Angels \u2013 1 Enoch 6-8 (Reading Acts)",
+          "used_for": "\uc5d0\ub179\uc11c \uac10\uc2dc\uc790\ub4e4 \ubb18\uc0ac \ub370\uc774\ud130 \ud3ec\uc778\ud2b8",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.biblicalarchaeology.org/daily/biblical-topics/hebrew-bible/who-are-the-nephilim/",
+          "title": "Who Are the Nephilim? (Biblical Archaeology Society)",
+          "used_for": "\ub124\ud53c\ub9bc \ud559\uc220 \ud574\uc11d \ub370\uc774\ud130 \ud3ec\uc778\ud2b8",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.reddit.com/r/Bible/comments/1o2j85z/nephilim_after_the_flood/",
+          "title": "Nephilim after the flood (r/Bible)",
+          "used_for": "\uad00\uac1d \uc9c8\ubb38\u00b7\ud1a0\ub860 \uc778\uc0ac\uc774\ud2b8",
+          "reliability": "anecdotal"
+        },
+        {
+          "url": "https://www.reddit.com/r/AskAChristian/comments/1lgciqc/what_exactly_are_the_nephilim_and_how_do_they/",
+          "title": "What exactly are the Nephilim? (r/AskAChristian)",
+          "used_for": "\uad00\uac1d \uc9c8\ubb38\u00b7\ubbf8\uc2a4\ud130\ub9ac \uac01\ub3c4",
+          "reliability": "anecdotal"
+        },
+        {
+          "url": "https://www.kidok.com/news/articleView.html?idxno=79470",
+          "title": "\uc131\uacbd \ub2e4\ud050 '\ub354 \ubc14\uc774\ube14' \ud070 \uc778\uae30 (\uae30\ub3c5\uad50\uc5f0\ud569\uc2e0\ubb38)",
+          "used_for": "\ucf58\ud150\uce20 \uc2dc\uc7a5 \uac80\uc99d\u00b7\ud2b8\ub80c\ub4dc",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Djt5NvuIkuI",
+          "title": "[\uc131\uacbd][\ubbf8\uc2a4\ud130\ub9ac] \ub124\ud53c\ub9bc\uc758 \uc815\uccb4 Q&A",
+          "used_for": "\uae30\uc874 \ucf58\ud150\uce20 \ud658\uacbd \uc870\uc0ac",
+          "reliability": "anecdotal"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=5AFe2mXGpdA",
+          "title": "The Shocking Truth About the Forbidden Books of the Bible",
+          "used_for": "\uacbd\uc678\uc11c \uac01\ub3c4 \uac80\uc99d",
+          "reliability": "anecdotal"
+        },
+        {
+          "url": "https://epikton.net/blog-a-quick-guide-to-editing-trailers/",
+          "title": "Trailer Editing Guide: Master Cinematic Pacing, Music & Sound",
+          "used_for": "\uc2dc\ub124\ub9c8\ud2f1 \ud3b8\uc9d1 \uae30\ubc95 \ucc38\uace0",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=0hNL53igR7M",
+          "title": "[\ubb34\ub8ccBGM] \uae34\uc7a5\uac10 \uace0\uc870! \ucd94\ub9ac\uc7a5\uba74 \ubc30\uacbd\uc74c\uc545",
+          "used_for": "\uc0ac\uc6b4\ub4dc/\uc74c\uc545 \ubb34\ub4dc \ucc38\uace0",
+          "reliability": "anecdotal"
+        }
+      ],
+      "research_summary": "\ud575\uc2ec \uc778\uc0ac\uc774\ud2b8: \uc131\uacbd\uc758 '\uae08\uc9c0\ub41c \uc774\uc57c\uae30'(\ub124\ud53c\ub9bc, \ud0c0\ub77d\ud55c \ucc9c\uc0ac, \ud64d\uc218, \uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c)\ub294 \ub300\uc911\uc774 \uac00\uc7a5 \uad81\uae08\ud574\ud558\uc9c0\ub9cc(Reddit \ud1a0\ub860, Q&A \ucf58\ud150\uce20 \uc778\uae30) \uae30\uc874 \ucf58\ud150\uce20\ub294 \ubaa9\ub85d\ud615 \ub098\uc5f4\uc774\ub098 \uac15\uc88c \ud1a4\uc5d0 \uba38\ubb3c\ub7ec \uc788\ub2e4. '\ucc3d\uc138\uae30 6\uc7a5\uc758 \ud0c0\ub77d \u2192 \ud64d\uc218\uc758 \uc2ec\ud310'\uc744 \ud55c \ud3b8\uc758 \uc2dc\ub124\ub9c8\ud2f1 \uc2a4\ub9b4\ub7ec \uc11c\uc0ac\ub85c \uc555\ucd95\ud55c \ud55c\uad6d\uc5b4 \ubbf8\ub4dc\ud3fc \uc601\uc0c1\uc740 \ucf58\ud150\uce20 \uacf5\ubc31\uc744 \uc815\ud655\ud788 \ud30c\uace0\ub4e4\uba70, VEO \uc2dc\ub124\ub9c8\ud2f1 \ud074\ub9bd + \uae34\uc7a5 \uace0\uc870 \uc74c\uc545 + \ubca0\uc774\uc2a4 TTS \ub0b4\ub808\uc774\uc158\uc774 \uc774\ub97c \uc2e4\ud604\ud55c\ub2e4.",
+      "metadata": {
+        "searches_executed": 8,
+        "pipeline": "cinematic",
+        "language": "ko"
+      }
+    }
+  },
+  "metadata": {
+    "searches": 8
+  }
+}

@@ -133,3 +133,15 @@ venv/
 
 # Local Wan / diffusers GPU environment
 .venv-wan/
+
+# Synthesizer V projects & logs (generated / local)
+*.svp
+*.log
+.snakemake/
+tools/_*/
+test_audio/
+voice_samples_celebs/
+golden_bough_video/
+*.mp4
+test_ko.mp3
+subtitles.json

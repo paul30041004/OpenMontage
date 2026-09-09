@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "publish",
+  "status": "awaiting_human",
+  "timestamp": "2026-08-16T05:14:32.844783+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "publish_log": {
+      "version": "1.0",
+      "entries": [
+        {
+          "platform": "youtube",
+          "status": "exported",
+          "export_path": "/Users/paul/Documents/OpenMontage/projects/lantern-keeper/exports",
+          "timestamp": "2026-08-16T05:14:20.833648+00:00",
+          "metadata_used": {
+            "title": "\ub4f1\ubd88\uc9c0\uae30 ep01 \u2014 \uaebc\uc9c0\uc9c0 \uc54a\ub294 \ube5b (Novel2Video)",
+            "description": "\uc6d0\uc791 \uc18c\uc124 <\ub4f1\ubd88\uc9c0\uae30> \uc81c1\ud654: \ud3ed\ud48d\uc758 \ubc24. \ubc14\uc704 \uc808\ubcbd \uc704 \ub4f1\ub300\ub97c 40\ub144\uac04 \uc9c0\ud0a8 \ub178\uc778 \uac15\uc218\ud638\uc640 \ubc14\ub2e4\uc5d0\uc11c \ud5e4\uc5c4\uccd0 \uc628 \uccad\ub144 \ub3c4\uc724\uc758 \uc778\uc5f0. \ubd88\uc740 \uc9c0\ud0a4\ub294 \uc0ac\ub78c\uc774 \uc788\uc5b4\uc57c \uaebc\uc9c0\uc9c0 \uc54a\ub294\ub2e4. ViMax-style Novel2Video \ud30c\uc774\ud504\ub77c\uc778\uc73c\ub85c \uc81c\uc791\ub41c \uce90\ub9ad\ud130 \uc77c\uad00 \uc11c\uc0ac \ube44\ub514\uc624.",
+            "hashtags": [
+              "#\ub4f1\ub300\uc9c0\uae30",
+              "#\uc18c\uc124\uc6d0\uc791",
+              "#\uc2dc\ub124\ub9c8\ud2f1",
+              "#\ub2e8\ud3b8\uc601\uc0c1",
+              "#AI\uc601\uc0c1"
+            ],
+            "chapters": [
+              {
+                "start_seconds": 0,
+                "title": "\ud3ed\ud48d\uc758 \ubc24"
+              },
+              {
+                "start_seconds": 18,
+                "title": "\uc816\uc740 \uccad\ub144\uc758 \ub3c4\ucc29"
+              },
+              {
+                "start_seconds": 42,
+                "title": "\ub4f1\ubd88\uc744 \ub3cc\ubcf4\ub294 \ubc95"
+              },
+              {
+                "start_seconds": 62,
+                "title": "\uc783\uc740 \uc544\ub4e4\uc758 \uae30\uc5b5"
+              },
+              {
+                "start_seconds": 84,
+                "title": "\ub5a0\ub098\ub294 \ub0a0\uc758 \ub2f9\ubd80"
+              },
+              {
+                "start_seconds": 105,
+                "title": "\uc218\ub144 \ub4a4, \uc0c8\ub85c\uc6b4 \uc9c0\ud0a4\ub294 \uc774"
+              }
+            ]
+          },
+          "visibility": "unlisted"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "hero_output": "renders/final.mp4",
+    "export_dir": "projects/lantern-keeper/exports",
+    "duration": 125
+  }
+}

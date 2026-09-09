@@ -1,0 +1,335 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "assets",
+  "status": "awaiting_human",
+  "timestamp": "2026-08-16T04:50:00.461743+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "asset_manifest": {
+      "version": "1.0",
+      "assets": [
+        {
+          "id": "video_sc1",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sample_sc1.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc1",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "resolution": "16:9",
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho \uc575\ucee4\ub97c reference_image_paths\ub85c \ubc14\uc778\ub529\ud574 \ud3ed\ud48d \uc18d \ub178\uc778 \uc0dd\uc131 (\uc0d8\ud50c \uc2b9\uc778\ub428)"
+        },
+        {
+          "id": "video_sc2",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc2.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc2",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho + do-yoon \ub450 \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uad6c\uc870 \uc7a5\uba74 \uc0dd\uc131"
+        },
+        {
+          "id": "video_sc3",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc3.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc3",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho + do-yoon \ubc14\uc778\ub529\ud574 \ub4f1\ubd88 \uc804\uc218 \uc7a5\uba74 \uc0dd\uc131"
+        },
+        {
+          "id": "video_sc4",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc4.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc4",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uc808\ubcbd\uc758 \ub178\uc778 \uc0dd\uc131 (\uac10\uc815 \uc815\uc810)"
+        },
+        {
+          "id": "video_sc5",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc5.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc5",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho + do-yoon \ubc14\uc778\ub529\ud574 \uaf2d\ub300\uae30 \ub450 \uc0ac\ub78c \uc0dd\uc131 (\ud074\ub77c\uc774\ub9e5\uc2a4)"
+        },
+        {
+          "id": "video_sc6",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc6.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc6",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: do-yoon \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uc218\ub144 \ub4a4 \ub3c4\uc724 \uc0dd\uc131"
+        },
+        {
+          "id": "anchor_kang_suho",
+          "type": "image",
+          "path": "projects/lantern-keeper/assets/characters/kang-suho-front.png",
+          "source_tool": "image_selector",
+          "scene_id": "character_anchor",
+          "provider": "google_nano_banana",
+          "model": "gemini-3.1-flash-image",
+          "cost_usd": 0.05,
+          "format": "png",
+          "quality_score": 0.9,
+          "subtype": "character_anchor",
+          "generation_summary": "\uce90\ub9ad\ud130 \uc575\ucee4 \u2014 \uac15\uc218\ud638 (\ub178\uc778 \ub4f1\ubd88\uc9c0\uae30), appearance \uadf8\ub300\ub85c \ucc38\uc870 \ud504\ub86c\ud504\ud2b8 \uc784\ubca0\ub4dc"
+        },
+        {
+          "id": "anchor_do_yoon",
+          "type": "image",
+          "path": "projects/lantern-keeper/assets/characters/do-yoon-front.png",
+          "source_tool": "image_selector",
+          "scene_id": "character_anchor",
+          "provider": "google_nano_banana",
+          "model": "gemini-3.1-flash-image",
+          "cost_usd": 0.05,
+          "format": "png",
+          "quality_score": 0.9,
+          "subtype": "character_anchor",
+          "generation_summary": "\uce90\ub9ad\ud130 \uc575\ucee4 \u2014 \ub3c4\uc724 (\uad6c\uc870\ub41c \uccad\ub144)"
+        },
+        {
+          "id": "nar_s1",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/s1.wav",
+          "source_tool": "fish_audio_tts",
+          "scene_id": "sc1",
+          "provider": "fish_audio",
+          "model": "s2.1-pro-free",
+          "cost_usd": 0,
+          "duration_seconds": 12.91,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "Fish Audio \ubb34\ub8cc \ud55c\uad6d\uc5b4 \uc11c\uc815 \ub098\ub808\uc774\uc158 \u2014 \ud3ed\ud48d\uc758 \ubc24",
+          "voice_performance": {
+            "source_section_id": "s1",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "model": "s2.1-pro-free",
+              "format": "wav",
+              "sample_rate": 44100,
+              "speed": 1.0,
+              "language": "ko"
+            },
+            "sample_approved": true,
+            "review_notes": "Fish Audio \ubb34\ub8cc \ubaa8\ub378"
+          }
+        },
+        {
+          "id": "nar_s2",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/s2.wav",
+          "source_tool": "fish_audio_tts",
+          "scene_id": "sc2",
+          "provider": "fish_audio",
+          "model": "s2.1-pro-free",
+          "cost_usd": 0,
+          "duration_seconds": 16.02,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "Fish Audio \u2014 \uc816\uc740 \uccad\ub144",
+          "voice_performance": {
+            "source_section_id": "s2",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "model": "s2.1-pro-free",
+              "sample_rate": 44100,
+              "speed": 1.0,
+              "language": "ko"
+            },
+            "sample_approved": true
+          }
+        },
+        {
+          "id": "nar_s3",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/s3.wav",
+          "source_tool": "fish_audio_tts",
+          "scene_id": "sc3",
+          "provider": "fish_audio",
+          "model": "s2.1-pro-free",
+          "cost_usd": 0,
+          "duration_seconds": 13.33,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "Fish Audio \u2014 \ub4f1\ubd88 \uc804\uc218",
+          "voice_performance": {
+            "source_section_id": "s3",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "model": "s2.1-pro-free",
+              "sample_rate": 44100,
+              "speed": 1.0,
+              "language": "ko"
+            },
+            "sample_approved": true
+          }
+        },
+        {
+          "id": "nar_s4",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/s4.wav",
+          "source_tool": "fish_audio_tts",
+          "scene_id": "sc4",
+          "provider": "fish_audio",
+          "model": "s2.1-pro-free",
+          "cost_usd": 0,
+          "duration_seconds": 16.35,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "Fish Audio \u2014 \uc783\uc740 \uc544\ub4e4 (\uc0c1\uc2e4 \uace0\ubc31)",
+          "voice_performance": {
+            "source_section_id": "s4",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "model": "s2.1-pro-free",
+              "sample_rate": 44100,
+              "speed": 1.0,
+              "language": "ko"
+            },
+            "sample_approved": true
+          }
+        },
+        {
+          "id": "nar_s5",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/s5.wav",
+          "source_tool": "fish_audio_tts",
+          "scene_id": "sc5",
+          "provider": "fish_audio",
+          "model": "s2.1-pro-free",
+          "cost_usd": 0,
+          "duration_seconds": 15.84,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "Fish Audio \u2014 \uc774\uc5b4\uc9c0\ub294 \ub9d0",
+          "voice_performance": {
+            "source_section_id": "s5",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "model": "s2.1-pro-free",
+              "sample_rate": 44100,
+              "speed": 1.0,
+              "language": "ko"
+            },
+            "sample_approved": true
+          }
+        },
+        {
+          "id": "nar_s6",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/s6.wav",
+          "source_tool": "fish_audio_tts",
+          "scene_id": "sc6",
+          "provider": "fish_audio",
+          "model": "s2.1-pro-free",
+          "cost_usd": 0,
+          "duration_seconds": 15.37,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "Fish Audio \u2014 \uaebc\uc9c0\uc9c0 \uc54a\ub294 \ube5b",
+          "voice_performance": {
+            "source_section_id": "s6",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "model": "s2.1-pro-free",
+              "sample_rate": 44100,
+              "speed": 1.0,
+              "language": "ko"
+            },
+            "sample_approved": true
+          }
+        },
+        {
+          "id": "music_bgm",
+          "type": "music",
+          "path": "projects/lantern-keeper/assets/music/bgm.mp3",
+          "source_tool": "pixabay_music",
+          "scene_id": "all",
+          "provider": "pixabay_music",
+          "model": "Emotional Piano by MondaMusic",
+          "cost_usd": 0,
+          "duration_seconds": 80.9,
+          "format": "mp3",
+          "quality_score": 0.85,
+          "subtype": "stock",
+          "license": "Pixabay Content License (free, no attribution required)",
+          "generation_summary": "Pixabay \ubb34\ub8cc \ub85c\uc5f4\ud2f0\ud504\ub9ac \u2014 \uac10\uc131 \ud53c\uc544\ub178 \uc5b8\ub354\uc2a4\ucf54\uc5b4"
+        }
+      ],
+      "total_cost_usd": 1.3,
+      "metadata": {
+        "music_plan": "Pixabay \ubb34\ub8cc \ub85c\uc5f4\ud2f0\ud504\ub9ac (\ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc)",
+        "ambience_plan": "\uc52c \ube44\ub514\uc624 \ub0b4\uc7a5 \uc0ac\uc6b4\ub4dc \ud65c\uc6a9, \ubcc4\ub3c4 \uc570\ube44\uc5b8\uc2a4 \uc5c6\uc74c",
+        "title_assets": [
+          "anchor_kang_suho",
+          "anchor_do_yoon (\uce90\ub9ad\ud130 \uc575\ucee4)"
+        ],
+        "generated_support_assets": [],
+        "rights_notes": "\uc74c\uc545\uc740 Pixabay Content License (\ubb34\ub8cc, \uc800\uc791\uc790 \ud45c\uc2dc \ubd88\ud544\uc694). \ube44\ub514\uc624/\uc774\ubbf8\uc9c0 AI \uc0dd\uc131.",
+        "character_binding": "\ubaa8\ub4e0 \uc52c \ube44\ub514\uc624\uac00 \ud574\ub2f9 \uce90\ub9ad\ud130\uc758 \uc575\ucee4\ub97c reference_image_paths\ub85c \ubc14\uc778\ub529\ud574 \uc0dd\uc131 (\uce90\ub9ad\ud130 \uc77c\uad00\uc131)",
+        "provider": "video=gemini_omni (reference-image \uc790\ub3d9 \uc120\ud0dd), narration=fish_audio (\ubb34\ub8cc), music=pixabay (\ubb34\ub8cc)"
+      }
+    }
+  },
+  "metadata": {
+    "total_cost_usd": 1.3,
+    "assets": 15,
+    "reference_bound": true
+  }
+}

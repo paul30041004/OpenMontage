@@ -1,0 +1,288 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-08-16T04:35:53.212859+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "flat-motion-graphics",
+      "scenes": [
+        {
+          "id": "sc1",
+          "type": "generated",
+          "description": "\ud3ed\ud48d\uc6b0\uc758 \uc808\ubcbd \uc704 \ub4f1\ub300. \ub178\uc778 \uac15\uc218\ud638\uac00 \uc0c1\uce35 \ucc3d\uac00\uc5d0\uc11c \ub450 \ud314\ub85c \uaebc\uc9c8 \ubed4\ud55c \ub4f1\ubd88\uc744 \uac10\uc2fc\ub2e4. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ub4f1\ubd88\uc744 \uac10\uc2fc \ub178\uc778 \uac15\uc218\ud638(\ucc38\uc870\ubc14\uc778\ub529 \uc678\ud615 \uadf8\ub300\ub85c), Motion=\ube44\uac00 \ucc3d\uc744 \ub54c\ub9ac\uace0 \ubd88\uaf43\uc774 \ud754\ub4e4\ub9ac\uba70 \ub178\uc778\uc774 \ubab8\uc73c\ub85c \ubc14\ub78c\uc744 \ub9c9\uc74c, Scene=\ud3ed\ud48d\uc758 \ubc24, \ub4f1\ub300 \uc0c1\uce35, \ucc3d \ubc16 \uac80\uc740 \ubc14\ub2e4, Framing=\ubbf8\ub514\uc5c4, \ub178\uc778 \uc911\uc559, FG=\ub4f1\ubd88\uacfc \uadf8 \uc190, BG=\ud754\ub4e4\ub9ac\ub294 \ubc14\ub2e4, Camera=\ud578\ub4dc\ud5ec\ub4dc \ub290\ub08c\uc758 \ub290\ub9b0 \ub3cc\ub9ac\uc778, \uc624\ubc84\ub808\uc774: \uc5c6\uc74c.",
+          "start_seconds": 0,
+          "end_seconds": 15,
+          "script_section_id": "s1",
+          "framing": "medium",
+          "movement": "slow dolly in, handheld feel",
+          "transition_in": "fade",
+          "transition_out": "cut",
+          "overlay_notes": "\uc5c6\uc74c",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "dolly_in",
+            "lens_mm": 35,
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\uc624\ud504\ub2dd \uc704\uc555\uac10 \u2014 \ub4f1\ubd88\uc744 \uc9c0\ud0a4\ub294 \uace0\ub3c5\ud55c \uc0ac\uc218",
+          "narrative_role": "establish_context",
+          "information_role": "\ub4f1\ubd88\uc774 \uaebc\uc9c0\uba74 \uc548 \ub41c\ub2e4\ub294 \uaddc\uce59 \uc124\uc815",
+          "hero_moment": true,
+          "texture_keywords": [
+            "rain",
+            "grain",
+            "dark",
+            "storm"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624: kang_suho \uc575\ucee4\ub97c reference_image_paths\ub85c \ubc14\uc778\ub529\ud574 \ud3ed\ud48d \uc18d \ub178\uc778 \uc0dd\uc131",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc2",
+          "type": "generated",
+          "description": "\ube44\uc5d0 \ud760\ubed1 \uc816\uc740 \uccad\ub144 \ub3c4\uc724\uc774 \ubb38\uc744 \ub450\ub4dc\ub9b0\ub2e4. \ub178\uc778\uc774 \ubb38\uc744 \uc5f4\uc5b4 \uc816\uc740 \uccad\ub144\uc744 \uc548\uc73c\ub85c \ub4e4\uc778\ub2e4. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ubb38 \uc55e \uc816\uc740 \ub3c4\uc724 \u2192 \uc548\uc73c\ub85c \ub4e4\uc774\ub294 \uac15\uc218\ud638(\ub458 \ub2e4 \ucc38\uc870\ubc14\uc778\ub529), Motion=\uccad\ub144\uc774 \ub5a8\uba70 \ubb38\uc744 \ub450\ub4dc\ub9ac\uace0 \ub178\uc778\uc774 \ubb38\uc744 \uc5f6, Scene=\ud3ed\ud48d \uc18d \ub4f1\ub300 \uc785\uad6c, \ucd1b\ubd88\ube5b\uc774 \ubb38 \ubc16\uc73c\ub85c \uc0c8\uc5b4\ub098\uc634, Framing=\uc624\ubc84\uc204\ub354, \ub3c4\uc724 FG / \uc218\ud638 \ubb38 \ub108\uba38, Camera=\uc815\uc801, \uc624\ubc84\ub808\uc774: \uc5c6\uc74c.",
+          "start_seconds": 15,
+          "end_seconds": 30,
+          "script_section_id": "s2",
+          "framing": "over_shoulder",
+          "movement": "static",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "\uc5c6\uc74c",
+          "shot_language": {
+            "shot_size": "over_shoulder",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "medium",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "\uc778\uc5f0\uc758 \uc2dc\uc791 \u2014 \uc816\uc740 \uccad\ub144\uc744 \ub4e4\uc774\ub294 \uc628\uae30",
+          "narrative_role": "introduce_subject",
+          "information_role": "\ub3c4\uc724 \ub3c4\ucc29\uacfc \uad6c\uc870",
+          "hero_moment": false,
+          "texture_keywords": [
+            "rain",
+            "warm_doorlight",
+            "grain"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624: kang_suho + do_yoon \ub450 \uc575\ucee4 \ubaa8\ub450 \ubc14\uc778\ub529\ud574 \uad6c\uc870 \uc7a5\uba74 \uc0dd\uc131",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc3",
+          "type": "generated",
+          "description": "\ub4f1\ub300 \ub0b4\ubd80. \ub178\uc778\uc774 \uccad\ub144\uc5d0\uac8c \ub4f1\ubd88\uc744 \ub3cc\ubcf4\ub294 \ubc95\uc744 \uac00\ub974\uce5c\ub2e4. \ubd88\uaf43\uc774 \uc548\uc815\ub3fc \uc788\ub2e4. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ub4f1\ubd88\uc744 \ub9cc\uc9c0\ub294 \uac15\uc218\ud638\uc640 \uc9c0\ucf1c\ubcf4\ub294 \ub3c4\uc724(\ub458 \ub2e4 \ucc38\uc870\ubc14\uc778\ub529), Motion=\ub178\uc778\uc774 \ub4f1\ubd88 \uc2ec\uc9c0\ub97c \uc815\ub9ac\ud558\uace0 \uccad\ub144\uc774 \uc190\uc744 \ubed7\uc5b4 \ub3d5\ub294\ub2e4, Scene=\uc0c8\ubcbd \ub4f1\ub300 \ub0b4\ubd80, \ucd1b\ubd88\ube5b, Framing=\ubbf8\ub514\uc5c4 \ud074\ub85c\uc988, \ub4f1\ubd88\uc744 \uc911\uc2ec\uc73c\ub85c \ub458, Camera=\uc815\uc801 + \uc57d\ud55c \uc90c, \uc624\ubc84\ub808\uc774: \uc5c6\uc74c.",
+          "start_seconds": 30,
+          "end_seconds": 45,
+          "script_section_id": "s3",
+          "framing": "medium_close",
+          "movement": "static, slight zoom in",
+          "transition_in": "cut",
+          "transition_out": "cut",
+          "overlay_notes": "\uc5c6\uc74c",
+          "shot_language": {
+            "shot_size": "medium_close",
+            "camera_movement": "zoom_in",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\ub530\ub73b\ud55c \ubc30\uc6c0 \u2014 \ubd88\uc744 \uc9c0\ud0a4\ub294 \ubc95\uc758 \uc804\uc218",
+          "narrative_role": "build_tension",
+          "information_role": "\ub4f1\ubd88 \uc9c0\ud0a4\uae30 \uc804\uc218, \ud575\uc2ec \ub300\uc0ac\uc758 \ubc30\uacbd",
+          "hero_moment": false,
+          "texture_keywords": [
+            "warm",
+            "candlelight",
+            "intimate"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624: kang_suho + do_yoon \ubc14\uc778\ub529\ud574 \ub4f1\ubd88 \uc804\uc218 \uc7a5\uba74 \uc0dd\uc131",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc4",
+          "type": "generated",
+          "description": "\ud574\uc548 \uc808\ubcbd. \ud68c\uc0c9 \ud558\ub298 \uc544\ub798 \ub178\uc778\uc774 \ubc14\ub2e4\ub97c \ud5a5\ud574 \uba48\ucdb0 \uc120\ub2e4. \uc624\ub798 \uc804 \uc783\uc740 \uc544\ub4e4\uc744 \ub5a0\uc62c\ub9ac\ub294 \uc5bc\uad74. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\uc808\ubcbd\uc5d0 \uc120 \uac15\uc218\ud638\uc758 \uc2e4\ub8e8\uc5e3(\ucc38\uc870\ubc14\uc778\ub529), Motion=\ubc14\ub78c\uc5d0 \ucf54\ud2b8\uac00 \ud384\ub7ed\uc774\uace0 \ub178\uc778\uc774 \ub208\uc744 \uac10\ub294\ub2e4, Scene=\ud68c\uc0c9 \ud558\ub298 \ud574\uc548 \uc808\ubcbd, \uba40\ub9ac \ubc14\ub2e4, Framing=\uc640\uc774\ub4dc, \ub178\uc778\uc744 \uc88c\uce21 \uc624\ud504\uc14b, BG=\ubc14\ub2e4\uc640 \ud558\ub298, Camera=\ub290\ub9b0 \ud06c\ub808\uc778 \ub2e4\uc6b4 + \ub871 \ub80c\uc988, \uc624\ubc84\ub808\uc774: \uc5c6\uc74c.",
+          "start_seconds": 45,
+          "end_seconds": 65,
+          "script_section_id": "s4",
+          "framing": "wide",
+          "movement": "slow crane down, long lens",
+          "transition_in": "cut",
+          "transition_out": "fade",
+          "overlay_notes": "\uc5c6\uc74c",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "crane_down",
+            "lens_mm": 135,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\uc0c1\uc2e4\uc758 \uace0\ubc31 \u2014 \ub4f1\ub300\uc9c0\uae30\uc758 \uc774\uc720\ub97c \ub4dc\ub7ec\ub0b4\ub294 \uac10\uc815 \uc815\uc810",
+          "narrative_role": "emotional_beat",
+          "information_role": "\uc544\ub4e4\uc744 \uc783\uc740 \ub178\uc778\uc758 \uacfc\uac70",
+          "hero_moment": true,
+          "texture_keywords": [
+            "gray",
+            "wind",
+            "solitary",
+            "grain"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624: kang_suho \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uc808\ubcbd\uc758 \ub178\uc778 \uc0dd\uc131",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc5",
+          "type": "generated",
+          "description": "\ud3ed\ud48d\uc774 \uc9c0\ub09c \uc544\uce68, \uad6c\uc870\uc120\uc774 \uc624\uace0 \ub4f1\ub300 \uaf2d\ub300\uae30\uc5d0\uc11c \ubc14\ub2e4\ub97c \ub0b4\ub824\ub2e4\ubcf4\ub294 \ub450 \uc0ac\ub78c. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ub098\ub780\ud788 \uc120 \uac15\uc218\ud638\uc640 \ub3c4\uc724(\ub458 \ub2e4 \ucc38\uc870\ubc14\uc778\ub529), Motion=\ub178\uc778\uc774 \ub4f1\ubd88\uc744 \ub2e6\uace0 \uccad\ub144\uc774 \ubc14\ub2e4\ub97c \ubcf8\ub2e4, Scene=\ud3ed\ud48d \uc9c0\ub09c \uc544\uce68, \ub9d1\uc544\uc9c0\ub294 \ud558\ub298, Framing=\ubbf8\ub514\uc5c4 \uc640\uc774\ub4dc, \ub458\uc744 \uc911\uc559, BG=\ubc14\ub2e4\uc640 \uba3c \uad6c\uc870\uc120, Camera=\uc815\uc801, \uc624\ubc84\ub808\uc774: \uc5c6\uc74c.",
+          "start_seconds": 65,
+          "end_seconds": 80,
+          "script_section_id": "s5",
+          "framing": "medium_wide",
+          "movement": "static",
+          "transition_in": "fade",
+          "transition_out": "cut",
+          "overlay_notes": "\uc5c6\uc74c",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "static",
+            "lens_mm": 35,
+            "lighting_key": "natural",
+            "depth_of_field": "deep",
+            "color_temperature": "neutral"
+          },
+          "shot_intent": "\uc774\uc5b4\uc9c0\ub294 \ub9d0 \u2014 \ud575\uc2ec \ub300\uc0ac\uac00 \uc804\ub2ec\ub418\ub294 \ud074\ub77c\uc774\ub9e5\uc2a4",
+          "narrative_role": "deliver_payload",
+          "information_role": "\ubd88\uc740 \uc9c0\ud0a4\ub294 \uc0ac\ub78c\uc774 \uc788\uc5b4\uc57c \uaebc\uc9c0\uc9c0 \uc54a\ub294\ub2e4",
+          "hero_moment": true,
+          "texture_keywords": [
+            "dawn",
+            "clear_sky",
+            "hopeful"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624: kang_suho + do_yoon \ubc14\uc778\ub529\ud574 \uaf2d\ub300\uae30\uc758 \ub450 \uc0ac\ub78c \uc0dd\uc131",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc6",
+          "type": "generated",
+          "description": "\uc218\ub144 \ub4a4, \ud669\ud63c\uc758 \ub4f1\ub300. \uc5ec\uc804\ud788 \uaebc\uc9c0\uc9c0 \uc54a\ub294 \ub4f1\ubd88\uacfc \uadf8 \uacc1\uc5d0 \uc120 \uc0c8\ub85c\uc6b4 \uc9c0\ud0a4\ub294 \uc774(\ub3c4\uc724). 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ud669\ud63c \ub4f1\ubd88 \uacc1\uc5d0 \uc120 \ub3c4\uc724(\ucc38\uc870\ubc14\uc778\ub529), Motion=\ub3c4\uc724\uc774 \ub4f1\ubd88\uc744 \ubc1d\ud788\uace0 \ubc14\ub2e4\ub97c \ubcf8\ub2e4, Scene=\ud669\ud63c\uc758 \ub4f1\ub300 \uc0c1\uce35, \ub530\ub73b\ud55c \ubd88\ube5b, Framing=\ubbf8\ub514\uc5c4, \ub3c4\uc724 \uc911\uc559, \ubd88\uaf43 FG, BG=\ud669\ud63c \ubc14\ub2e4, Camera=\ub290\ub9b0 \uc90c \uc544\uc6c3, \uc624\ubc84\ub808\uc774: \ucd5c\uc885 \ud0c0\uc774\ud2c0 '\uaebc\uc9c0\uc9c0 \uc54a\ub294 \ube5b'.",
+          "start_seconds": 80,
+          "end_seconds": 90,
+          "script_section_id": "s6",
+          "framing": "medium",
+          "movement": "slow zoom out",
+          "transition_in": "cut",
+          "transition_out": "fade",
+          "overlay_notes": "\ucd5c\uc885 \ud0c0\uc774\ud2c0: '\uaebc\uc9c0\uc9c0 \uc54a\ub294 \ube5b' (\ud558\ub2e8)",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "zoom_out",
+            "lens_mm": 50,
+            "lighting_key": "golden_hour",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\uc774\uc5b4\uc9c0\ub294 \ud76c\ub9dd \u2014 \ube5b\uc774 \ub2e4\uc74c \uc138\ub300\ub85c \uc774\uc5b4\uc9c0\ub294 \ub9c8\ubb34\ub9ac",
+          "narrative_role": "resolution",
+          "information_role": "\uc791\uc740 \ub4f1\ubd88\ub3c4 \uc9c0\ud0a4\ub294 \uc0ac\ub78c\uc774 \uc788\uc73c\uba74 \uaebc\uc9c0\uc9c0 \uc54a\ub294\ub2e4",
+          "hero_moment": false,
+          "texture_keywords": [
+            "golden_hour",
+            "lantern_glow",
+            "hopeful"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624: do_yoon \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uc218\ub144 \ub4a4 \ub3c4\uc724 \uc0dd\uc131",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "hero_frames": [
+          "sc1 \u2014 \ud3ed\ud48d \uc18d \ub4f1\ubd88 \uac10\uc2fc \ub178\uc778 (\uc624\ud504\ub2dd)",
+          "sc4 \u2014 \uc808\ubcbd\uc758 \uc0c1\uc2e4 \uace0\ubc31 (\uac10\uc815 \uc815\uc810)",
+          "sc5 \u2014 \uaf2d\ub300\uae30 \ud575\uc2ec \ub300\uc0ac (\ud074\ub77c\uc774\ub9e5\uc2a4)"
+        ],
+        "transition_rules": [
+          "\ud558\ub4dc \ucef7\uc774 \uae30\ubcf8",
+          "\uac10\uc815 \uc804\ud658(\ud3ed\ud48d\u2192\ub530\ub73b)\ub9cc fade",
+          "\uacfc\ub3c4\ud55c \ud2b8\ub79c\uc9c0\uc158 \uae08\uc9c0"
+        ],
+        "aspect_ratio_rules": "16:9, \uc720\ud29c\ube0c",
+        "character_bindings": {
+          "sc1": [
+            "kang-suho"
+          ],
+          "sc2": [
+            "kang-suho",
+            "do-yoon"
+          ],
+          "sc3": [
+            "kang-suho",
+            "do-yoon"
+          ],
+          "sc4": [
+            "kang-suho"
+          ],
+          "sc5": [
+            "kang-suho",
+            "do-yoon"
+          ],
+          "sc6": [
+            "do-yoon"
+          ]
+        },
+        "binding_rule": "\ubaa8\ub4e0 \uc52c \ube44\ub514\uc624\ub294 required_assets\uc5d0 \uba85\uc2dc\ub41c \uce90\ub9ad\ud130\uc758 binding_hints.reference_image_paths\ub97c video_selector\uc5d0 \uc8fc\uc785\ud574 \uc0dd\uc131",
+        "color_palette": [
+          "#0b1622 \ud3ed\ud48d \ub124\uc774\ube44",
+          "#1a1208 \ucd1b\ubd88 \ube0c\ub77c\uc6b4",
+          "#c8a24a \ud669\uae08\ube5b",
+          "#5a5a5a \ud68c\uc0c9 \ud558\ub298"
+        ],
+        "language": "ko",
+        "episode": "ep01"
+      }
+    }
+  }
+}

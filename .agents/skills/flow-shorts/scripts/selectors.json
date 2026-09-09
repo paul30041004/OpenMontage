@@ -1,0 +1,44 @@
+{
+  "comment": "Selectors calibrated against flow.google.com (Angular Material UI, Sep 2026). Real mouse clicks at element coordinates are required — JS .click() often misses Angular bindings. Every spec resolves to a JS expression returning the target element; click_js variants return 'ok'.",
+  "settings_chip": {
+    "find_js": "Array.from(document.querySelectorAll('button')).find(x => /Nano Banana|crop_|Video ·|Image ·/.test(x.textContent))",
+    "click_mode": "mouse_at_center"
+  },
+  "mode_toggle": {
+    "label": "Image",
+    "scope": ".settings-content",
+    "selector": ".settings-content .mat-button-toggle-button",
+    "match_text": "Image"
+  },
+  "aspect_toggle": {
+    "label": "9:16",
+    "scope": ".settings-content",
+    "selector": ".settings-content .mat-button-toggle-button",
+    "match_text": "9:16"
+  },
+  "batch_toggle": {
+    "label": "x1",
+    "scope": ".settings-content",
+    "selector": ".settings-content .mat-button-toggle-button",
+    "match_text": "x1"
+  },
+  "prompt_box": {
+    "css": ".ProseMirror",
+    "type": "contenteditable",
+    "note": "ProseMirror editor — typing must go through Input.dispatchKeyEvent per char or execCommand insertText after focus"
+  },
+  "create_button": {
+    "find_js": "Array.from(document.querySelectorAll('button')).find(x => x.textContent.trim() === 'arrow_forward' || /생성|만들기|Create/i.test(x.textContent + ' ' + (x.getAttribute('aria-label')||'')))",
+    "click_mode": "mouse_at_center"
+  },
+  "card_titles": {
+    "js": "Array.from(document.querySelectorAll('[class*=media-grid] [class*=title], [class*=card-title], [data-testid*=asset]')).map(e => (e.textContent || '').trim()).filter(t => t && t.length < 100)"
+  },
+  "media_count_probe": {
+    "js": "document.querySelectorAll('[class*=media-grid] img, [class*=media-grid] video').length"
+  },
+  "ingredient_button": {
+    "find_js": "Array.from(document.querySelectorAll('.settings-content button, button')).find(x => /Ingredients|재료|참조/.test(x.textContent))",
+    "note": "reference attach flow TBD on first reference-image run"
+  }
+}

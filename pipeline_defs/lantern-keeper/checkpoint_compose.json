@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "compose",
+  "status": "completed",
+  "timestamp": "2026-08-16T05:14:06.452454+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "render_report": {
+      "version": "1.0",
+      "outputs": [
+        {
+          "path": "projects/lantern-keeper/renders/final.mp4",
+          "format": "mp4",
+          "codec": "h264",
+          "audio_codec": "aac",
+          "resolution": "1920x1080",
+          "fps": 30,
+          "duration_seconds": 125.0,
+          "file_size_bytes": 34865032,
+          "platform_target": "youtube"
+        }
+      ],
+      "render_time_seconds": 180,
+      "warnings": [],
+      "verification_notes": [
+        "ffprobe \ud1b5\uacfc: 125.0\ucd08, 1920x1080, 30fps, h264/aac, has_audio=true",
+        "\uc624\ub514\uc624 \ub808\ubca8 \uc804 \uad6c\uac04 \uc815\uc0c1 (-18.9 ~ -1.3 dB)",
+        "\uce90\ub9ad\ud130 \uc77c\uad00\uc131: \ubaa8\ub4e0 \uc52c \ube44\ub514\uc624\uc5d0 \uac15\uc218\ud638/\ub3c4\uc724 \uc575\ucee4 \ubc14\uc778\ub529 \uc720\uc9c0",
+        "\ubcf4\uc774\uc2a4 \uc815\ucc45: VoxCPM \uc575\ucee4(s4) \ud074\ub860 \ub2e8\uc77c \ubcf4\uc774\uc2a4 \uc801\uc6a9",
+        "final_review status=pass"
+      ],
+      "render_grammar": "cinematic-trailer",
+      "slideshow_risk_score": {
+        "average": 3.5,
+        "verdict": "acceptable"
+      },
+      "decision_log_ref": "projects/lantern-keeper/artifacts/decision_log.json",
+      "final_review_ref": "video_compose final_review (status=pass)",
+      "metadata": {
+        "episode": "ep01",
+        "total_cost_usd": 1.3,
+        "voice_provider": "voxcpm (anchor-clone unified)"
+      }
+    }
+  },
+  "metadata": {
+    "output": "renders/final.mp4",
+    "duration": 125,
+    "final_review": "pass"
+  }
+}

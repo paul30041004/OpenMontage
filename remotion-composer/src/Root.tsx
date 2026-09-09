@@ -16,6 +16,13 @@ import { ProductReveal, ProductRevealProps } from "./components/ProductReveal";
 import { CaptionOverlay, WordCaption } from "./components/CaptionOverlay";
 import { CollageBurst, CollageBurstProps } from "./CollageBurst";
 import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
+import {
+  EngineeringShortOverlay,
+  EngineeringShortOverlayProps,
+} from "./components/EngineeringShortOverlay";
+import { GenesisBlameGame } from "./components/GenesisBlameGame";
+import { Genesis4Esports } from "./components/Genesis4Esports";
+import { GenesisSeriesEpisode } from "./components/GenesisSeriesEpisode";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -329,6 +336,60 @@ export const Root: React.FC = () => {
           fadeOutSeconds: 1.5,
           overlay: true,
         } as EndTagProps}
+      />
+      <Composition
+        id="EngineeringShortOverlay"
+        component={EngineeringShortOverlay}
+        durationInFrames={30 * 8} // 8s
+        fps={30}
+        width={720}
+        height={1280}
+        defaultProps={{
+          mediaSrc: "flow_assets/anchor-hero-lens.png",
+          isVideo: false,
+          topicTag: "공학 비하인드 · EP.03",
+          dimensionLabel: "14.2mm 누진 회랑 (Progressive Corridor)",
+          focalCallout: "곡률 반경 R = 42.8mm (왜곡 억제율 98.4%)",
+          badgeText: "상단: 원거리 (0.0D) / 하단: 독서 (+2.5D)",
+          subtitle: "경계선을 없애는 대신, 보이지 않는 측면으로 수차를 밀어냅니다.",
+          metricHighlight: "수차 분산 99.1%",
+        } as EngineeringShortOverlayProps}
+      />
+      <Composition
+        id="GenesisBlameGame"
+        component={GenesisBlameGame}
+        durationInFrames={2520} // 84.0s @ 30fps
+        fps={30}
+        width={720}
+        height={1280}
+        defaultProps={{
+          projectDir: "genesis-3-blame-game",
+        }}
+      />
+      <Composition
+        id="Genesis4Esports"
+        component={Genesis4Esports}
+        durationInFrames={1890} // 63.0s @ 30fps
+        fps={30}
+        width={720}
+        height={1280}
+        defaultProps={{
+          projectDir: "genesis-4-esports",
+        }}
+      />
+      <Composition
+        id="GenesisSeriesEpisode"
+        component={GenesisSeriesEpisode}
+        durationInFrames={1800} // 60.0s @ 30fps
+        fps={30}
+        width={720}
+        height={1280}
+        defaultProps={{
+          projectDir: "genesis-4-esports",
+          title: "창세기 레전드 시리즈",
+          chapter: 1,
+          part: 1,
+        }}
       />
     </>
   );

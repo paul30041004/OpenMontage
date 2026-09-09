@@ -1,0 +1,122 @@
+name: sheet-music-vocal
+version: "1.0"
+description: >
+  Autonomous Sheet Music (MusicXML/MXL) to AI Vocal, Virtual Choir (SATB), and FreeShow
+  presentation video production pipeline. Extracts melodic parts and 4-part SATB harmony,
+  injects lyrics, models pitch/vibrato/breath expressions for Synthesizer V Pro, produces FreeShow
+  broadcast slides, masters vocals with acoustics (-14 LUFS), and composes lyric videos.
+category: audio_led
+stability: production
+
+default_checkpoint_policy: guided
+
+extensions:
+  custom_scripts: true
+  custom_playbooks: true
+  custom_skills: true
+  custom_tools: true
+
+required_skills:
+  - musescore-synthv-freeshow
+  - pipelines/sheet-music-vocal/executive-producer
+  - pipelines/sheet-music-vocal/score-director
+  - pipelines/sheet-music-vocal/vocal-director
+  - pipelines/sheet-music-vocal/subtitles-director
+  - pipelines/sheet-music-vocal/mastering-director
+  - pipelines/sheet-music-vocal/compose-director
+  - meta/reviewer
+  - meta/checkpoint-protocol
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/sheet-music-vocal/executive-producer
+  budget_default_usd: 0.00
+  max_revisions_per_stage: 2
+  max_send_backs: 2
+  max_wall_time_minutes: 15
+
+compatible_playbooks:
+  recommended:
+    - clean-professional
+    - premium-minimalist
+  also_works: []
+  custom_allowed: true
+
+stages:
+  - name: score_analysis
+    skill: pipelines/sheet-music-vocal/score-director
+    produces:
+      - score_manifest
+      - decision_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - Multi-part detection (String Quartet, SATB choir, Piano grand staff)
+      - Key signature, meter, and BPM tempo accuracy
+      - Verse count and lyric language identification (English / Korean)
+    success_criteria:
+      - Valid score structure identified
+      - Target melodic parts and harmony roles resolved
+
+  - name: vocal_generation
+    skill: pipelines/sheet-music-vocal/vocal-director
+    produces:
+      - vocal_manifest
+    tools_available:
+      - synthv_runner
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Syllable-to-note alignment without melisma drift
+      - Vocal range octave guard applied per part (S/A/T/B)
+      - Natural breath marks and expressive vibrato envelope
+      - Voice database assignment (e.g. SOLARIA II, SAROS II, Kevin 2, ASTERIAN II)
+    success_criteria:
+      - Synthesizer V Pro project (.svp) cleanly generated
+      - Render configuration and destination path injected
+
+  - name: presentation_subtitles
+    skill: pipelines/sheet-music-vocal/subtitles-director
+    produces:
+      - subtitle_manifest
+    tools_available: []
+    checkpoint_required: false
+    human_approval_default: false
+    review_focus:
+      - Smart 2-line phrasing per slide
+      - Accurate start/end timestamps from musical divisions
+      - Zero character corruption and clean Korean orthography
+    success_criteria:
+      - FreeShow JSON subtitles exported and validated
+
+  - name: audio_mastering
+    skill: pipelines/sheet-music-vocal/mastering-director
+    produces:
+      - master_audio
+    tools_available:
+      - vocal_mastering
+      - audio_mixer
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - 80Hz rumble cut and 3.5kHz vocal clarity presence
+      - Church/Hall acoustic space wet mix
+      - Instrumental backing track auto-ducking
+      - -14.0 LUFS broadcast loudness compliance
+    success_criteria:
+      - Mastered stereo audio track exported
+
+  - name: compose
+    skill: pipelines/sheet-music-vocal/compose-director
+    produces:
+      - render_report
+    tools_available:
+      - video_compose
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Synchronized lyric card animation with vocal playback
+      - Visual aesthetics matching hymn / choir / Christmas theme
+    success_criteria:
+      - Final MP4 video render completed

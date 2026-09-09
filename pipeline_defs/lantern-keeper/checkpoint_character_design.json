@@ -1,0 +1,84 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "character_design",
+  "status": "completed",
+  "timestamp": "2026-08-16T04:32:20.629860+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "character_consistency": {
+      "version": "1.0",
+      "style": {
+        "visual_style": "cinematic realism, film grain, moody maritime drama, soft window light",
+        "palette": [],
+        "render_notes": ""
+      },
+      "characters": [
+        {
+          "id": "kang-suho",
+          "display_name": "\uac15\uc218\ud638",
+          "role": "\ub4f1\ubd88\uc9c0\uae30 \ub178\uc778 (\uc8fc\uc778\uacf5)",
+          "appearance": "A weathered East Asian man in his early 60s, short white hair, deep wrinkles around warm eyes, gray stubble beard, wearing a heavy dark wool fisherman's coat with brass buttons.",
+          "reference_prompt": "cinematic realism, film grain, moody maritime drama, soft window light. Consistent character portrait: A weathered East Asian man in his early 60s, short white hair, deep wrinkles around warm eyes, gray stubble beard, wearing a heavy dark wool fisherman's coat with brass buttons. centered, full upper body, plain neutral background, even soft lighting, sharp focus, reference-quality identity shot, no text, no watermark.",
+          "reference_frames": [
+            {
+              "view": "front",
+              "path": "projects/lantern-keeper/assets/characters/kang-suho-front.png",
+              "source_tool": "image_selector",
+              "model": "gemini-3.1-flash-image"
+            }
+          ],
+          "binding_hints": {
+            "reference_image_paths": [
+              "projects/lantern-keeper/assets/characters/kang-suho-front.png"
+            ],
+            "preferred_providers": [
+              "seedance_video",
+              "veo_video",
+              "higgsfield_video"
+            ],
+            "first_frame_path": "projects/lantern-keeper/assets/characters/kang-suho-front.png"
+          }
+        },
+        {
+          "id": "do-yoon",
+          "display_name": "\ub3c4\uc724",
+          "role": "\ud3ed\ud48d\uc5d0 \uad6c\uc870\ub41c \uc80a\uc740 \uccad\ub144",
+          "appearance": "A lean East Asian young man in his late 20s, short black hair swept back, clean-shaven face with sharp cheekbones, wearing a soaked navy sailor jacket.",
+          "reference_prompt": "cinematic realism, film grain, moody maritime drama, soft window light. Consistent character portrait: A lean East Asian young man in his late 20s, short black hair swept back, clean-shaven face with sharp cheekbones, wearing a soaked navy sailor jacket. centered, full upper body, plain neutral background, even soft lighting, sharp focus, reference-quality identity shot, no text, no watermark.",
+          "reference_frames": [
+            {
+              "view": "front",
+              "path": "projects/lantern-keeper/assets/characters/do-yoon-front.png",
+              "source_tool": "image_selector",
+              "model": "gemini-3.1-flash-image"
+            }
+          ],
+          "binding_hints": {
+            "reference_image_paths": [
+              "projects/lantern-keeper/assets/characters/do-yoon-front.png"
+            ],
+            "preferred_providers": [
+              "seedance_video",
+              "veo_video",
+              "higgsfield_video"
+            ],
+            "first_frame_path": "projects/lantern-keeper/assets/characters/do-yoon-front.png"
+          }
+        }
+      ],
+      "metadata": {
+        "source": "character_consistency_builder",
+        "intended_video_providers": [
+          "seedance_video",
+          "veo_video",
+          "higgsfield_video",
+          "minimax_video"
+        ]
+      }
+    }
+  }
+}

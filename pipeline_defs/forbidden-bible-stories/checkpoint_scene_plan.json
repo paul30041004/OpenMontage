@@ -1,0 +1,308 @@
+{
+  "version": "1.0",
+  "project_id": "forbidden-bible-stories",
+  "pipeline_type": "cinematic",
+  "stage": "scene_plan",
+  "status": "completed",
+  "timestamp": "2026-08-15T03:09:58.061555+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "flat-motion-graphics",
+      "scenes": [
+        {
+          "id": "sc1",
+          "type": "generated",
+          "description": "HOOK \u2014 \uac70\uc778\uc758 \uae30\ub85d. \ub2e4\ud06c \ud478\ub978 \ud558\ub298 \uc544\ub798 \uace0\ub300 \ub3cc\uba58/\uc0b0\ub4f1\uc131\uc774 \uc704\uc5d0 \uc11c \uc788\ub294 \uac70\ub300\ud55c \uc778\uac04 \ud615\uc0c1\uc758 \uc2e4\ub8e8\uc5e3. \ub0ae\uace0 \uad75\uc740 \uc548\uac1c\uac00 \ub545\uc744 \ub36e\ub294\ub2e4. \uc2e0\ud654\uc801\uc774\uc9c0\ub9cc \uae30\ub85d\ucc98\ub7fc \uc815\uc801\uc774\ub2e4. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\uac70\ub300\ud55c \uc778\uac04 \uc2e4\ub8e8\uc5e3(\uba38\ub9ac \uc704\ub85c \ubcf4\uc774\ub294 \uac70\ub300\ud55c \uccb4\uad6c, \uc5b4\uae68\uc120\uc774 \uc0b0\ub9e5\uacfc \ub9cc\ub0a8), Motion=\uc548\uac1c\uac00 \ucc9c\ucc9c\ud788 \ud750\ub974\uace0 \uc778\ubb3c\uc740 \uac70\uc758 \uc815\uc9c0, Scene=\uace0\ub300 \ub545 + \uc800\ub141 \ub0a8\ube5b \ud558\ub298 + \uc548\uac1c, Framing=\uc775\uc2a4\ud2b8\ub9bc \uc640\uc774\ub4dc, \uc778\ubb3c\uc740 \uc911\uc559 \uc624\ud504\uc14b, FG=\ub3cc\uba58/\uc7a1\ucd08, MG=\uc778\ubb3c, BG=\uc0b0\ub9e5/\ud558\ub298, Camera=\uadf9\ud788 \ub290\ub9b0 \ub3cc\ub9ac \uc778 + \uc800\uac01\ub3c4, \uc624\ubc84\ub808\uc774: \ud0c0\uc774\ud2c0 '\uc131\uacbd \uc18d \uae08\uc9c0\ub41c \uc774\uc57c\uae30\ub4e4' \ud558\ub2e8 \ubc30\uce58.",
+          "start_seconds": 0,
+          "end_seconds": 18,
+          "script_section_id": "s1",
+          "framing": "extreme_wide",
+          "movement": "slow dolly in",
+          "transition_in": "fade from black",
+          "transition_out": "hard cut",
+          "overlay_notes": "\ud0c0\uc774\ud2c0 \uce74\ub4dc: '\uc131\uacbd \uc18d \uae08\uc9c0\ub41c \uc774\uc57c\uae30\ub4e4' (\ud558\ub2e8 1/3, \uc138\ub9ac\ud504 \uace0\ub515, \ud770\uc0c9 90%)",
+          "shot_language": {
+            "shot_size": "extreme_wide",
+            "camera_movement": "dolly_in",
+            "lens_mm": 24,
+            "lighting_key": "blue_hour",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\uccab 3\ucd08 \ub9cc\uc5d0 '\uac70\uc778 + \uae30\ub85d'\uc774\ub77c\ub294 \uc815\uccb4\uc131\uc744 \uc2dc\uac01\uc801\uc73c\ub85c \uc2ec\ub294\ub2e4.",
+          "narrative_role": "establish_context",
+          "information_role": "\ub124\ud53c\ub9bc\uc740 \uc2e0\ud654\uac00 \uc544\ub2cc \uc131\uacbd \uc548\uc758 \uae30\ub85d\uc774\ub77c\ub294 \ud504\ub808\uc784 \uc124\uc815",
+          "hero_moment": true,
+          "texture_keywords": [
+            "grain",
+            "muted",
+            "cinematic"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "VEO: \uac70\ub300\ud55c \uc778\uac04 \uc2e4\ub8e8\uc5e3\uc774 \uc0b0\ub4f1\uc131\uc774 \uc704\uc5d0 \uc11c \uc788\ub294 \uc775\uc2a4\ud2b8\ub9bc \uc640\uc774\ub4dc \uc2dc\ub124\ub9c8\ud2f1 \uc0f7",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc2",
+          "type": "generated",
+          "description": "ESCALATION 1 \u2014 \ucc3d\uc138\uae30 6\uc7a5. \uc624\ub798\ub41c \uc131\uacbd \ud544\uc0ac\ubcf8 \ud398\uc774\uc9c0\ub97c \uc190\uac00\ub77d\uc73c\ub85c \ub118\uae30\uba70 '\ucc3d\uc138\uae30 6\uc7a5'\uc73c\ub85c \ub0b4\ub824\uac04\ub2e4. \ub299\uc740 \uc190, \uc591\ud53c\uc9c0 \uc9c8\uac10, \uce94\ub4e4 \ubd88\ube5b. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\uc591\ud53c\uc9c0 \ud544\uc0ac\ubcf8\uacfc \ud398\uc774\uc9c0\ub97c \ub118\uae30\ub294 \uc190, Motion=\uc190\uc774 \ucc9c\ucc9c\ud788 \ud398\uc774\uc9c0\ub97c \ub118\uae40(\uc6b0\u2192\uc88c), Scene=\uc591\ud53c\uc9c0 + \uc740\uc740\ud55c \ucd1b\ubd88 + \uc5b4\ub450\uc6b4 \ubc30\uacbd, Framing=\ud074\ub85c\uc988\uc5c5, \ud398\uc774\uc9c0\ub294 \ud504\ub808\uc784 \uc911\uc559, BG=\ud750\ub9bf\ud55c \uc5b4\ub460, Camera=\uc815\uc801 + \uc57d\uac04\uc758 \ub799 \ud3ec\ucee4\uc2a4, \uc624\ubc84\ub808\uc774: '\ucc3d\uc138\uae30 6\uc7a5 1-4\uc808' \uc778\uc6a9 \ud14d\uc2a4\ud2b8 \uc0c1\ub2e8.",
+          "start_seconds": 18,
+          "end_seconds": 48,
+          "script_section_id": "s2",
+          "framing": "close_up",
+          "movement": "static with rack focus",
+          "transition_in": "hard cut",
+          "transition_out": "hard cut",
+          "overlay_notes": "\ucc3d\uc138\uae30 6\uc7a5 1-4\uc808 \uc778\uc6a9 \ud14d\uc2a4\ud2b8 \uc624\ubc84\ub808\uc774 (\uc0c1\ub2e8)",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "tungsten_warm",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "'\uc131\uacbd \uc548\uc5d0 \uae30\ub85d\ub418\uc5b4 \uc788\ub2e4'\ub294 \uc0ac\uc2e4\uc744 \ubb3c\ub9ac\uc801 \uc99d\uac70(\ud544\uc0ac\ubcf8)\ub85c \uc804\ub2ec",
+          "narrative_role": "introduce_subject",
+          "information_role": "\ucc3d\uc138\uae30 6\uc7a5\uc758 '\ud558\ub098\ub2d8\uc758 \uc544\ub4e4\ub4e4'=\uc14b\uc758 \ud6c4\uc190, \ub124\ud53c\ub9bc\uc758 \ucd9c\ud604 \ub9e5\ub77d",
+          "hero_moment": false,
+          "texture_keywords": [
+            "grain",
+            "warm",
+            "paper texture"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "VEO: \uace0\ub300 \ud544\uc0ac\ubcf8 \ud398\uc774\uc9c0\ub97c \ub118\uae30\ub294 \ud074\ub85c\uc988\uc5c5",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc3",
+          "type": "generated",
+          "description": "ESCALATION 2 \u2014 \ub124\ud53c\ub9bc\uc758 \uc815\uccb4. \uace0\ub300 \uc804\uc7a5\uc758 \uc7bf\ub354\ubbf8 \uc704\uc5d0 \uc120 \uac70\ub300\ud55c \uc778\uac04 \uc804\uc0ac\uc758 \uc2e4\ub8e8\uc5e3, \ub0ae\uc740 \uad6c\ub984\uacfc \uba3c\uc9c0. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ud22c\uad6c \uc4f4 \uac70\ub300 \uc778\uac04 \uc804\uc0ac \uc2e4\ub8e8\uc5e3(\ud3c9\ubc94\ud55c \uc778\uac04\ubcf4\ub2e4 2\ubc30 \uc774\uc0c1 \ud070 \uccb4\uad6c), Motion=\ub290\ub9ac\uac8c \uac80\uc744 \ubf51\uc544 \ub4e6, Scene=\uc804\uc7a5\uc758 \uc7bf\ub354\ubbf8 + \uba3c\uc9c0 + \ud750\ub9b0 \uc8fc\ud669\ube5b \ud558\ub298, Framing=\ub85c\uc6b0 \uc575\uae00 \ubbf8\ub514\uc5c4 \uc640\uc774\ub4dc, \uc804\uc0ac\ub294 \uc911\uc559, BG=\uc794\ud574/\uad6c\ub984, Camera=\ud578\ub4dc\ud5ec\ub4dc \ub290\ub08c\uc758 \ub290\ub9b0 \ud2b8\ub798\ud0b9, \uc624\ubc84\ub808\uc774: \uc815\uc758 \uce74\ub4dc '\ub124\ud53c\ub9bc \u2014 \ud0c0\ub77d\ud55c \uc790, \uc0ac\ub78c\uc758 \uc544\ub4e4, \uac70\uc778' \ud558\ub2e8.",
+          "start_seconds": 48,
+          "end_seconds": 78,
+          "script_section_id": "s3",
+          "framing": "medium_wide",
+          "movement": "slow tracking",
+          "transition_in": "hard cut",
+          "transition_out": "hard cut",
+          "overlay_notes": "\uc815\uc758 \uce74\ub4dc: '\ub124\ud53c\ub9bc \u2014 \ud0c0\ub77d\ud55c \uc790 \u00b7 \uc0ac\ub78c\uc758 \uc544\ub4e4 \u00b7 \uac70\uc778'",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "tracking_right",
+            "lens_mm": 35,
+            "lighting_key": "silhouette",
+            "depth_of_field": "medium",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "\ub124\ud53c\ub9bc\uc744 '\ucc9c\uc0ac\uc758 \uc544\ub4e4\uc774 \uc544\ub2cc, \ub108\ubb34\ub098 \ud070 \uc778\uac04'\uc73c\ub85c \uc2dc\uac01\ud654 \u2014 \uc218\uc815\ub41c \ud574\uc11d\uc744 \uc815\ud655\ud788 \ubc18\uc601",
+          "narrative_role": "build_tension",
+          "information_role": "\ub124\ud53c\ub9bc = \uc0ac\ub78c\uc758 \uc544\ub4e4\ub4e4\uc774\uba70 \ub2e8\uc9c0 \uac70\uc778",
+          "hero_moment": false,
+          "texture_keywords": [
+            "grain",
+            "gritty",
+            "dust"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "VEO: \uace0\ub300 \uc804\uc7a5 \uc704\uc5d0 \uc120 \uac70\ub300\ud55c \uc778\uac04 \uc804\uc0ac \uc2e4\ub8e8\uc5e3",
+              "source": "generate"
+            },
+            {
+              "type": "image",
+              "description": "Imagen: \ub124\ud53c\ub9bc \uc815\uc758 \uce74\ub4dc \ubc31\uadf8\ub77c\uc6b4\ub4dc (\uac70\uc778 \uc2e4\ub8e8\uc5e3, \ub2e4\ud06c \ub808\ub4dc-\ube0c\ub77c\uc6b4 \ud1a4)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc4",
+          "type": "generated",
+          "description": "MIDPOINT TURN \u2014 \ud574\uc11d\uc758 \ubd84\uc7c1, \uc5d0\ub179\uc11c. \uc5b4\ub460 \uc18d\uc5d0\uc11c \uace0\ubb38\uc11c\uac00 \ubd88\uaf43\uc5d0 \ube44\ucdb0\uc9c0\uba70 '\uc5d0\ub179\uc11c'\uac00 \ub4dc\ub7ec\ub09c\ub2e4. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ub0a1\uc740 \ub450\ub8e8\ub9c8\ub9ac/\uace0\ubb38\uc11c, Motion=\ubd88\uaf43\uc774 \ubb38\uc11c \ud45c\uba74\uc5d0 \ubc88\uc9c0\uba70 \uae00\uc790\uac00 \ube44\uce68, Scene=\uac80\uc740 \ubc30\uacbd + \uc624\ub80c\uc9c0 \ud654\uc5fc \uad11\uc6d0, Framing=\ud074\ub85c\uc988\uc5c5, \ubb38\uc11c \uc911\uc559, Camera=\uc815\uc801, \uc57d\ud55c \uc90c \uc778, \uc624\ubc84\ub808\uc774: '\uc720\ub2e4\uc11c 1:14' \uc778\uc6a9 \ud14d\uc2a4\ud2b8.",
+          "start_seconds": 78,
+          "end_seconds": 108,
+          "script_section_id": "s4",
+          "framing": "close_up",
+          "movement": "slow zoom in",
+          "transition_in": "hard cut",
+          "transition_out": "fade to black",
+          "overlay_notes": "'\uc720\ub2e4\uc11c 1:14' \uc778\uc6a9 \ud14d\uc2a4\ud2b8 (\ud558\ub2e8)",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "zoom_in",
+            "lens_mm": 50,
+            "lighting_key": "low_key",
+            "depth_of_field": "shallow",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\uc5d0\ub179\uc11c\uc758 '\ucc9c\uc0ac \ud574\uc11d'\uc744 \uc131\uacbd \ubc14\uae65\uc758 \ub2e4\ub978 \uc774\uc57c\uae30\ub85c \uc870\ub9dd \u2014 \ub17c\uc7c1\uc758 \uae34\uc7a5\uac10 \uc720\uc9c0",
+          "narrative_role": "build_tension",
+          "information_role": "\uc5d0\ub179\uc11c\uc758 \ucc9c\uc0ac \ud574\uc11d\uc740 \uc874\uc7ac\ud558\uc9c0\ub9cc \ubcf8\ubb38\uc740 \uc0ac\ub78c\uc758 \uc544\ub4e4\ub4e4\uc744 \uac00\ub9ac\ud0b4",
+          "hero_moment": false,
+          "texture_keywords": [
+            "grain",
+            "firelight",
+            "low_key"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "VEO: \ubd88\uaf43\uc5d0 \ube44\uce58\ub294 \uace0\ubb38\uc11c \ud074\ub85c\uc988\uc5c5",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc5",
+          "type": "generated",
+          "description": "ESCALATION 3 \u2014 \ub178\uc544 \ud64d\uc218\uc758 \uc2ec\ud310. \uac70\ub300\ud55c \ubcbd\ud30c\uac00 \uace0\ub300 \ub3c4\uc2dc\ub97c \uc0bc\ud0a8\ub2e4. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ub192\uc774 30m \uc774\uc0c1\uc758 \ubcbd\ud30c\uc640 \uc7a0\uae30\ub294 \uace0\ub300 \ub3c4\uc2dc, Motion=\ud30c\ub3c4\uac00 \uc88c\u2192\uc6b0\ub85c \ub3c4\uc2dc\ub97c \ub36e\uce68, Scene=\ud3ed\ud48d \ud558\ub298 + \uac70\uce5c \ubc14\ub2e4 + \uc7a0\uae30\ub294 \ud0d1/\uc131\ubcbd, Framing=\uc640\uc774\ub4dc, \ud30c\ub3c4\ub294 \uc6b0\uce21\uc5d0\uc11c \uc9c4\uc785, BG=\ud3ed\ud48d \ud558\ub298, Camera=\uc18d\ub3c4\uac10 \uc788\ub294 \ud2b8\ub798\ud0b9 + \uc57d\uac04 \ud578\ub4dc\ud5ec\ub4dc, \uc624\ubc84\ub808\uc774: \uc5c6\uc74c.",
+          "start_seconds": 108,
+          "end_seconds": 138,
+          "script_section_id": "s5",
+          "framing": "wide",
+          "movement": "tracking",
+          "transition_in": "hard cut",
+          "transition_out": "hard cut",
+          "overlay_notes": "\uc5c6\uc74c",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "tracking_left",
+            "lens_mm": 35,
+            "lighting_key": "overcast_soft",
+            "depth_of_field": "deep",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\uc2ec\ud310\uc758 \uc2a4\ucf00\uc77c\uc744 \ucd5c\ub300\uce58\ub85c \u2014 \uc601\uc0c1\uc758 \ube44\uc8fc\uc5bc \ud074\ub77c\uc774\ub9e5\uc2a4",
+          "narrative_role": "deliver_payload",
+          "information_role": "\ud64d\uc218\uac00 \ud0c0\ub77d\ud55c \uc2dc\ub300\ub97c \ub36e\uce5c\ub2e4\ub294 \uc2ec\ud310 \ube44\ud2b8",
+          "hero_moment": true,
+          "texture_keywords": [
+            "grain",
+            "epic",
+            "wet"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "VEO: \uac70\ub300\ud55c \ubcbd\ud30c\uac00 \uace0\ub300 \ub3c4\uc2dc\ub97c \uc0bc\ud0a4\ub294 \uc640\uc774\ub4dc \uc2dc\ub124\ub9c8\ud2f1 \ud074\ub9bd",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc6",
+          "type": "generated",
+          "description": "REVEAL \u2014 \uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c. \uc720\ud669\uacfc \ubd88\uc774 \uace0\ub300 \ub3c4\uc2dc \uc704\ub85c \uc3df\uc544\uc9c4\ub2e4. \uc774\uc5b4 \ub86f\uc758 \uc544\ub0b4\uac00 \uc18c\uae08\uae30\ub465\uc774 \ub418\ub294 \uc2e4\ub8e8\uc5e3 \ucef7. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ubd88\ud0c0\ub294 \ub3c4\uc2dc + \ub4a4\ub3cc\uc544\ubcf4\ub294 \uc5ec\uc131 \uc2e4\ub8e8\uc5e3\uc774 \ud770 \uae30\ub465\uc73c\ub85c \ubcc0\ud568, Motion=\ubd88\uae30\ub465 \ud558\uac15 \u2192 \uc5ec\uc131 \uc2e4\ub8e8\uc5e3\uc774 \uc5bc\uc5b4\ubd99\uc73c\uba70 \uc18c\uae08\uacb0 \ud14d\uc2a4\ucc98\ub85c \ubcc0\ud615, Scene=\ubd88\ud0c0\ub294 \ub3c4\uc2dc + \uac80\uc740 \uc5f0\uae30 + \uc624\ub80c\uc9c0 \ud558\ub298, Framing=\ubbf8\ub514\uc5c4 \uc640\uc774\ub4dc \u2192 \ud074\ub85c\uc988\uc5c5, Camera=\ub290\ub9b0 \ud06c\ub808\uc778 \ub2e4\uc6b4 + \uc815\uc801, \uc624\ubc84\ub808\uc774: \uc5c6\uc74c.",
+          "start_seconds": 138,
+          "end_seconds": 165,
+          "script_section_id": "s6",
+          "framing": "medium_wide",
+          "movement": "crane down",
+          "transition_in": "hard cut",
+          "transition_out": "fade to black",
+          "overlay_notes": "\uc5c6\uc74c",
+          "shot_language": {
+            "shot_size": "medium_wide",
+            "camera_movement": "crane_down",
+            "lens_mm": 35,
+            "lighting_key": "rim_lit",
+            "depth_of_field": "medium",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "\uba78\ub9dd\uc758 \ub9ac\ube4c \u2014 '\uc18c\uae08\uae30\ub465' \uc774\ubbf8\uc9c0\ub85c \uac15\ud55c \uc794\uc0c1 \ub0a8\uae40",
+          "narrative_role": "deliver_payload",
+          "information_role": "\uc18c\ub3d4\uacfc \uace0\ubaa8\ub77c\uc758 \uc720\ud669\u00b7\ubd88 \uc2ec\ud310\uacfc \ub86f\uc758 \uc544\ub0b4\uc758 \uc18c\uae08\uae30\ub465",
+          "hero_moment": true,
+          "texture_keywords": [
+            "grain",
+            "ember",
+            "smoke"
+          ],
+          "required_assets": [
+            {
+              "type": "video",
+              "description": "VEO: \uc720\ud669\uacfc \ubd88\uc774 \ub3c4\uc2dc \uc704\ub85c \uc3df\uc544\uc9c0\uace0 \uc18c\uae08\uae30\ub465\uc774 \ub418\ub294 \uc2e4\ub8e8\uc5e3",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc7",
+          "type": "text_card",
+          "description": "LANDING \u2014 \uae30\ub85d\uc758 \ubb34\uac8c. \ucd5c\uc885 \ud0c0\uc774\ud2c0 \uce74\ub4dc \uc704\uc5d0 \uc5b4\ub450\uc6b4 \uc9c8\uac10 \ubc31\uadf8\ub77c\uc6b4\ub4dc. 5-\uc544\uc2a4\ud399\ud2b8: Subject=\ud14d\uc2a4\ud2b8 '\uc0ac\ub78c\uc758 \uc544\ub4e4\ub4e4\uc774\uc5c8\ub2e4', Scene=\ub2e4\ud06c \ud14d\uc2a4\ucc98 + \ubbf8\uc138\ud55c \uba3c\uc9c0 \uc785\uc790, Framing=\uc911\uc559 \ud0c0\uc774\ud3ec, Camera=\uc815\uc801, \uc624\ubc84\ub808\uc774: \ucd5c\uc885 \ud0c0\uc774\ud2c0 '\uc131\uacbd \uc18d \uae08\uc9c0\ub41c \uc774\uc57c\uae30\ub4e4' + \uad6c\ub3c5 CTA.",
+          "start_seconds": 165,
+          "end_seconds": 180,
+          "script_section_id": "s7",
+          "framing": "center",
+          "movement": "static",
+          "transition_in": "fade from black",
+          "transition_out": "fade to black",
+          "overlay_notes": "\ucd5c\uc885 \ud0c0\uc774\ud2c0 + \uad6c\ub3c5 CTA (\ud558\ub2e8)",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "static",
+            "lens_mm": 50,
+            "lighting_key": "low_key",
+            "depth_of_field": "medium",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "\ub9c8\uc9c0\ub9c9 \uba54\uc2dc\uc9c0\ub97c \ub610\ub837\ud558\uac8c \uc0c8\uae30\uace0 \uad6c\ub3c5\uc73c\ub85c \uc720\ub3c4",
+          "narrative_role": "resolution",
+          "information_role": "\ub124\ud53c\ub9bc\uc740 \uc0ac\ub78c\uc758 \uc544\ub4e4\uc774\uc5c8\ub2e4\ub294 \ud575\uc2ec \uba54\uc2dc\uc9c0 + \uad6c\ub3c5 CTA",
+          "hero_moment": false,
+          "texture_keywords": [
+            "grain",
+            "minimal"
+          ],
+          "required_assets": [
+            {
+              "type": "image",
+              "description": "Imagen: \uc5b4\ub450\uc6b4 \uc9c8\uac10 \ubc31\uadf8\ub77c\uc6b4\ub4dc (\ubbf8\uc138\ud55c \uba3c\uc9c0, \ub2e4\ud06c \uadf8\ub808\uc774-\ub124\uc774\ube44)",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "hero_frames": [
+          "sc1 \u2014 \uac70\uc778 \uc2e4\ub8e8\uc5e3 (\uc624\ud504\ub2dd, \uc775\uc2a4\ud2b8\ub9bc \uc640\uc774\ub4dc)",
+          "sc5 \u2014 \ud64d\uc218 \ubcbd\ud30c (\ud074\ub77c\uc774\ub9e5\uc2a4)",
+          "sc6 \u2014 \uc18c\uae08\uae30\ub465 \ub9ac\ube4c"
+        ],
+        "transition_rules": [
+          "\ud558\ub4dc \ucef7\uc774 \uae30\ubcf8",
+          "\uc624\ud504\ub2dd/\ub79c\ub529\ub9cc fade to/from black",
+          "\uacfc\ub3c4\ud55c \ud2b8\ub79c\uc9c0\uc158 \uae08\uc9c0"
+        ],
+        "aspect_ratio_rules": "16:9, \uc720\ud29c\ube0c \ubbf8\ub4dc\ud3fc",
+        "title_card_rules": "\uc138\ub9ac\ud504+\uace0\ub515 \ud558\uc774\ube0c\ub9ac\ub4dc, \ud770\uc0c9 90%, \ud558\ub2e8 1/3, \uadf8\ub808\uc778 \uc9c8\uac10 \uc720\uc9c0",
+        "support_insert_rules": "\uc0dd\uc131 \uc774\ubbf8\uc9c0\ub294 \uc815\uc758 \uce74\ub4dc/\ubc31\uadf8\ub77c\uc6b4\ub4dc\uc5d0\ub9cc \uc0ac\uc6a9, \uc8fc \uc11c\uc0ac\ub294 VEO \ud074\ub9bd\uc774 \ub2f4\ub2f9",
+        "video_gen_prompts": "\ubaa8\ub4e0 VEO \ud504\ub86c\ud504\ud2b8\ub294 'cinematic, film grain, anamorphic, low-key lighting, epic scale' \uacf5\ud1b5 \uc5b4\ud718 \uc0ac\uc6a9",
+        "color_palette": [
+          "#1a1a24 \ub2e4\ud06c \ub124\uc774\ube44",
+          "#3d2b1f \ubc88\ud2b8 \ube0c\ub77c\uc6b4",
+          "#c8a24a \uc564\ud2f0\ud06c \uace8\ub4dc",
+          "#d8d3c8 \ubcf8\ud654\uc774\ud2b8"
+        ],
+        "language": "ko"
+      }
+    }
+  },
+  "metadata": {
+    "scenes": 7
+  }
+}

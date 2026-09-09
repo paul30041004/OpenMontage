@@ -1,0 +1,539 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "assets",
+  "status": "completed",
+  "timestamp": "2026-08-16T05:11:42.899812+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "asset_manifest": {
+      "version": "1.0",
+      "assets": [
+        {
+          "id": "video_sc1",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sample_sc1.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc1",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "resolution": "16:9",
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho \uc575\ucee4\ub97c reference_image_paths\ub85c \ubc14\uc778\ub529\ud574 \ud3ed\ud48d \uc18d \ub178\uc778 \uc0dd\uc131"
+        },
+        {
+          "id": "video_sc2",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc2.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc2",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho + do-yoon \ub450 \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uad6c\uc870 \uc7a5\uba74 \uc0dd\uc131"
+        },
+        {
+          "id": "video_sc3",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc3.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc3",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho + do-yoon \ubc14\uc778\ub529\ud574 \ub4f1\ubd88 \uc804\uc218 \uc7a5\uba74 \uc0dd\uc131"
+        },
+        {
+          "id": "video_sc4",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc4.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc4",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uc808\ubcbd\uc758 \ub178\uc778 \uc0dd\uc131"
+        },
+        {
+          "id": "video_sc5",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc5.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc5",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: kang-suho + do-yoon \ubc14\uc778\ub529\ud574 \uaf2d\ub300\uae30 \ub450 \uc0ac\ub78c \uc0dd\uc131"
+        },
+        {
+          "id": "video_sc6",
+          "type": "video",
+          "path": "projects/lantern-keeper/assets/video/sc6.mp4",
+          "source_tool": "video_selector",
+          "scene_id": "sc6",
+          "provider": "gemini_omni",
+          "model": "gemini-omni-flash-preview",
+          "cost_usd": 0.2,
+          "duration_seconds": 10,
+          "format": "mp4",
+          "quality_score": 0.9,
+          "subtype": "reference_bound",
+          "generation_summary": "\ucc38\uc870\ubc14\uc778\ub529: do-yoon \uc575\ucee4 \ubc14\uc778\ub529\ud574 \uc218\ub144 \ub4a4 \ub3c4\uc724 \uc0dd\uc131"
+        },
+        {
+          "id": "anchor_kang_suho",
+          "type": "image",
+          "path": "projects/lantern-keeper/assets/characters/kang-suho-front.png",
+          "source_tool": "image_selector",
+          "scene_id": "character_anchor",
+          "provider": "google_nano_banana",
+          "model": "gemini-3.1-flash-image",
+          "cost_usd": 0.05,
+          "format": "png",
+          "quality_score": 0.9,
+          "subtype": "character_anchor",
+          "generation_summary": "\uce90\ub9ad\ud130 \uc575\ucee4 \u2014 \uac15\uc218\ud638 (\ub178\uc778 \ub4f1\ubd88\uc9c0\uae30)"
+        },
+        {
+          "id": "anchor_do_yoon",
+          "type": "image",
+          "path": "projects/lantern-keeper/assets/characters/do-yoon-front.png",
+          "source_tool": "image_selector",
+          "scene_id": "character_anchor",
+          "provider": "google_nano_banana",
+          "model": "gemini-3.1-flash-image",
+          "cost_usd": 0.05,
+          "format": "png",
+          "quality_score": 0.9,
+          "subtype": "character_anchor",
+          "generation_summary": "\uce90\ub9ad\ud130 \uc575\ucee4 \u2014 \ub3c4\uc724 (\uad6c\uc870\ub41c \uccad\ub144)"
+        },
+        {
+          "id": "nar_anchor_s4",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/vox_anchor_s4.wav",
+          "source_tool": "voxcpm_tts",
+          "scene_id": "sc4",
+          "provider": "voxcpm",
+          "model": "openbmb/VoxCPM2",
+          "cost_usd": 0,
+          "duration_seconds": 18.08,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "anchor",
+          "generation_summary": "VoxCPM \ub0b4\ub808\uc774\uc158 \uc575\ucee4 (s4 \uc0c1\uc2e4 \uace0\ubc31). \ubaa8\ub4e0 \uc138\uadf8\uba3c\ud2b8\uac00 \uc774 \uc575\ucee4\ub97c clone\ud558\uc5ec \ub2e8\uc77c \uc77c\uad00 \ubcf4\uc774\uc2a4 \uc720\uc9c0.",
+          "voice_performance": {
+            "source_section_id": "s4",
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "voice_design": "warm calm middle-aged Korean male narrator, deep resonant documentary voice, smooth and gentle",
+              "emotion": "\ucc28\ubd84\ud558\uace0 \uc11c\uc815\uc801\uc73c\ub85c, \uc0c1\uc2e4\uc758 \ubb34\uac8c\ub97c \ub2f4\uc544",
+              "device": "mps",
+              "language": "ko"
+            },
+            "sample_approved": true,
+            "sample_path": "projects/lantern-keeper/assets/audio/vox_anchor_s4.wav",
+            "review_notes": "VoxCPM \uc575\ucee4 \u2014 \ubbf8\ub4dc\ud3fc \uc77c\uad00 \ubcf4\uc774\uc2a4 \uace0\uc815 \uae30\uc900"
+          }
+        },
+        {
+          "id": "nar_s1",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/vox_s1.wav",
+          "source_tool": "voxcpm_tts",
+          "scene_id": "sc1",
+          "provider": "voxcpm",
+          "model": "openbmb/VoxCPM2",
+          "cost_usd": 0,
+          "duration_seconds": 12.96,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "VoxCPM \ud074\ub860 \u2014 \ud3ed\ud48d\uc758 \ubc24 (anchor_s4\uc5d0\uc11c \ud074\ub860)"
+        },
+        {
+          "id": "nar_s2",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/vox_s2.wav",
+          "source_tool": "voxcpm_tts",
+          "scene_id": "sc2",
+          "provider": "voxcpm",
+          "model": "openbmb/VoxCPM2",
+          "cost_usd": 0,
+          "duration_seconds": 20.32,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "VoxCPM \ud074\ub860 \u2014 \uc816\uc740 \uccad\ub144 (anchor_s4\uc5d0\uc11c \ud074\ub860)"
+        },
+        {
+          "id": "nar_s3",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/vox_s3.wav",
+          "source_tool": "voxcpm_tts",
+          "scene_id": "sc3",
+          "provider": "voxcpm",
+          "model": "openbmb/VoxCPM2",
+          "cost_usd": 0,
+          "duration_seconds": 16.96,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "VoxCPM \ud074\ub860 \u2014 \ub4f1\ubd88 \uc804\uc218 (anchor_s4\uc5d0\uc11c \ud074\ub860)"
+        },
+        {
+          "id": "nar_s4",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/vox_s4.wav",
+          "source_tool": "voxcpm_tts",
+          "scene_id": "sc4",
+          "provider": "voxcpm",
+          "model": "openbmb/VoxCPM2",
+          "cost_usd": 0,
+          "duration_seconds": 18.08,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "VoxCPM \ud074\ub860 \u2014 \uc783\uc740 \uc544\ub4e4 (anchor_s4\uc5d0\uc11c \ud074\ub860)"
+        },
+        {
+          "id": "nar_s5",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/vox_s5.wav",
+          "source_tool": "voxcpm_tts",
+          "scene_id": "sc5",
+          "provider": "voxcpm",
+          "model": "openbmb/VoxCPM2",
+          "cost_usd": 0,
+          "duration_seconds": 17.76,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "VoxCPM \ud074\ub860 \u2014 \uc774\uc5b4\uc9c0\ub294 \ub9d0 (anchor_s4\uc5d0\uc11c \ud074\ub860)"
+        },
+        {
+          "id": "nar_s6",
+          "type": "narration",
+          "path": "projects/lantern-keeper/assets/audio/vox_s6.wav",
+          "source_tool": "voxcpm_tts",
+          "scene_id": "sc6",
+          "provider": "voxcpm",
+          "model": "openbmb/VoxCPM2",
+          "cost_usd": 0,
+          "duration_seconds": 14.88,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "segment",
+          "generation_summary": "VoxCPM \ud074\ub860 \u2014 \uaebc\uc9c0\uc9c0 \uc54a\ub294 \ube5b (anchor_s4\uc5d0\uc11c \ud074\ub860)"
+        },
+        {
+          "id": "music_bgm",
+          "type": "music",
+          "path": "projects/lantern-keeper/assets/music/bgm.mp3",
+          "source_tool": "pixabay_music",
+          "scene_id": "all",
+          "provider": "pixabay_music",
+          "model": "Emotional Piano by MondaMusic",
+          "cost_usd": 0,
+          "duration_seconds": 80.9,
+          "format": "mp3",
+          "quality_score": 0.85,
+          "subtype": "stock",
+          "license": "Pixabay Content License (free, no attribution required)",
+          "generation_summary": "Pixabay \ubb34\ub8cc \ub85c\uc5f4\ud2f0\ud504\ub9ac \u2014 \uac10\uc131 \ud53c\uc544\ub178 \uc5b8\ub354\uc2a4\ucf54\uc5b4"
+        },
+        {
+          "id": "audio_final_mix",
+          "type": "audio",
+          "path": "projects/lantern-keeper/assets/audio/final_mix.wav",
+          "source_tool": "audio_mixer",
+          "scene_id": "all",
+          "provider": "local",
+          "cost_usd": 0,
+          "duration_seconds": 125,
+          "format": "wav",
+          "quality_score": 0.9,
+          "subtype": "final_mix",
+          "generation_summary": "full_mix: VoxCPM \ud074\ub860 \ub098\ub808\uc774\uc158 6\uc138\uadf8\uba3c\ud2b8 + Pixabay \uc74c\uc545 2\ud2b8\ub799, \ub355\ud0b9 -8dB, 125\ucd08"
+        }
+      ],
+      "total_cost_usd": 1.3,
+      "metadata": {
+        "music_plan": "Pixabay \ubb34\ub8cc \ub85c\uc5f4\ud2f0\ud504\ub9ac (\ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc)",
+        "ambience_plan": "\uc52c \ube44\ub514\uc624 \ub0b4\uc7a5 \uc0ac\uc6b4\ub4dc \ud65c\uc6a9",
+        "title_assets": [
+          "anchor_kang_suho",
+          "anchor_do_yoon (\uce90\ub9ad\ud130 \uc575\ucee4)"
+        ],
+        "rights_notes": "\uc74c\uc545\uc740 Pixabay Content License. \ube44\ub514\uc624/\uc774\ubbf8\uc9c0 AI \uc0dd\uc131.",
+        "character_binding": "\ubaa8\ub4e0 \uc52c \ube44\ub514\uc624\uac00 \ud574\ub2f9 \uce90\ub9ad\ud130\uc758 \uc575\ucee4\ub97c reference_image_paths\ub85c \ubc14\uc778\ub529\ud574 \uc0dd\uc131 (\uce90\ub9ad\ud130 \uc77c\uad00\uc131)",
+        "voice_policy": "\ubbf8\ub4dc\ud3fc \ub098\ub808\uc774\uc158: VoxCPM \uc575\ucee4(s4) -> \ud074\ub860 \ubc29\uc2dd\uc73c\ub85c \uc804 \uc138\uadf8\uba3c\ud2b8 \ub2e8\uc77c \uc77c\uad00 \ubcf4\uc774\uc2a4 \uace0\uc815"
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "lantern-keeper",
+      "decisions": [
+        {
+          "decision_id": "d-001",
+          "stage": "proposal",
+          "category": "pipeline_selection",
+          "subject": "\ud30c\uc774\ud504\ub77c\uc778 \uc120\ud0dd",
+          "options_considered": [
+            {
+              "option_id": "novel-to-video",
+              "label": "novel-to-video (beta)",
+              "score": 0.95,
+              "reason": "\uc7a5\ud3b8 \uc11c\uc0ac \u2192 \uc5d0\ud53c\uc18c\ub4dc + \uce90\ub9ad\ud130 \uc77c\uad00\uc131\uc774 \ubaa9\uc801",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "cinematic",
+              "label": "cinematic",
+              "score": 0.5,
+              "reason": "\ubb34\ub4dc \uc8fc\ub3c4\uc9c0\ub9cc \uc7a5\ud3b8 \uc555\ucd95/\uce90\ub9ad\ud130 \uacc4\uce35 \uc5c6\uc74c",
+              "rejected_because": "\uc7a5\ud3b8 \uc11c\uc0ac \uae30\ub2a5 \ubd80\uc7ac"
+            }
+          ],
+          "selected": "novel-to-video",
+          "reason": "\uc0ac\uc6a9\uc790 \uc694\uccad \u2014 Novel2Video \ud30c\uc774\ud504\ub77c\uc778 \uc2e4\uc81c \ud14c\uc2a4\ud2b8",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "d-002",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition render runtime",
+          "options_considered": [
+            {
+              "option_id": "remotion",
+              "label": "Remotion (React scene components)",
+              "score": 0.9,
+              "reason": "\ucc38\uc870\ubc14\uc778\ub529 \uc601\uc0c1 \ud074\ub9bd + \uc624\ubc84\ub808\uc774 + \uc790\ub9c9 \uc870\ud569\uc758 CinematicRenderer\uc5d0 \ucd5c\uc801",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames (HTML/GSAP)",
+              "score": 0.5,
+              "reason": "\ud0a4\ub124\ud2f1 \ud0c0\uc774\ud3ec \uac15\uc810\uc774\ub098 \uc11c\uc0ac \uc601\uc0c1 \uc911\uc2ec \ube0c\ub9ac\ud504\uc5d0\ub294 \uacfc\ud568",
+              "rejected_because": "\uc601\uc0c1 \uc8fc\ub3c4 \uc11c\uc0ac\uc5d0 \ubd80\uc801\ud569"
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg (\ub2e8\uc21c \ucef7)",
+              "score": 0.3,
+              "reason": "\uc624\ubc84\ub808\uc774/\uc790\ub9c9/\ud2b8\ub79c\uc9c0\uc158 \uc81c\uc5b4 \ubd80\uc871",
+              "rejected_because": "\uc11c\uc0ac \ud3b8\uc9d1 \uc81c\uc5b4 \ubd80\uc871"
+            }
+          ],
+          "selected": "remotion",
+          "reason": "\ucc38\uc870\ubc14\uc778\ub529 \uc601\uc0c1 \uc911\uc2ec \uc2dc\ub124\ub9c8\ud2f1 \ud3b8\uc9d1\uc5d0 \ucd5c\uc801 (\uad8c\uc7a5). \ub450 \ub7f0\ud0c0\uc784 \ubaa8\ub450 \uace0\ub824\ud574 \ub85c\uadf8 \uae30\ub85d",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-003",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "\ucef4\ud3ec\uc9c0\uc158 \uc800\uc791 \ubaa8\ub4dc",
+          "options_considered": [
+            {
+              "option_id": "templated",
+              "label": "Templated (CinematicRenderer \uc870\ub9bd)",
+              "score": 0.85,
+              "reason": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624 + \ud15c\ud50c\ub9bf \uc870\ud569\uc774 \ube60\ub974\uace0 \uc548\uc815\uc801",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "atelier",
+              "label": "Atelier (\ub9de\ucda4 \uc218\uc81c)",
+              "score": 0.5,
+              "reason": "\ud14c\uc2a4\ud2b8/\ubca0\ud0c0 \ud30c\uc774\ud504\ub77c\uc778 \ucd08\uae30 \uac80\uc99d\uc5d0\ub294 \uacfc\uc911",
+              "rejected_because": "\ucd08\uae30 \uac80\uc99d \ubc94\uc704 \ucd08\uacfc"
+            }
+          ],
+          "selected": "templated",
+          "reason": "\uccab \ud30c\uc774\ud504\ub77c\uc778 \uc2e4\ud589\uc774\ub77c \uc548\uc815\uc131 \uc6b0\uc120. \ubb34\ub4dc\ub294 \uadf8\ub808\uc774\ub529+\uc74c\uc545\uc73c\ub85c \uad6c\ud604",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-004",
+          "stage": "proposal",
+          "category": "provider_selection",
+          "subject": "\uc601\uc0c1 \uc0dd\uc131 \ud504\ub85c\ubc14\uc774\ub354 (\ucc38\uc870\ubc14\uc778\ub529)",
+          "options_considered": [
+            {
+              "option_id": "seedance_video",
+              "label": "Seedance (multi-reference + character)",
+              "score": 0.92,
+              "reason": "reference_image_paths + multi_shot + \uce90\ub9ad\ud130 \uac15\uc810",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "higgsfield_video",
+              "label": "Higgsfield (character_consistency)",
+              "score": 0.9,
+              "reason": "\uba85\uc2dc\uc801 \uce90\ub9ad\ud130 \uc77c\uad00\uc131 \ud50c\ub798\uadf8",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "veo_video",
+              "label": "VEO 3.1",
+              "score": 0.85,
+              "reason": "reference_to_video + first_last_frame",
+              "rejected_because": ""
+            }
+          ],
+          "selected": "seedance_video",
+          "reason": "\uce90\ub9ad\ud130 \uc77c\uad00\uc131 \ubc14\uc778\ub529\uc5d0 \ucd5c\uc801. higgsfield/veo\ub3c4 binding_hints.preferred_providers\ub85c \ubcd1\ud589 \uace0\ub824",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-005",
+          "stage": "proposal",
+          "category": "voice_selection",
+          "subject": "Narration TTS provider",
+          "options_considered": [
+            {
+              "option_id": "fish_audio_tts",
+              "label": "Fish Audio s2.1-pro-free",
+              "score": 0.9,
+              "reason": "\ub85c\ubd07\uc74c \uc5c6\ub294 \ud074\ub77c\uc6b0\ub4dc \ud55c\uad6d\uc5b4, \ubb34\ub8cc",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "voxcpm",
+              "label": "VoxCPM (\ub85c\uceec)",
+              "score": 0.4,
+              "reason": "\ub85c\ubd07\uc74c \uc774\ub825",
+              "rejected_because": "\uc74c\uc9c8 \ubd80\uc871"
+            }
+          ],
+          "selected": "fish_audio_tts",
+          "reason": "\uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4 \uc11c\uc815 \ub098\ub808\uc774\uc158 (\ubb34\ub8cc)",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-006",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "\ubc30\uacbd\uc74c\uc545 \uc18c\uc2a4",
+          "options_considered": [
+            {
+              "option_id": "google_music",
+              "label": "Google Lyria AI \uc0dd\uc131",
+              "score": 0.85,
+              "reason": "\uac10\uc131 \uc11c\uc0ac \ubb34\ub4dc \uc81c\uc5b4",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "pixabay_music",
+              "label": "Pixabay \ubb34\ub8cc",
+              "score": 0.6,
+              "reason": "\ubb34\ub8cc\uc9c0\ub9cc \ubb34\ub4dc \ud55c\uc815",
+              "rejected_because": "\ubb34\ub4dc \uc81c\uc5b4 \ubd80\uc871"
+            }
+          ],
+          "selected": "google_music",
+          "reason": "\uac10\uc131 \ud53c\uc544\ub178/\uc2a4\ud2b8\ub9c1 \uc5b8\ub354\uc2a4\ucf54\uc5b4",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-007",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "\ubc30\uacbd\uc74c\uc545 \uc18c\uc2a4",
+          "options_considered": [
+            {
+              "option_id": "pixabay_music",
+              "label": "Pixabay \ubb34\ub8cc \uc74c\uc545",
+              "score": 0.85,
+              "reason": "\ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc \uc694\uccad \u2014 \uac10\uc131 \ud53c\uc544\ub178 \uc5b8\ub354\uc2a4\ucf54\uc5b4 \uac80\uc0c9 \uac00\ub2a5",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "google_music",
+              "label": "Google Lyria AI \uc0dd\uc131",
+              "score": 0.6,
+              "reason": "\ubb34\ub4dc \uc81c\uc5b4 \uac15\uc810\uc774\ub098 \uc720\ub8cc(/bin/zsh.2)",
+              "rejected_because": "\uc0ac\uc6a9\uc790: \ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc\ub85c \ubcc0\uacbd"
+            }
+          ],
+          "selected": "pixabay_music",
+          "reason": "\uc0ac\uc6a9\uc790 \uc9c0\uc815: \ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc. \uc601\uc0c1(\ucc38\uc870\ubc14\uc778\ub529)\uc5d0 \ube44\uc6a9 \uc9d1\uc911, \uc74c\uc545\uc740 Pixabay \ubb34\ub8cc\ub85c",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-008",
+          "stage": "assets",
+          "category": "voice_selection",
+          "subject": "\ubbf8\ub4dc\ud3fc \ub098\ub808\uc774\uc158 VoxCPM \uace0\uc815 \uc815\ucc45",
+          "options_considered": [
+            {
+              "option_id": "voxcpm_clone",
+              "label": "VoxCPM \uc575\ucee4-\ud074\ub860 (\uace0\uc815)",
+              "score": 0.95,
+              "reason": "\uc0ac\uc6a9\uc790 \uc9c0\uc815: \ubbf8\ub4dc\ud3fc\uc5d0\uc11c\ub294 VoxCPM \uc575\ucee4-\ud074\ub860\ub9cc \uc77c\uad00\ub41c \ubcf4\uc774\uc2a4 \ubcf4\uc7a5",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "fish_audio",
+              "label": "Fish Audio \ud074\ub77c\uc6b0\ub4dc",
+              "score": 0.6,
+              "reason": "\ud074\ub77c\uc6b0\ub4dc \ubb34\ub8cc/\uc720\ub8cc\uc9c0\ub9cc \ubbf8\ub4dc\ud3fc \uc77c\uad00\uc131\uc5d0\uc11c VoxCPM\uc774 \ub354 \uc548\uc815\uc801",
+              "rejected_because": "\uc0ac\uc6a9\uc790: VoxCPM\uc73c\ub85c \uace0\uc815"
+            }
+          ],
+          "selected": "voxcpm_clone",
+          "reason": "\uc0ac\uc6a9\uc790 \ud655\uc815: \ubbf8\ub4dc\ud3fc\uc5d0\uc11c\ub294 VoxCPM \uc575\ucee4-\ud074\ub860 \ubc29\uc2dd\uc73c\ub85c \uc77c\uad00\ub41c \ubcf4\uc774\uc2a4 \uace0\uc815",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.95
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "total_cost_usd": 1.3,
+    "assets": 17,
+    "voice_fixed": "voxcpm_clone"
+  }
+}

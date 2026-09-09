@@ -1,0 +1,537 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-08-16T03:58:13.981287+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "c1",
+          "title": "\uaebc\uc9c0\uc9c0 \uc54a\ub294 \ube5b \u2014 \ud3ed\ud48d\uacfc \uc774\uc5b4\uc9c0\ub294 \ubd88\uaf43",
+          "hook": "\uadf8\ub0a0 \ubc24, \ub4f1\ub300\uac00 \ud754\ub4e4\ub9b4 \ub9cc\ud07c\uc758 \ud3ed\ud48d\uc774\uc5c8\ub2e4.",
+          "narrative_structure": "story",
+          "visual_approach": "\ub2e4\ud06c \uc2dc\ub124\ub9c8\ud2f1. \uc804\ubc18\ubd80 \ud3ed\ud48d(\ud478\ub978-\uac80\uc815, \ube44, \ud754\ub4e4\ub9bc) \u2192 \uc911\ubc18 \ub530\ub73b\ud55c \uc2e4\ub0b4(\uc570\ubc84, \ucd1b\ubd88 \ud1a4) \u2192 \ud6c4\ubc18 \ud669\ud63c\uc758 \ud669\uae08\ube5b. \uce90\ub9ad\ud130 \ucc38\uc870\ubc14\uc778\ub529\uc73c\ub85c \ub178\uc778/\uccad\ub144 \uc678\ud615 \uc77c\uad00 \uc720\uc9c0.",
+          "suggested_playbook": "flat-motion-graphics",
+          "target_audience": "\uc11c\uc0ac \ub2e8\ud3b8/\uac10\uc131 \uc2a4\ud1a0\ub9ac\ud154\ub9c1 \uc2dc\uccad\uc790 (\ud55c\uad6d\uc5b4)",
+          "target_platform": "youtube",
+          "target_duration_seconds": 90,
+          "key_points": [
+            "\ub4f1\ubd88\uc744 \uc9c0\ud0a4\ub294 \ub178\uc778\uc774 \ud3ed\ud48d \uc18d\uc5d0\uc11c \ubd88\uc744 \uc0ac\uc218\ud55c\ub2e4",
+            "\uad6c\uc870\ub41c \uccad\ub144\uc774 \ub178\uc778\uc5d0\uac8c \ub4f1\ubd88 \uc9c0\ud0a4\uae30\ub97c \ubc30\uc6b4\ub2e4",
+            "\ub178\uc778\uc774 \ub4f1\ubd88\uc774 \uaebc\uc838 \uc783\uc740 \uc544\ub4e4\uc744 \uace0\ubc31\ud55c\ub2e4",
+            "\ubd88\uc740 \uc9c0\ud0a4\ub294 \uc0ac\ub78c\uc774 \uc788\uc5b4\uc57c \uaebc\uc9c0\uc9c0 \uc54a\ub294\ub2e4"
+          ],
+          "core_message": "\uc791\uc740 \ub4f1\ubd88\ub3c4, \uc9c0\ud0a4\ub294 \uc0ac\ub78c\uc774 \uc788\uc73c\uba74 \uaebc\uc9c0\uc9c0 \uc54a\ub294\ub2e4.",
+          "cta": "\uc774\uc5b4\uc9c0\ub294 \uc774\uc57c\uae30\ub97c \uad6c\ub3c5\uc73c\ub85c \ub9cc\ub098\ubcf4\uc138\uc694",
+          "tone": "\uac10\uc131, \uc11c\uc815\uc801, \uc2dc\ub124\ub9c8\ud2f1",
+          "grounded_in": [
+            "adaptation_plan ep01 \uac10\uc815\uace1\uc120",
+            "\ub178\uc778-\uccad\ub144 \uc778\uc5f0 \ube44\ud2b8"
+          ],
+          "why_this_works": "\uc9e7\uc9c0\ub9cc \uba85\ud655\ud55c \uac10\uc815\uace1\uc120(\uae34\uc7a5\u2192\ub530\ub73b\ud568\u2192\uc0c1\uc2e4\u2192\ud76c\ub9dd)\uacfc \ub450 \uce90\ub9ad\ud130 \uc911\uc2ec \uc11c\uc0ac\ub77c \ucc38\uc870\ubc14\uc778\ub529 \uce90\ub9ad\ud130 \uc77c\uad00\uc131 \ud14c\uc2a4\ud2b8\uc5d0 \uc774\uc0c1\uc801."
+        },
+        {
+          "id": "c2",
+          "title": "\ud3ed\ud48d\uc758 \ubc24 \u2014 \ub4f1\ubd88\uc9c0\uae30\uc758 \uace0\ub3c5\ud55c \uc0ac\uc218",
+          "hook": "\ub4f1\ubd88\uc774 \uaebc\uc9c0\uba74, \ubc30\ub4e4\uc740 \uc554\ucd08\uc5d0 \ubd80\ub52a\ud78c\ub2e4.",
+          "narrative_structure": "story",
+          "visual_approach": "\uc804\uccb4\ub97c \ud3ed\ud48d\uc758 \ud478\ub978-\uac80\uc815 \ud1a4\uc73c\ub85c \ud1b5\uc77c, \ube44\uc640 \ud754\ub4e4\ub9bc \uc911\uc2ec\uc758 \uc2a4\ub9b4\ub7ec \ud1a4. \uacb0\ub9d0\ub9cc \uc570\ubc84\ub85c \uc804\ud658. \uce90\ub9ad\ud130 \ucc38\uc870\ubc14\uc778\ub529 \uc720\uc9c0.",
+          "suggested_playbook": "clean-professional",
+          "target_audience": "\uae34\uc7a5\uac10/\uc2a4\ub9b4\ub7ec \uc11c\uc0ac \uc2dc\uccad\uc790",
+          "target_platform": "youtube",
+          "target_duration_seconds": 90,
+          "key_points": [
+            "\ud3ed\ud48d\uc758 \ubc24 \ub4f1\ubd88 \uc0ac\uc218\uc758 \uae34\uc7a5\uac10",
+            "\uccad\ub144 \uad6c\uc870\uac00 \uac00\uc838\uc624\ub294 \uad00\uacc4\uc758 \uc2dc\uc791",
+            "\uc0c1\uc2e4 \uace0\ubc31\uc774 \uae34\uc7a5\uc758 \uc815\uc810"
+          ],
+          "core_message": "\uace0\ub3c5\ud55c \uc0ac\uc218\uac00 \ube5b\uc744 \uc9c0\ud0a8\ub2e4.",
+          "cta": "\uad6c\ub3c5",
+          "tone": "\uae34\uc7a5, \uc2a4\ub9b4\ub7ec",
+          "grounded_in": [
+            "adaptation_plan ep01 \ud3ed\ud48d \ube44\ud2b8"
+          ],
+          "why_this_works": "\ud3ed\ud48d \ube44\uc8fc\uc5bc \uc911\uc2ec\uc758 \uc2a4\ub9b4\ub7ec \uac01\ub3c4. \ub2e8, \uac10\uc131 \ud574\uc0c1\uc774 \uc57d\ud574 c1\ubcf4\ub2e4 \ub35c \ub530\ub73b\ud568."
+        },
+        {
+          "id": "c3",
+          "title": "\ub4f1\ub300\uc5d0 \ub0a8\uc740 \uc774\uc57c\uae30 \u2014 \ube5b\uc744 \uc774\uc5b4\ubc1b\ub2e4",
+          "hook": "\ubd88\uc740, \uc9c0\ud0a4\ub294 \uc0ac\ub78c\uc774 \uc788\uc5b4\uc57c \uaebc\uc9c0\uc9c0 \uc54a\ub294\ub2e4.",
+          "narrative_structure": "story",
+          "visual_approach": "\ud68c\uc0c1 \ud504\ub808\uc784 \uc911\uc2ec. \ud604\uc7ac(\ub530\ub73b\ud55c \ud669\ud63c)\uc640 \uacfc\uac70(\ud3ed\ud48d)\ub97c \uad50\ucc28 \ud3b8\uc9d1. \ub178\uc778\uc758 \uae30\uc5b5 \uc7a5\uce58\ub85c \uc11c\uc0ac \uc9c4\ud589.",
+          "suggested_playbook": "cinematic",
+          "target_audience": "\uc794\uc794\ud55c \ud68c\uace0/\uc11c\uc0ac \uc2dc\uccad\uc790",
+          "target_platform": "youtube",
+          "target_duration_seconds": 90,
+          "key_points": [
+            "\ub178\uc778\uc758 \uae30\uc5b5 \uc18d \ud3ed\ud48d\uc758 \ubc24",
+            "\uc544\ub4e4\uc744 \uc783\uc740 \uc0c1\uc2e4",
+            "\uccad\ub144\uc5d0\uac8c \ube5b\uc744 \uc774\uc5b4\uc8fc\ub294 \uacb0\ub9d0"
+          ],
+          "core_message": "\uae30\uc5b5 \uc18d\uc758 \ube5b\uc774 \ub2e4\uc74c \uc138\ub300\ub85c \uc774\uc5b4\uc9c4\ub2e4.",
+          "cta": "\uad6c\ub3c5",
+          "tone": "\uc794\uc794, \ud68c\uace0\uc801",
+          "grounded_in": [
+            "adaptation_plan ep01 \uc0c1\uc2e4 \ube44\ud2b8"
+          ],
+          "why_this_works": "\ud68c\uc0c1 \ud504\ub808\uc784\uc774 \uac10\uc131\uc744 \uae4a\uac8c \ub9cc\ub4e0\ub2e4. \ub2e8, \uad50\ucc28\ud3b8\uc9d1 \ubcf5\uc7a1\ub3c4\uac00 \ub192\uc544 \uccab \ud14c\uc2a4\ud2b8\uc5d0\ub294 \ubb34\uac70\uc6c0."
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "c1",
+        "rationale": "adaptation_plan\uc758 \uc720\uc77c \uc5d0\ud53c\uc18c\ub4dc\ub97c \uadf8\ub300\ub85c \ud504\ub85c\ub355\uc158\ud654. \uac10\uc815\uace1\uc120\uacfc \uce90\ub9ad\ud130 \uad6c\uc870\uac00 \uce90\ub9ad\ud130 \uc77c\uad00\uc131 \uae30\ub2a5 \uac80\uc99d\uc5d0 \ucd5c\uc801."
+      },
+      "production_plan": {
+        "pipeline": "novel-to-video",
+        "playbook": "flat-motion-graphics",
+        "stages": [
+          {
+            "stage": "adaptation",
+            "tools": [],
+            "approach": "\uc644\ub8cc \u2014 \uc7a5\ud3b8\u2192\uc5d0\ud53c\uc18c\ub4dc \uc555\ucd95 + \uce90\uc2a4\ud2b8 \ucd94\ucd9c",
+            "fallback_if_unavailable": ""
+          },
+          {
+            "stage": "proposal",
+            "tools": [],
+            "approach": "\uc5d0\ud53c\uc18c\ub4dc \uc21c\uc11c + \uc2dc\uac01 \ucc98\ub9ac + \ub7f0\ud0c0\uc784 + \ube44\uc6a9 \uc2b9\uc778 (\ubcf8 \uac8c\uc774\ud2b8)",
+            "fallback_if_unavailable": ""
+          },
+          {
+            "stage": "script",
+            "tools": [
+              {
+                "tool_name": "manuscript",
+                "role": "90\ucd08 \ud55c\uad6d\uc5b4 \uc11c\uc815 \ub098\ub808\uc774\uc158 + \ube44\ud2b8\ub9f5",
+                "available": true
+              }
+            ],
+            "approach": "\ud3ed\ud48d \uae34\uc7a5 \u2192 \ub530\ub73b\ud568 \u2192 \uc0c1\uc2e4 \uace0\ubc31 \u2192 \ud76c\ub9dd\uc758 \uac10\uc815\uace1\uc120\uc73c\ub85c \ub098\ub808\uc774\uc158 \uc124\uacc4",
+            "fallback_if_unavailable": ""
+          },
+          {
+            "stage": "character_design",
+            "tools": [
+              {
+                "tool_name": "character_consistency_builder",
+                "role": "\ub178\uc778/\uccad\ub144 \uc575\ucee4 \ucc38\uc870 \ud504\ub808\uc784 \uc0dd\uc131",
+                "available": true,
+                "estimated_cost_usd": 0.1
+              },
+              {
+                "tool_name": "image_selector",
+                "role": "\uc575\ucee4 \ud504\ub808\uc784 \ub80c\ub354 (Google Nano Banana)",
+                "available": true
+              }
+            ],
+            "approach": "appearance \uadf8\ub300\ub85c \ucc38\uc870 \ud504\ub86c\ud504\ud2b8\uc5d0 \uc784\ubca0\ub4dc\ud574 \uce90\ub9ad\ud130\ubcc4 \uc575\ucee4 \uc0dd\uc131 \u2192 binding_hints.reference_image_paths \ucc44\uc6c0",
+            "fallback_if_unavailable": "image_selector \uc2e4\ud328 \uc2dc local_diffusion \ud3f4\ubc31"
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [],
+            "approach": "6\uac1c \uc7a5\uba74 \ube44\ud2b8\ub97c \uc52c\uc73c\ub85c \ub9e4\ud551, \uc52c\ubcc4 \ub4f1\uc7a5 \uce90\ub9ad\ud130 \ubc14\uc778\ub529 \uba85\uc2dc",
+            "fallback_if_unavailable": ""
+          },
+          {
+            "stage": "assets",
+            "tools": [
+              {
+                "tool_name": "video_selector",
+                "role": "\ucc38\uc870\ubc14\uc778\ub529 \uc52c \ube44\ub514\uc624 (\uce90\ub9ad\ud130 \ub4f1\uc7a5 \uc52c)",
+                "provider": "seedance/veo",
+                "available": true,
+                "estimated_cost_usd": 1.2,
+                "why_this_provider": "reference_image_paths\ub85c \uce90\ub9ad\ud130 \uc575\ucee4\ub97c \ubc14\uc778\ub529\ud574 \uc678\ud615 \uc77c\uad00\uc131 \uc720\uc9c0. \uce90\ub9ad\ud130 \uac15\uc810 \ud504\ub85c\ubc14\uc774\ub354 \uc6b0\uc120"
+              },
+              {
+                "tool_name": "fish_audio_tts",
+                "role": "\ud55c\uad6d\uc5b4 \uc11c\uc815 \ub098\ub808\uc774\uc158 (s2.1-pro-free)",
+                "provider": "fish_audio",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "why_this_provider": "\ub85c\ubd07\uc74c \uc5c6\ub294 \ud074\ub77c\uc6b0\ub4dc \ud55c\uad6d\uc5b4, \ubb34\ub8cc \ubaa8\ub378"
+              },
+              {
+                "tool_name": "google_music",
+                "role": "\uac10\uc131 \ud53c\uc544\ub178/\uc2a4\ud2b8\ub9c1 \uc5b8\ub354\uc2a4\ucf54\uc5b4",
+                "provider": "google",
+                "available": true,
+                "estimated_cost_usd": 0.2,
+                "why_this_provider": "Lyria \ubb34\ub4dc \uc81c\uc5b4"
+              }
+            ],
+            "approach": "\uce90\ub9ad\ud130 \uc52c\uc740 reference_image_paths \ubc14\uc778\ub529\uc73c\ub85c \uc0dd\uc131, \ube44\uce90\ub9ad\ud130 \ube0c\ub9bf\uc9c0\ub294 \uc77c\ubc18 \uc0dd\uc131. \ub0b4\ub808\uc774\uc158 + \uc74c\uc545 \ubbf9\uc2a4",
+            "fallback_if_unavailable": "video: gemini_omni / music: pixabay / tts: voxcpm"
+          },
+          {
+            "stage": "edit",
+            "tools": [],
+            "approach": "\uac10\uc815\uace1\uc120 \ubcf4\uc874 \ucef7 + \uc790\ub9c9 + \uc74c\uc545 \ub355\ud0b9",
+            "fallback_if_unavailable": ""
+          },
+          {
+            "stage": "compose",
+            "tools": [
+              {
+                "tool_name": "video_compose",
+                "role": "Remotion CinematicRenderer \ucd5c\uc885 \ub80c\ub354",
+                "provider": "remotion",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "why_this_provider": "\uc601\uc0c1 \ud074\ub9bd + \uc624\ubc84\ub808\uc774 + \uc790\ub9c9 \uc870\ud569\uc5d0 \ucd5c\uc801 (\uc2b9\uc778\ub41c \ub7f0\ud0c0\uc784)"
+              },
+              {
+                "tool_name": "audio_mixer",
+                "role": "\ub098\ub808\uc774\uc158/\uc74c\uc545 \ubbf9\uc2a4",
+                "available": true
+              }
+            ],
+            "approach": "render_runtime=remotion \uace0\uc815, ffprobe \uac80\uc99d, \uce90\ub9ad\ud130 \uc77c\uad00\uc131 \ub4dc\ub9ac\ud504\ud2b8 \uccb4\ud06c",
+            "fallback_if_unavailable": ""
+          },
+          {
+            "stage": "publish",
+            "tools": [
+              {
+                "tool_name": "export_bundle",
+                "role": "\uc5d0\ud53c\uc18c\ub4dc \ud328\ud0a4\uc9c0 + \ub0a8\uc740 \uc5d0\ud53c\uc18c\ub4dc \ud050",
+                "available": true
+              }
+            ],
+            "approach": "ep01 \ud328\ud0a4\uc9c0 + \ud6c4\uc18d \uc5d0\ud53c\uc18c\ub4dc \ud050 \ub098\uc5f4",
+            "fallback_if_unavailable": ""
+          }
+        ],
+        "quality_tradeoffs": [
+          {
+            "tradeoff": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624 (\uce90\ub9ad\ud130 \uc77c\uad00) vs \uc77c\ubc18 \ud14d\uc2a4\ud2b8 \uc0dd\uc131 (\uce90\ub9ad\ud130 \ub4dc\ub9ac\ud504\ud2b8)",
+            "recommendation": "\ucc38\uc870\ubc14\uc778\ub529 \u2014 \ub178\uc778/\uccad\ub144 \uc678\ud615\uc774 \uc52c\ub9c8\ub2e4 \ub2ec\ub77c\uc9c0\uba74 \uc11c\uc0ac\uac00 \ubb34\ub108\uc9c4\ub2e4",
+            "quality_impact": "\uce90\ub9ad\ud130 \uc77c\uad00\uc131\uc73c\ub85c \ubab0\uc785\uac10 \uc0c1\uc2b9"
+          },
+          {
+            "tradeoff": "Fish Audio \ubb34\ub8cc \ud55c\uad6d\uc5b4 ($0) vs \ub85c\uceec VoxCPM (\ub85c\ubd07\uc74c)",
+            "recommendation": "Fish Audio \u2014 \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4 \uc11c\uc815 \ub098\ub808\uc774\uc158",
+            "quality_impact": "\ub0b4\ub808\uc774\uc158 \uc790\uc5f0\ub3c4"
+          }
+        ],
+        "alternative_paths": [
+          {
+            "description": "\uc804\uc561 \ubb34\ub8cc: pixabay \uc601\uc0c1 + pixabay \uc74c\uc545 + VoxCPM",
+            "total_cost_usd": 0,
+            "quality_level": "budget",
+            "what_changes": "\uce90\ub9ad\ud130 \uc77c\uad00\uc131 \ubd88\uac00 (\uc2a4\ud1a1 \uc601\uc0c1), \ub0b4\ub808\uc774\uc158 \ub85c\ubd07\uc74c"
+          },
+          {
+            "description": "\uad8c\uc7a5: \ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624 + Fish Audio + Lyria",
+            "total_cost_usd": 1.5,
+            "quality_level": "premium",
+            "what_changes": "\uce90\ub9ad\ud130 \uc77c\uad00 \uc11c\uc0ac \uc601\uc0c1"
+          }
+        ],
+        "delivery_promise": {
+          "promise_type": "motion_led",
+          "motion_required": true,
+          "source_required": false,
+          "tone_mode": "cinematic",
+          "quality_floor": "presentable",
+          "approved_fallback": null
+        },
+        "renderer_family": "cinematic-trailer",
+        "render_runtime": "remotion",
+        "composition_mode": "templated",
+        "music_source": {
+          "source_type": "ai_generated",
+          "provider": "pixabay",
+          "mood_direction": "Pixabay \ubb34\ub8cc \ub85c\uc5f4\ud2f0\ud504\ub9ac \u2014 \uac10\uc131 \ud53c\uc544\ub178/\uc570\ube44\uc5b8\ud2b8 \uc5b8\ub354\uc2a4\ucf54\uc5b4 \uac80\uc0c9 (\ubb34\ub4dc: storm, melancholy, hopeful piano)",
+          "estimated_cost_usd": 0.0
+        },
+        "voice_selection": {
+          "provider": "fish_audio_tts",
+          "voice_id": "default",
+          "rationale": "\ud55c\uad6d\uc5b4 \uc11c\uc815 \ub098\ub808\uc774\uc158\uc5d0 \uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud074\ub77c\uc6b0\ub4dc \ubcf4\uc774\uc2a4 (\ubb34\ub8cc \ubaa8\ub378)",
+          "estimated_cost_usd": 0,
+          "delivery_style": "\ucc28\ubd84\ud558\uace0 \uc11c\uc815\uc801\uc778 \uc11c\uc0ac \ub098\ub808\uc774\ud130",
+          "pacing_policy": "\ud3ed\ud48d \uad6c\uac04\uc740 \uc870\uae08 \ube60\ub974\uac8c, \uace0\ubc31 \uad6c\uac04\uc740 \ub290\ub9ac\uac8c \uc815\uc801\uc73c\ub85c",
+          "sample_approval_required": false
+        },
+        "decision_log_ref": "pipeline_defs/lantern-keeper/decision_log.json"
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 1.3,
+        "line_items": [
+          {
+            "tool": "character_consistency_builder + image_selector",
+            "operation": "\uce90\ub9ad\ud130 \uc575\ucee4 2\uac1c",
+            "quantity": 2,
+            "estimated_usd": 0.1,
+            "notes": "Nano Banana"
+          },
+          {
+            "tool": "video_selector",
+            "operation": "\ucc38\uc870\ubc14\uc778\ub529 \uc52c \ube44\ub514\uc624",
+            "quantity": 6,
+            "estimated_usd": 1.2,
+            "notes": "\uc52c\ub2f9 ~$0.20 \ucd94\uc815"
+          },
+          {
+            "tool": "fish_audio_tts",
+            "operation": "90\ucd08 \ud55c\uad6d\uc5b4 \ub098\ub808\uc774\uc158",
+            "quantity": 1,
+            "estimated_usd": 0,
+            "notes": "s2.1-pro-free \ubb34\ub8cc"
+          },
+          {
+            "tool": "pixabay_music",
+            "operation": "Pixabay \ubb34\ub8cc \uac10\uc131 \uc5b8\ub354\uc2a4\ucf54\uc5b4",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "\ubb34\ub8cc \ub85c\uc5f4\ud2f0\ud504\ub9ac"
+          },
+          {
+            "tool": "video_compose",
+            "operation": "Remotion \ub80c\ub354",
+            "quantity": 1,
+            "estimated_usd": 0,
+            "notes": "\ub85c\uceec"
+          }
+        ],
+        "budget_cap_usd": 5.0,
+        "budget_verdict": "within_budget",
+        "savings_options": [
+          "\uc74c\uc545\uc744 pixabay \ubb34\ub8cc\ub85c (-$0.2)",
+          "\uc575\ucee4 1\uac1c\ub85c \ucd95\uc18c (-$0.05)"
+        ]
+      },
+      "approval": {
+        "status": "approved",
+        "approved_budget_usd": 1.3,
+        "user_notes": "\ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc, \uc601\uc0c1(\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624)\uc740 \ud6a8\uacfc \uc911\uc2ec\uc73c\ub85c \ube44\uc6a9 \uc9d1\uc911"
+      },
+      "metadata": {
+        "language": "ko",
+        "episode": "ep01",
+        "character_consistency_commitment": true
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "lantern-keeper",
+      "decisions": [
+        {
+          "decision_id": "d-001",
+          "stage": "proposal",
+          "category": "pipeline_selection",
+          "subject": "\ud30c\uc774\ud504\ub77c\uc778 \uc120\ud0dd",
+          "options_considered": [
+            {
+              "option_id": "novel-to-video",
+              "label": "novel-to-video (beta)",
+              "score": 0.95,
+              "reason": "\uc7a5\ud3b8 \uc11c\uc0ac \u2192 \uc5d0\ud53c\uc18c\ub4dc + \uce90\ub9ad\ud130 \uc77c\uad00\uc131\uc774 \ubaa9\uc801",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "cinematic",
+              "label": "cinematic",
+              "score": 0.5,
+              "reason": "\ubb34\ub4dc \uc8fc\ub3c4\uc9c0\ub9cc \uc7a5\ud3b8 \uc555\ucd95/\uce90\ub9ad\ud130 \uacc4\uce35 \uc5c6\uc74c",
+              "rejected_because": "\uc7a5\ud3b8 \uc11c\uc0ac \uae30\ub2a5 \ubd80\uc7ac"
+            }
+          ],
+          "selected": "novel-to-video",
+          "reason": "\uc0ac\uc6a9\uc790 \uc694\uccad \u2014 Novel2Video \ud30c\uc774\ud504\ub77c\uc778 \uc2e4\uc81c \ud14c\uc2a4\ud2b8",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.95
+        },
+        {
+          "decision_id": "d-002",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition render runtime",
+          "options_considered": [
+            {
+              "option_id": "remotion",
+              "label": "Remotion (React scene components)",
+              "score": 0.9,
+              "reason": "\ucc38\uc870\ubc14\uc778\ub529 \uc601\uc0c1 \ud074\ub9bd + \uc624\ubc84\ub808\uc774 + \uc790\ub9c9 \uc870\ud569\uc758 CinematicRenderer\uc5d0 \ucd5c\uc801",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames (HTML/GSAP)",
+              "score": 0.5,
+              "reason": "\ud0a4\ub124\ud2f1 \ud0c0\uc774\ud3ec \uac15\uc810\uc774\ub098 \uc11c\uc0ac \uc601\uc0c1 \uc911\uc2ec \ube0c\ub9ac\ud504\uc5d0\ub294 \uacfc\ud568",
+              "rejected_because": "\uc601\uc0c1 \uc8fc\ub3c4 \uc11c\uc0ac\uc5d0 \ubd80\uc801\ud569"
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg (\ub2e8\uc21c \ucef7)",
+              "score": 0.3,
+              "reason": "\uc624\ubc84\ub808\uc774/\uc790\ub9c9/\ud2b8\ub79c\uc9c0\uc158 \uc81c\uc5b4 \ubd80\uc871",
+              "rejected_because": "\uc11c\uc0ac \ud3b8\uc9d1 \uc81c\uc5b4 \ubd80\uc871"
+            }
+          ],
+          "selected": "remotion",
+          "reason": "\ucc38\uc870\ubc14\uc778\ub529 \uc601\uc0c1 \uc911\uc2ec \uc2dc\ub124\ub9c8\ud2f1 \ud3b8\uc9d1\uc5d0 \ucd5c\uc801 (\uad8c\uc7a5). \ub450 \ub7f0\ud0c0\uc784 \ubaa8\ub450 \uace0\ub824\ud574 \ub85c\uadf8 \uae30\ub85d",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-003",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "\ucef4\ud3ec\uc9c0\uc158 \uc800\uc791 \ubaa8\ub4dc",
+          "options_considered": [
+            {
+              "option_id": "templated",
+              "label": "Templated (CinematicRenderer \uc870\ub9bd)",
+              "score": 0.85,
+              "reason": "\ucc38\uc870\ubc14\uc778\ub529 \ube44\ub514\uc624 + \ud15c\ud50c\ub9bf \uc870\ud569\uc774 \ube60\ub974\uace0 \uc548\uc815\uc801",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "atelier",
+              "label": "Atelier (\ub9de\ucda4 \uc218\uc81c)",
+              "score": 0.5,
+              "reason": "\ud14c\uc2a4\ud2b8/\ubca0\ud0c0 \ud30c\uc774\ud504\ub77c\uc778 \ucd08\uae30 \uac80\uc99d\uc5d0\ub294 \uacfc\uc911",
+              "rejected_because": "\ucd08\uae30 \uac80\uc99d \ubc94\uc704 \ucd08\uacfc"
+            }
+          ],
+          "selected": "templated",
+          "reason": "\uccab \ud30c\uc774\ud504\ub77c\uc778 \uc2e4\ud589\uc774\ub77c \uc548\uc815\uc131 \uc6b0\uc120. \ubb34\ub4dc\ub294 \uadf8\ub808\uc774\ub529+\uc74c\uc545\uc73c\ub85c \uad6c\ud604",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-004",
+          "stage": "proposal",
+          "category": "provider_selection",
+          "subject": "\uc601\uc0c1 \uc0dd\uc131 \ud504\ub85c\ubc14\uc774\ub354 (\ucc38\uc870\ubc14\uc778\ub529)",
+          "options_considered": [
+            {
+              "option_id": "seedance_video",
+              "label": "Seedance (multi-reference + character)",
+              "score": 0.92,
+              "reason": "reference_image_paths + multi_shot + \uce90\ub9ad\ud130 \uac15\uc810",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "higgsfield_video",
+              "label": "Higgsfield (character_consistency)",
+              "score": 0.9,
+              "reason": "\uba85\uc2dc\uc801 \uce90\ub9ad\ud130 \uc77c\uad00\uc131 \ud50c\ub798\uadf8",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "veo_video",
+              "label": "VEO 3.1",
+              "score": 0.85,
+              "reason": "reference_to_video + first_last_frame",
+              "rejected_because": ""
+            }
+          ],
+          "selected": "seedance_video",
+          "reason": "\uce90\ub9ad\ud130 \uc77c\uad00\uc131 \ubc14\uc778\ub529\uc5d0 \ucd5c\uc801. higgsfield/veo\ub3c4 binding_hints.preferred_providers\ub85c \ubcd1\ud589 \uace0\ub824",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-005",
+          "stage": "proposal",
+          "category": "voice_selection",
+          "subject": "Narration TTS provider",
+          "options_considered": [
+            {
+              "option_id": "fish_audio_tts",
+              "label": "Fish Audio s2.1-pro-free",
+              "score": 0.9,
+              "reason": "\ub85c\ubd07\uc74c \uc5c6\ub294 \ud074\ub77c\uc6b0\ub4dc \ud55c\uad6d\uc5b4, \ubb34\ub8cc",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "voxcpm",
+              "label": "VoxCPM (\ub85c\uceec)",
+              "score": 0.4,
+              "reason": "\ub85c\ubd07\uc74c \uc774\ub825",
+              "rejected_because": "\uc74c\uc9c8 \ubd80\uc871"
+            }
+          ],
+          "selected": "fish_audio_tts",
+          "reason": "\uc790\uc5f0\uc2a4\ub7ec\uc6b4 \ud55c\uad6d\uc5b4 \uc11c\uc815 \ub098\ub808\uc774\uc158 (\ubb34\ub8cc)",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.9
+        },
+        {
+          "decision_id": "d-006",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "\ubc30\uacbd\uc74c\uc545 \uc18c\uc2a4",
+          "options_considered": [
+            {
+              "option_id": "google_music",
+              "label": "Google Lyria AI \uc0dd\uc131",
+              "score": 0.85,
+              "reason": "\uac10\uc131 \uc11c\uc0ac \ubb34\ub4dc \uc81c\uc5b4",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "pixabay_music",
+              "label": "Pixabay \ubb34\ub8cc",
+              "score": 0.6,
+              "reason": "\ubb34\ub8cc\uc9c0\ub9cc \ubb34\ub4dc \ud55c\uc815",
+              "rejected_because": "\ubb34\ub4dc \uc81c\uc5b4 \ubd80\uc871"
+            }
+          ],
+          "selected": "google_music",
+          "reason": "\uac10\uc131 \ud53c\uc544\ub178/\uc2a4\ud2b8\ub9c1 \uc5b8\ub354\uc2a4\ucf54\uc5b4",
+          "user_visible": true,
+          "user_approved": false,
+          "confidence": 0.85
+        },
+        {
+          "decision_id": "d-007",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "\ubc30\uacbd\uc74c\uc545 \uc18c\uc2a4",
+          "options_considered": [
+            {
+              "option_id": "pixabay_music",
+              "label": "Pixabay \ubb34\ub8cc \uc74c\uc545",
+              "score": 0.85,
+              "reason": "\ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc \uc694\uccad \u2014 \uac10\uc131 \ud53c\uc544\ub178 \uc5b8\ub354\uc2a4\ucf54\uc5b4 \uac80\uc0c9 \uac00\ub2a5",
+              "rejected_because": ""
+            },
+            {
+              "option_id": "google_music",
+              "label": "Google Lyria AI \uc0dd\uc131",
+              "score": 0.6,
+              "reason": "\ubb34\ub4dc \uc81c\uc5b4 \uac15\uc810\uc774\ub098 \uc720\ub8cc(/bin/zsh.2)",
+              "rejected_because": "\uc0ac\uc6a9\uc790: \ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc\ub85c \ubcc0\uacbd"
+            }
+          ],
+          "selected": "pixabay_music",
+          "reason": "\uc0ac\uc6a9\uc790 \uc9c0\uc815: \ubb34\ub8cc \ub9ac\uc18c\uc2a4 \uc704\uc8fc. \uc601\uc0c1(\ucc38\uc870\ubc14\uc778\ub529)\uc5d0 \ube44\uc6a9 \uc9d1\uc911, \uc74c\uc545\uc740 Pixabay \ubb34\ub8cc\ub85c",
+          "user_visible": true,
+          "user_approved": true,
+          "confidence": 0.9
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "approved_budget_usd": 1.3
+  }
+}

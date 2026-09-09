@@ -1,0 +1,164 @@
+{
+  "version": "1.0",
+  "project_id": "lantern-keeper",
+  "pipeline_type": "novel-to-video",
+  "stage": "edit",
+  "status": "completed",
+  "timestamp": "2026-08-16T05:12:14.282112+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "edit_decisions": {
+      "version": "1.0",
+      "cuts": [
+        {
+          "id": "c1",
+          "source": "video_sc1",
+          "in_seconds": 0,
+          "out_seconds": 10,
+          "speed": 0.5555555555555556,
+          "layer": "primary",
+          "transition_in": "fade",
+          "transition_duration": 1.0,
+          "backgroundColor": "#020407",
+          "reason": "\uc624\ud504\ub2dd \ud788\uc5b4\ub85c \u2014 \ud3ed\ud48d \uc18d \ub4f1\ubd88\uc744 \uc9c0\ud0a4\ub294 \ub178\uc778 \uac15\uc218\ud638 (0-18s)"
+        },
+        {
+          "id": "c2",
+          "source": "video_sc2",
+          "in_seconds": 0,
+          "out_seconds": 10,
+          "speed": 0.4166666666666667,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\uc816\uc740 \uccad\ub144 \ub3c4\uc724 \uad6c\uc870 \u2014 \ubb38\uc744 \uc5ec\ub294 \ub178\uc778 (18-42s)"
+        },
+        {
+          "id": "c3",
+          "source": "video_sc3",
+          "in_seconds": 0,
+          "out_seconds": 10,
+          "speed": 0.5,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\ub4f1\ubd88 \uc804\uc218 \u2014 \ub178\uc778\uacfc \uccad\ub144\uc774 \ub4f1\ubd88\uc744 \ud568\uaed8 \ub3cc\ubd04 (42-62s)"
+        },
+        {
+          "id": "c4",
+          "source": "video_sc4",
+          "in_seconds": 0,
+          "out_seconds": 10,
+          "speed": 0.45454545454545453,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\uac10\uc815 \uc815\uc810 \ud788\uc5b4\ub85c \u2014 \uc808\ubcbd\uc5d0\uc11c \uc544\ub4e4\uc744 \ub5a0\uc62c\ub9ac\ub294 \ub178\uc778 (62-84s)"
+        },
+        {
+          "id": "c5",
+          "source": "video_sc5",
+          "in_seconds": 0,
+          "out_seconds": 10,
+          "speed": 0.47619047619047616,
+          "layer": "primary",
+          "transition_in": "cut",
+          "backgroundColor": "#020407",
+          "reason": "\ud074\ub77c\uc774\ub9e5\uc2a4 \ud788\uc5b4\ub85c \u2014 \ub4f1\ub300 \uaf2d\ub300\uae30 \ud575\uc2ec \ub300\uc0ac (84-105s)"
+        },
+        {
+          "id": "c6",
+          "source": "video_sc6",
+          "in_seconds": 0,
+          "out_seconds": 10,
+          "speed": 0.5,
+          "layer": "primary",
+          "transition_in": "cut",
+          "transition_out": "fade",
+          "transition_duration": 1.5,
+          "backgroundColor": "#020407",
+          "reason": "\uacb0\ub9d0 \u2014 \uc218\ub144 \ub4a4 \ub4f1\ubd88\uc744 \uc9c0\ud0a4\ub294 \ub3c4\uc724 (105-125s)"
+        }
+      ],
+      "overlays": [],
+      "audio": {
+        "narration": {
+          "segments": [
+            {
+              "asset_id": "nar_s1",
+              "start_seconds": 1.5
+            },
+            {
+              "asset_id": "nar_s2",
+              "start_seconds": 19.5
+            },
+            {
+              "asset_id": "nar_s3",
+              "start_seconds": 43.5
+            },
+            {
+              "asset_id": "nar_s4",
+              "start_seconds": 63.5
+            },
+            {
+              "asset_id": "nar_s5",
+              "start_seconds": 85.5
+            },
+            {
+              "asset_id": "nar_s6",
+              "start_seconds": 106.5
+            }
+          ]
+        },
+        "music": {
+          "asset_id": "music_bgm",
+          "volume": 0.35,
+          "fade_in_seconds": 2,
+          "fade_out_seconds": 3,
+          "ducking": {
+            "enabled": true,
+            "threshold_db": -16,
+            "reduction_db": 8,
+            "attack_ms": 120,
+            "release_ms": 400
+          }
+        },
+        "sfx": []
+      },
+      "subtitles": {
+        "enabled": true,
+        "style": "sentence",
+        "source": "projects/lantern-keeper/assets/subtitles.srt",
+        "font": "Noto Sans KR",
+        "font_size": 42,
+        "color": "#FFFFFF",
+        "outline_color": "#000000",
+        "background": "#00000088",
+        "position": "bottom-center",
+        "max_words_per_line": 8
+      },
+      "renderer_family": "cinematic-trailer",
+      "render_runtime": "remotion",
+      "composition_mode": "templated",
+      "metadata": {
+        "beat_timing": {
+          "hook": "0-18",
+          "build1": "18-42",
+          "build2": "42-62",
+          "turn": "62-84",
+          "climax": "84-105",
+          "resolve": "105-125"
+        },
+        "total_duration_seconds": 125,
+        "character_consistency": "\ubaa8\ub4e0 \ucef7 \ube44\ub514\uc624\uac00 \uc575\ucee4 \ubc14\uc778\ub529\uc73c\ub85c \uc0dd\uc131\ub428 (\uac15\uc218\ud638, \ub3c4\uc724)",
+        "voice_policy": "VoxCPM \uc575\ucee4-\ud074\ub860 \ub2e8\uc77c \ubcf4\uc774\uc2a4 \uace0\uc815"
+      }
+    }
+  },
+  "metadata": {
+    "total_duration_seconds": 125,
+    "cuts": 6
+  }
+}

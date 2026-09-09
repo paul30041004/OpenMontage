@@ -1,0 +1,37 @@
+{
+  "google_map_address_grounding": {
+    "syntax_description": "Paste a real Google Maps US street address into the prompt to generate an environment modeled after real street view locations.",
+    "supported_regions": "US street view locations only (Miami, Los Angeles, New York, etc.)",
+    "korean_template": "[구글맵 미국 주소 입력], [시간대 및 날씨], [장소 분위기: 예. 활기찬 마이애미 해변가, 네온 사인이 켜진 다운타운], [카메라 화각: 와이드 샷 / 스트리트 뷰 시점]",
+    "english_template": "Street level photograph at [Exact US Google Maps Address], [Time of day: golden hour / night], [Atmosphere / aesthetic: GTA 6 Vice City photorealism, humid palm-lined avenue], [Camera angle: 35mm lens, street level wide view], cinematic lighting",
+    "example": "Street level photograph at 1001 Ocean Dr, Miami Beach, FL 33139, late afternoon golden hour, GTA 6 Vice City aesthetic, photorealistic detail, neon signs beginning to glow, palm trees swaying, ultra high resolution"
+  },
+  "character_consistency": {
+    "flow_feature": "Flow 'Characters' Menu -> Add from project",
+    "workflow_steps": [
+      "1. Generate or upload base character image",
+      "2. Navigate to Flow sidebar -> 'Characters' menu",
+      "3. Click 'Add from project' and select the base image",
+      "4. Assign Name, Voice profile, and Personality description",
+      "5. The character is saved in Flow's registry and can be attached to any future prompt by name"
+    ]
+  },
+  "storyboard_grid": {
+    "grid_dimensions": "3x3 (9 panels) or 2x2 (4 panels)",
+    "korean_template": "@[캐릭터이름], [구글맵 주소 또는 배경], [스토리 시나리오 설명]. 3x3 스토리보드 그리드 이미지, 9개의 연속된 컷, 영화 같은 샷 구성, 캐릭터의 얼굴과 의상 일관성 유지, 높은 디테일",
+    "english_template": "A 3x3 storyboard contact sheet grid featuring @[CharacterName] at [Location / Google Maps Address]. 9 sequential panels showing: [Panel 1-3: Setup], [Panel 4-6: Conflict/Action], [Panel 7-9: Climax/Resolution]. Cinematic film still, consistent character face and clothing across all panels, detailed environments, high realism",
+    "example": "A 3x3 storyboard contact sheet grid featuring Jason at 1001 Ocean Dr, Miami Beach. 9 sequential action panels showing Jason spotting an unmarked car, sprinting through an alley, jumping over a fence, and escaping on a speedboat. Consistent character face, white tank top and jeans, intense cinematic film stills, sharp photorealistic details"
+  },
+  "grid_to_video": {
+    "target_duration": "10s",
+    "target_model": "Veo 3.1 - Lite [Lower Priority] (0 credits) or Gemini Omni / Veo Fast",
+    "prompt_structure": [
+      "1. Attach the Storyboard Grid Image + Character in prompt ingredients",
+      "2. Character action description (what character physically does from first to last beat)",
+      "3. Camera movement direction (tracking shot, slow dolly-in, continuous pan)",
+      "4. Atmospheric & audio cues (ambient city sounds, engine revving)"
+    ],
+    "english_template": "Cinematic 10-second video following @[CharacterName] based on the attached storyboard grid. The camera starts with a tight tracking shot as the character starts running, smoothly transitioning into a wide dolly-out revealing the Miami boulevard. Smooth cinematic motion, continuous action, 720p 24fps",
+    "korean_template": "첨부된 스토리보드 그리드를 기반으로 한 10초 분량의 시네마틱 영상. 캐릭터가 첫 프레임의 위치에서 출발하여 질주하는 모습을 부드러운 트래킹 카메라로 따라감. 영화 같은 카메라 워크, 자연스러운 연속 동작, 고화질 렌더링"
+  }
+}
