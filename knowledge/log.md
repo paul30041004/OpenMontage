@@ -1,3 +1,7 @@
+## 2026-09-10
+* **Decision**: Added `bible_sermon` voice preset (`voice_library/bible_sermon.wav`) for sermons and biblical videos. Configured VoxCPM2 voice cloning mode with English emotion tags as the mandatory default for all future biblical/sermon videos, with high-resolution 48kHz stereo master audio pipeline.
+* **Update**: Updated `voice_library/voice_library.json` and `knowledge/tools/voice-libraries.md` to persist the Bible/Sermon VoxCPM voice preset.
+
 ## 2026-09-09
 * **Update**: Linked `architecture/audio-pipeline.md` to `tools/video-production.md` (powers audio tracks rendered in video compositions).
 * **Update**: Updated concept `architecture/audio-pipeline.md`.

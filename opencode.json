@@ -6,5 +6,65 @@
       "url": "https://mcp.higgsfield.ai/mcp",
       "enabled": true
     }
+  },
+
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local, port 1234)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "qwen3.8-27b": { "name": "Qwen3.8 27B (local main coding)" },
+        "qwen3.8-27b-mlx": { "name": "Qwen3.8 27B MLX (local)" }
+      }
+    },
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local, port 11434)",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      },
+      "models": {
+        "gemma4:12b-mlx": { "name": "Gemma4 12B MLX (local mid)" },
+        "phi4-mini:latest": { "name": "Phi-4 Mini (local light)" },
+        "gemma3:1b": { "name": "Gemma3 1B (local tiny)" }
+      }
+    },
+    "anthropic": {
+      "name": "Anthropic (cloud, hard tasks only)"
+    }
+  },
+
+  "model": "lmstudio/qwen3.8-27b",
+  "small_model": "ollama/phi4-mini:latest",
+
+  "agent": {
+    "local-heavy": {
+      "description": "로컬 헤비급 — 일상 코딩/파이프라인 구현/리팩토링 기본값",
+      "model": "lmstudio/qwen3.8-27b",
+      "mode": "primary"
+    },
+    "local-mid": {
+      "description": "로컬 미들급 — 문서 생성, 간단한 분석, 일반 대화",
+      "model": "ollama/gemma4:12b-mlx",
+      "mode": "primary"
+    },
+    "local-light": {
+      "description": "로컬 초경량 — 제목 생성, 요약, 빠른 질문 (전기료 수준 비용)",
+      "model": "ollama/phi4-mini:latest",
+      "mode": "primary"
+    },
+    "cloud-sonnet": {
+      "description": "클라우드 고속 — 넓은 범위 작업, 복잡한 리팩토링 (유료, 필요할 때만)",
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "mode": "primary"
+    },
+    "cloud-opus": {
+      "description": "클라우드 최강 — 설계/난해한 버그/최종 리뷰 (유료, 마지막 수단)",
+      "model": "anthropic/claude-opus-4-5-20251101",
+      "mode": "primary"
+    }
   }
 }

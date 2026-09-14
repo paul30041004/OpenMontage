@@ -43,7 +43,12 @@ Database files are located in `~/Library/Application Support/Dreamtonics/Synthes
 ### VoxCPM2 Local Emotional TTS (`tools/audio/voxcpm_tts.py`)
 - OpenBMB VoxCPM2 running in `projects/_shared/tts-venv/bin/voxcpm`.
 - Measured best Korean voice cloning engine (SIM 0.919).
-- Primary engine for high-energy eSports caster narrations and dramatic character acting.
+- Primary engine for high-energy eSports caster narrations, dramatic character acting, and biblical/sermon documentaries.
+- **성경 및 설교 다큐멘터리 전용 보이스 프리셋**:
+  - 앵커 음원: `voice_library/bible_sermon.wav` (중후하고 깊은 남성 다큐멘터리 톤)
+  - 보이스 디자인: `dignified and deep male narrator, solemn and sorrowful biblical documentary tone`
+  - 영문 Emotion Tag 원칙: 각 막의 감정선에 맞춘 영어 control prompt 적용 (e.g. `weary, mournful`, `intimate, reverent, tender wonder`, `deeply moving, tearful comfort`, `warm, gentle pastoral blessing`)
+  - 오디오 파이프라인 원칙: 48kHz 무손실 스테레오 체인 유지, 48kHz 256kbps 이상 고해상도 BGM 믹싱 필수 적용.
 
 ### Qwen3-TTS Local (`tools/audio/qwen3_tts_local.py`)
 - Official Qwen3-TTS running in `/Users/paul/qwen-tts-venv/` on MPS.
