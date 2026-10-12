@@ -720,19 +720,6 @@ class TestCapabilityMetadata:
             "voicestudio",
             "voxcpm",
         }
-            "doubao",
-            "elevenlabs",
-            "fish_audio",
-            "fal.ai",
-            "gemini",
-            "google_tts",
-            "inworld",
-            "kling_official",
-            "kokoro",
-            "openai",
-            "piper",
-            "voxcpm",
-        }
 
 
 # ---- Animated Explainer Pipeline ----
