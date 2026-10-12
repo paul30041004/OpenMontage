@@ -1,0 +1,4 @@
+This product bundles Three.js r160 (MIT License).
+Copyright 2010-2023 Three.js Authors. SPDX-License-Identifier: MIT.
+Source: https://unpkg.com/three@0.160.0/build/three.module.min.js
+Vendored for offline, deterministic proxy rendering by threejs_proxy.

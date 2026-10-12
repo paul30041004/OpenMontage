@@ -35,6 +35,7 @@ ARTIFACT_NAMES = [
     "video_analysis_brief",
     "story_bible",
     "vpd_manifest",
+    "motion_proxy",
 ]
 
 

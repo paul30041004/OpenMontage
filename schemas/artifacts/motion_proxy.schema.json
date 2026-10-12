@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "motion_proxy",
+  "description": "CodeVideoModel-style motion-control proxy: a deterministic Three.js scene render (proxy video + first-frame still) bound into AI video generation via reference_to_video.",
+  "type": "object",
+  "required": [
+    "version",
+    "prompt",
+    "seed",
+    "duration_seconds",
+    "fps",
+    "width",
+    "height",
+    "scene_package",
+    "camera",
+    "rendered",
+    "provider_hints"
+  ],
+  "properties": {
+    "version": { "type": "string" },
+    "prompt": { "type": "string", "minLength": 1 },
+    "seed": { "type": "integer" },
+    "duration_seconds": { "type": "number", "minimum": 1, "maximum": 15 },
+    "fps": { "type": "integer", "enum": [12, 24, 30] },
+    "width": { "type": "integer", "minimum": 320, "maximum": 3840 },
+    "height": { "type": "integer", "minimum": 240, "maximum": 2160 },
+    "proxy_video": { "type": ["string", "null"] },
+    "reference_frame": { "type": ["string", "null"] },
+    "scene_package": {
+      "type": "object",
+      "required": ["workspace", "entry", "spec"],
+      "properties": {
+        "workspace": { "type": "string" },
+        "entry": { "type": "string" },
+        "spec": { "type": "string" }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "required": ["mode", "key_count"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["keys", "orbit"] },
+        "key_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "object_count": { "type": "integer", "minimum": 0 },
+    "rendered": { "type": "boolean" },
+    "provider_hints": {
+      "type": "object",
+      "required": ["suggested_operation", "reference_video_paths", "reference_image_paths"],
+      "properties": {
+        "suggested_operation": { "type": "string", "enum": ["reference_to_video"] },
+        "reference_video_paths": { "type": "array", "items": { "type": "string" } },
+        "reference_image_paths": { "type": "array", "items": { "type": "string" } },
+        "prompt_note": { "type": "string" }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } }
+  }
+}

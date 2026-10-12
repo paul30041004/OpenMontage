@@ -173,6 +173,7 @@ stages:
       - image_selector
       - video_selector
       - threejs_world
+      - threejs_proxy
       - threejs_asset_catalog
       - atlas_3d
       - fal_3d
@@ -186,6 +187,7 @@ stages:
       - image_selector
       - video_selector
       - threejs_world
+      - threejs_proxy
       - threejs_asset_catalog
       - atlas_3d
       - fal_3d
@@ -202,6 +204,7 @@ stages:
       - Optional generated inserts stay limited and justified
       - Explicit 3D worlds preserve one coherent scene graph across global, regional, and walk views
       - Hero 3D worlds use the production fidelity tier with licensed textured models and PBR terrain layers; primitive-only blockouts cannot pass
+      - Three.js proxy clips ship with first-frame reference + camera metadata and bind into video_selector reference_to_video
     success_criteria:
       - Schema-valid asset_manifest artifact
       - All referenced asset files exist on disk

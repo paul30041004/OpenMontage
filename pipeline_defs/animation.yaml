@@ -183,6 +183,7 @@ stages:
       - diagram_gen
       - code_snippet
       - threejs_world
+      - threejs_proxy
       - threejs_asset_catalog
       - atlas_3d
       - fal_3d
@@ -197,6 +198,7 @@ stages:
       - diagram_gen
       - code_snippet
       - threejs_world
+      - threejs_proxy
       - threejs_asset_catalog
       - atlas_3d
       - fal_3d
@@ -215,6 +217,7 @@ stages:
       - "Clip duration maximized (prefer 10s over 5s) to reduce API calls and cost"
       - "Use selector tools (video_selector, tts_selector, image_selector) — never call provider tools directly"
       - "Read Layer 2 skills for each tool BEFORE reading source code — skills contain usage guidance, source code is implementation detail"
+      - Three.js proxy clips ship with first-frame reference + camera metadata and bind into video_selector reference_to_video
     success_criteria:
       - Schema-valid asset_manifest artifact
       - All referenced asset files exist on disk

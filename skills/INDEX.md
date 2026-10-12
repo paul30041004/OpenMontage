@@ -117,6 +117,7 @@ Key capability families to look for in the output:
 | Image Gen Usage | `creative/image-gen-usage.md` | Prompt consistency, hero reference, batch strategy | `flux-best-practices`, `bfl-api` |
 | Image Provider Usage | `creative/image-provider-usage.md` | Provider selection (FLUX/Grok/OpenAI/Recraft/stock), cost-quality tradeoffs | `flux-best-practices`, `bfl-api`, `grok-media` |
 | 3D World Generation | `creative/3d-world-generation.md` | Semantic world planning, asset sourcing/generation, Blender assembly, and fidelity review | `3d-asset-generation`, `threejs-world-generation` |
+| Code-Video Proxy | `creative/code-video-proxy.md` | CodeVideoModel-style Three.js proxy clips + first-frame stills bound into video_selector reference_to_video | `threejs-world-generation`, `threejs-animation`, `minimax-h3` |
 | Zero-GPU Viral Shorts | `creative/zero-gpu-viral-shorts.md` | 100% free CPU-only shorts/reels workflow (EdgeTTS, BeatSyncCutter, Remotion) | `remotion`, `ffmpeg` |
 | Free Public Domain Documentary | `creative/free-public-domain-documentary.md` | High-value archival documentaries from NASA, Wikimedia, Archive.org, LOC | `video-edit`, `ffmpeg` |
 | Synthetic VFX Components | `creative/synthetic-vfx-components.md` | Procedural waveforms, 3D device mockups, split-screens, social quotes, geo routes | `remotion-best-practices` |

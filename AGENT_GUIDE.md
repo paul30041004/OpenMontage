@@ -482,6 +482,7 @@ Key capability families to look for in the output:
 - **3d_asset_acquisition** — Rights-safe GLTF/GLB catalogs for production-tier Three.js worlds. Route through `threejs_asset_catalog`; never substitute blockout primitives for a requested detailed or reference-grade environment.
 - **3d_asset_generation** — Unique textured/PBR meshes from text or concept images. Route text-described hero assets through `atlas_3d`, image-conditioned assets and regional object extraction through `fal_3d`, and read `.agents/skills/3d-asset-generation/SKILL.md`. Announce provider/model/unit cost before every first paid call and sample before batching.
 - **3d_world_rendering** — Production assembly, terrain, lighting, materials, camera, and image-sequence rendering in Blender. Route through `blender_world`; use Three.js for interactive/blockout review, not as a substitute for Blender when reference-grade scene density is requested.
+- **motion_proxy** — CodeVideoModel-style motion control: deterministic, editable Three.js scene packages rendered to short proxy clips + first-frame stills, bound into `video_selector` `reference_to_video`. Route through `threejs_proxy` and read `skills/creative/code-video-proxy.md` plus `.agents/skills/threejs-animation/SKILL.md` and `minimax-h3` before binding.
 - **enhancement** — Upscale, background removal, face enhance, color grading.
 
 Each tool in the registry declares `best_for`, `install_instructions`, `runtime` (LOCAL, API, LOCAL_GPU, HYBRID), and `status`. Read these fields — do not assume tool strengths from memory.
