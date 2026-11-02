@@ -23,6 +23,11 @@ import {
 import { GenesisBlameGame } from "./components/GenesisBlameGame";
 import { Genesis4Esports } from "./components/Genesis4Esports";
 import { GenesisSeriesEpisode } from "./components/GenesisSeriesEpisode";
+import {
+  GameFantasyScene,
+  GameFantasySceneProps,
+  calculateGameFantasyMetadata,
+} from "./components/GameFantasyScene";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -390,6 +395,22 @@ export const Root: React.FC = () => {
           chapter: 1,
           part: 1,
         }}
+      />
+      <Composition
+        id="GameFantasyScene"
+        component={GameFantasyScene}
+        durationInFrames={30 * 10}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          image: "",
+          durationSeconds: 10,
+          events: [],
+          subtitles: [],
+          audio: [],
+        } as GameFantasySceneProps}
+        calculateMetadata={calculateGameFantasyMetadata}
       />
     </>
   );
