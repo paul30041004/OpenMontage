@@ -5,7 +5,7 @@ import subprocess
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
-BASE_DIR = Path("/Users/paul/Documents/OpenMontage")
+BASE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = BASE_DIR / "projects/suspense-human-stories/ep001"
 AUDIO_DIR = PROJECT_DIR / "audio"
 VISUAL_DIR = PROJECT_DIR / "visuals"
@@ -14,8 +14,8 @@ RENDER_DIR = PROJECT_DIR / "renders"
 for d in [AUDIO_DIR, VISUAL_DIR, RENDER_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
-FONT_MYEONGJO = "/Users/paul/Library/Fonts/NanumMyeongjo-Bold.ttf"
-FONT_GOTHIC = "/Users/paul/Library/Fonts/NanumGothic-Bold.ttf"
+FONT_MYEONGJO = str(Path.home() / "Library/Fonts/NanumMyeongjo-Bold.ttf")
+FONT_GOTHIC = str(Path.home() / "Library/Fonts/NanumGothic-Bold.ttf")
 
 VOICE_ANCHOR = "ko-KR-InJoonNeural"
 VOICE_RATE = "+0%"

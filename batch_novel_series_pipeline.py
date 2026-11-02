@@ -5,10 +5,10 @@ import subprocess
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
-BASE_DIR = Path("/Users/paul/Documents/OpenMontage")
+BASE_DIR = Path(__file__).resolve().parent
 SERIES_DIR = BASE_DIR / "projects/stranger-in-complex"
-FONT_MYEONGJO = "/Users/paul/Library/Fonts/NanumMyeongjo-Bold.ttf"
-FONT_GOTHIC = "/Users/paul/Library/Fonts/NanumGothic-Bold.ttf"
+FONT_MYEONGJO = str(Path.home() / "Library/Fonts/NanumMyeongjo-Bold.ttf")
+FONT_GOTHIC = str(Path.home() / "Library/Fonts/NanumGothic-Bold.ttf")
 
 VOICE_ANCHOR = "ko-KR-InJoonNeural"
 VOICE_RATE = "-6%"

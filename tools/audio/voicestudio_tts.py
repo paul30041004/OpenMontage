@@ -144,7 +144,7 @@ class VoiceStudioTTS(BaseTool):
         return ToolStatus.UNAVAILABLE
 
     def _get_ffprobe(self) -> str:
-        for c in ["ffprobe", "/Users/paul/pinokio/bin/ffmpeg-env/bin/ffprobe", "/opt/homebrew/bin/ffprobe"]:
+        for c in ["ffprobe", str(Path.home() / "pinokio/bin/ffmpeg-env/bin/ffprobe"), "/opt/homebrew/bin/ffprobe"]:
             try:
                 res = subprocess.run([c, "-version"], capture_output=True, timeout=2)
                 if res.returncode == 0:

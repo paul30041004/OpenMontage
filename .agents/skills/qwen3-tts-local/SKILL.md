@@ -13,11 +13,11 @@ This is the reliable path for Korean voice cloning.
 
 | Model | Dir | Purpose |
 |-------|-----|---------|
-| **Base 1.7B** | `/Users/paul/qwen-tts-models/Qwen3-TTS-12Hz-1.7B-Base` | **voice cloning** — 3-second zero-shot clone from a reference clip |
-| **CustomVoice 1.7B** | `/Users/paul/qwen-tts-models/Qwen3-TTS-12Hz-1.7B-CustomVoice` | 9 premium speakers, style instruction control |
-| Tokenizer 12Hz | `/Users/paul/qwen-tts-models/Qwen3-TTS-Tokenizer-12Hz` | shared tokenizer (auto-loaded) |
+| **Base 1.7B** | `~/qwen-tts-models/Qwen3-TTS-12Hz-1.7B-Base` | **voice cloning** — 3-second zero-shot clone from a reference clip |
+| **CustomVoice 1.7B** | `~/qwen-tts-models/Qwen3-TTS-12Hz-1.7B-CustomVoice` | 9 premium speakers, style instruction control |
+| Tokenizer 12Hz | `~/qwen-tts-models/Qwen3-TTS-Tokenizer-12Hz` | shared tokenizer (auto-loaded) |
 
-Env: Python venv `/Users/paul/qwen-tts-venv` (`pip install -U qwen-tts`). MPS device. First load ~4-6s, generation ~1.8s/speech-second. 128GB RAM MacBook: both models can coexist, but load only the one you need per run.
+Env: Python venv `~/qwen-tts-venv` (`pip install -U qwen-tts`). MPS device. First load ~4-6s, generation ~1.8s/speech-second. 128GB RAM MacBook: both models can coexist, but load only the one you need per run.
 
 ## Tool
 

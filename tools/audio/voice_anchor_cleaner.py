@@ -69,7 +69,7 @@ class VoiceAnchorCleaner(BaseTool):
     }
 
     def _get_ffmpeg(self) -> str:
-        for c in ["ffmpeg", "/Users/paul/pinokio/bin/ffmpeg-env/bin/ffmpeg", "/opt/homebrew/bin/ffmpeg"]:
+        for c in ["ffmpeg", str(Path.home() / "pinokio/bin/ffmpeg-env/bin/ffmpeg"), "/opt/homebrew/bin/ffmpeg"]:
             try:
                 res = subprocess.run([c, "-version"], capture_output=True, timeout=2)
                 if res.returncode == 0:
@@ -79,7 +79,7 @@ class VoiceAnchorCleaner(BaseTool):
         return "ffmpeg"
 
     def _get_ffprobe(self) -> str:
-        for c in ["ffprobe", "/Users/paul/pinokio/bin/ffmpeg-env/bin/ffprobe", "/opt/homebrew/bin/ffprobe"]:
+        for c in ["ffprobe", str(Path.home() / "pinokio/bin/ffmpeg-env/bin/ffprobe"), "/opt/homebrew/bin/ffprobe"]:
             try:
                 res = subprocess.run([c, "-version"], capture_output=True, timeout=2)
                 if res.returncode == 0:

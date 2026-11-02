@@ -41,8 +41,8 @@ from tools.base_tool import (
     ToolTier,
 )
 
-PYTHON_BIN = "/Users/paul/qwen-tts-venv/bin/python"
-MODELS_DIR = Path("/Users/paul/qwen-tts-models")
+PYTHON_BIN = str(Path.home() / "qwen-tts-venv/bin/python")
+MODELS_DIR = Path.home() / "qwen-tts-models"
 
 _MODEL_DIRS = {
     "custom_1.7b": MODELS_DIR / "Qwen3-TTS-12Hz-1.7B-CustomVoice",
@@ -106,8 +106,8 @@ class Qwen3TTSLocal(BaseTool):
 
     dependencies = [f"path:{PYTHON_BIN}"]
     install_instructions = (
-        "Requires Python venv at /Users/paul/qwen-tts-venv with `pip install -U qwen-tts`, "
-        "and model weights under /Users/paul/qwen-tts-models/ (Qwen3-TTS-12Hz-1.7B-CustomVoice + "
+        "Requires Python venv at ~/qwen-tts-venv with `pip install -U qwen-tts`, "
+        "and model weights under ~/qwen-tts-models/ (Qwen3-TTS-12Hz-1.7B-CustomVoice + "
         "-Base + Qwen3-TTS-Tokenizer-12Hz). Uses Apple Silicon MPS."
     )
     fallback = "qwen3_tts"

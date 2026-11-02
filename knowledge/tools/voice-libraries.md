@@ -51,7 +51,7 @@ Database files are located in `~/Library/Application Support/Dreamtonics/Synthes
   - 오디오 파이프라인 원칙: 48kHz 무손실 스테레오 체인 유지, 48kHz 256kbps 이상 고해상도 BGM 믹싱 필수 적용.
 
 ### Qwen3-TTS Local (`tools/audio/qwen3_tts_local.py`)
-- Official Qwen3-TTS running in `/Users/paul/qwen-tts-venv/` on MPS.
+- Official Qwen3-TTS running in `~/qwen-tts-venv/` on MPS.
 - Features premium Korean timbre 'Sohee' and 3-second zero-shot voice cloning.
 
 ---

@@ -29,7 +29,7 @@ from tools.base_tool import (
 
 log = logging.getLogger(__name__)
 
-PYTHON_BIN = "/Users/paul/fish-clean-venv/bin/python"
+PYTHON_BIN = str(Path.home() / "fish-clean-venv/bin/python")
 
 
 class FishAudioLocalTTS(BaseTool):
@@ -45,7 +45,7 @@ class FishAudioLocalTTS(BaseTool):
 
     dependencies = [f"path:{PYTHON_BIN}"]
     install_instructions = (
-        "Requires mlx-audio in /Users/paul/fish-clean-venv and the local "
+        "Requires mlx-audio in ~/fish-clean-venv and the local "
         "mlx-community/fish-audio-s2-pro-8bit model in ~/.cache/huggingface/hub/."
     )
     fallback = "voxcpm_tts"

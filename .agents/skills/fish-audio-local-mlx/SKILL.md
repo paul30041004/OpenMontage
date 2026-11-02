@@ -24,7 +24,7 @@ This skill defines the voice production contract for **Fish Audio S2-Pro (MLX Lo
          "output_path": "<output_wav_path>"
      })
      ```
-3. **100% Local & Free**: Runs via `/Users/paul/fish-clean-venv/bin/python` with `mlx_audio` Metal GPU acceleration. Zero API keys, zero cloud costs.
+3. **100% Local & Free**: Runs via `~/fish-clean-venv/bin/python` with `mlx_audio` Metal GPU acceleration. Zero API keys, zero cloud costs.
 
 ## Quality Rubric
 

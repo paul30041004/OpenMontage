@@ -31,7 +31,7 @@ from tools.base_tool import (
     ToolTier,
 )
 
-PYTHON_BIN = "/Users/paul/fish-clean-venv/bin/python"
+PYTHON_BIN = str(Path.home() / "fish-clean-venv/bin/python")
 
 # Model variants (mlx-community quantized for Apple Silicon)
 _MODELS = {
@@ -58,7 +58,7 @@ class Qwen3TTS(BaseTool):
 
     dependencies = [f"path:{PYTHON_BIN}"]
     install_instructions = (
-        "Requires mlx-audio in /Users/paul/fish-clean-venv. Model weights "
+        "Requires mlx-audio in ~/fish-clean-venv. Model weights "
         "(mlx-community Qwen3-TTS quantized) download automatically on first use."
     )
     fallback = "fish_audio_local_tts"

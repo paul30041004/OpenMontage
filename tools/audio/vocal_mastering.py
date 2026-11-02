@@ -99,8 +99,8 @@ class VocalMastering(BaseTool):
     def _get_ffmpeg(self) -> str:
         candidates = [
             "ffmpeg",
-            "/Users/paul/pinokio/bin/ffmpeg-env/bin/ffmpeg",
-            "/Users/paul/pinokio/bin/miniforge/bin/ffmpeg",
+            str(Path.home() / "pinokio/bin/ffmpeg-env/bin/ffmpeg"),
+            str(Path.home() / "pinokio/bin/miniforge/bin/ffmpeg"),
             "/opt/homebrew/bin/ffmpeg"
         ]
         for c in candidates:

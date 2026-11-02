@@ -187,7 +187,7 @@ except Exception as e:
         sys.exit(1)
 """
         python_bin = sys.executable
-        for candidate_venv in ["/Users/paul/Documents/OpenMontage/.venv/bin/python", "/Users/paul/qwen-tts-venv/bin/python", sys.executable]:
+        for candidate_venv in [str(Path(__file__).resolve().parents[2] / ".venv/bin/python"), str(Path.home() / "qwen-tts-venv/bin/python"), sys.executable]:
             if os.path.exists(candidate_venv):
                 python_bin = candidate_venv
                 break

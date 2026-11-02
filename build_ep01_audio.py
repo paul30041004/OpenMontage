@@ -47,7 +47,7 @@ VOICE_ANCHOR = "ko-KR-InJoonNeural"
 VOICE_RATE = "-6%"     # 시니어가 듣기 편안한 살짝 여유 있는 템포
 VOICE_PITCH = "-2Hz"   # 서스펜스 분위기를 위한 중저음 피치
 
-BASE_DIR = Path("/Users/paul/Documents/OpenMontage")
+BASE_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = BASE_DIR / "projects/stranger-in-complex/ep001/audio"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 

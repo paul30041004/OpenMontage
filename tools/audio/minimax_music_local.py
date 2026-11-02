@@ -28,7 +28,7 @@ from tools.base_tool import (
     ToolTier,
 )
 
-PYTHON_BIN = "/Users/paul/fish-clean-venv/bin/python"
+PYTHON_BIN = str(Path.home() / "fish-clean-venv/bin/python")
 
 _MODELS = {
     "4bit": "mlx-community/MiniMax-Music3-4bit",
@@ -51,7 +51,7 @@ class MiniMaxMusicLocal(BaseTool):
 
     dependencies = [f"path:{PYTHON_BIN}"]
     install_instructions = (
-        "Requires mlx-audio in /Users/paul/fish-clean-venv. Model weights "
+        "Requires mlx-audio in ~/fish-clean-venv. Model weights "
         "(mlx-community/MiniMax-Music3-4bit) download automatically on first use."
     )
     fallback = "google_music"

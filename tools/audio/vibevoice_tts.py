@@ -108,7 +108,7 @@ class VibeVoiceTTS(BaseTool):
     retry_policy = RetryPolicy(max_retries=1, retryable_errors=["timeout"])
 
     def _get_ffprobe(self) -> str:
-        for c in ["ffprobe", "/Users/paul/pinokio/bin/ffmpeg-env/bin/ffprobe", "/opt/homebrew/bin/ffprobe"]:
+        for c in ["ffprobe", str(Path.home() / "pinokio/bin/ffmpeg-env/bin/ffprobe"), "/opt/homebrew/bin/ffprobe"]:
             try:
                 res = subprocess.run([c, "-version"], capture_output=True, timeout=2)
                 if res.returncode == 0:
@@ -225,7 +225,7 @@ except Exception as e:
     traceback.print_exc(file=sys.stderr)
     sys.exit(1)
 """
-        python_bin = "/Users/paul/Documents/OpenMontage/.venv/bin/python"
+        python_bin = str(Path(__file__).resolve().parents[2] / ".venv/bin/python")
         if not os.path.exists(python_bin):
             python_bin = sys.executable
 
