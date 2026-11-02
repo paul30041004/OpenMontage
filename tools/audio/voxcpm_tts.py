@@ -16,6 +16,7 @@ Fully local (MPS/CPU), free. Model (~5GB) lives under the HF cache at
 
 from __future__ import annotations
 
+import re
 import subprocess
 import time
 from pathlib import Path
@@ -71,7 +72,7 @@ class VoxCPMTTS(BaseTool):
             },
             "voice_design": {
                 "type": "string",
-                "description": "Voice description prefix, e.g. '(부드러운 중년 여성 목소리로)'.",
+                "description": "Voice description prefix in ENGLISH (user rule d-011), e.g. '(calm, authoritative male Korean documentary narrator)'. Korean belongs in emotion/text only.",
             },
             "reference_audio": {
                 "type": "string",
@@ -123,11 +124,17 @@ class VoxCPMTTS(BaseTool):
         if not (model / "model.safetensors").exists():
             return ToolResult(success=False, error="VoxCPM2 model missing. " + self.install_instructions)
 
-        # Build the design text: voice_design prefix + emotion + text
-        prefix = ""
-        if inputs.get("voice_design"):
-            prefix += f"({inputs['voice_design']})"
-        design_text = f"{prefix}{text}"
+        # VoxCPM takes the voice description through the --control channel ONLY.
+        # It must NEVER be prepended to --text: doing so makes the model read the
+        # design instruction aloud. voice_design (English, rule d-011) and emotion
+        # (Korean) are both control instructions, so combine them here.
+        voice_design = inputs.get("voice_design", "")
+        if voice_design and re.search(r"[\uac00-\ud7a3\u1100-\u11ff]", voice_design):
+            return ToolResult(
+                success=False,
+                error="voice_design must be in ENGLISH per rule d-011. Put Korean descriptions in 'emotion' or 'text' only.",
+            )
+        control = " ".join(p for p in (voice_design, inputs.get("emotion", "")) if p)
 
         out = Path(inputs.get("output_path", "voxcpm_tts.wav"))
         out.parent.mkdir(parents=True, exist_ok=True)
@@ -146,17 +153,17 @@ class VoxCPMTTS(BaseTool):
                    "--inference-timesteps", str(inputs.get("timesteps", 8))]
             if inputs.get("prompt_text"):
                 cmd += ["--prompt-text", inputs["prompt_text"]]
-            if inputs.get("emotion"):
-                cmd += ["--control", inputs["emotion"]]
+            if control:
+                cmd += ["--control", control]
         else:
             cmd = [str(VOXCPM_BIN), "design",
-                   "--text", design_text,
+                   "--text", text,
                    "--model-path", str(model),
                    "--output", str(out),
                    "--device", inputs.get("device", "mps"),
                    "--inference-timesteps", str(inputs.get("timesteps", 8))]
-            if inputs.get("emotion"):
-                cmd += ["--control", inputs["emotion"]]
+            if control:
+                cmd += ["--control", control]
         try:
             proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8",
                                   errors="replace", timeout=900)

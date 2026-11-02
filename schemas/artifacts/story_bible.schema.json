@@ -68,6 +68,10 @@
             "required": ["tone", "pitch_pace", "provider_preference"],
             "properties": {
               "tone": { "type": "string" },
+              "voice_design": {
+                "type": "string",
+                "description": "English-only voice design prompt for VoxCPM (user rule d-011)"
+              },
               "pitch_pace": { "type": "string" },
               "provider_preference": { "type": "string" },
               "reference_audio_path": { "type": "string" }
