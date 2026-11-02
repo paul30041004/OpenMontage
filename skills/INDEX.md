@@ -216,6 +216,16 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/clip-factory/compose-director.md` | `compose` | Multi-job rendering, batch resilience, per-output verification |
 | Publish Director | `pipelines/clip-factory/publish-director.md` | `publish` | Posting order, platform copy, batch cataloging |
 
+### Audiobook Pipeline (`pipelines/audiobook/`) — v1.0
+
+| Skill | Path | Stage | Key Capability |
+|-------|------|-------|----------------|
+| Idea Director | `pipelines/audiobook/idea-director.md` | `idea` | Source/rights check, one-chapter-first scope, cast plan, time estimate |
+| Script Director | `pipelines/audiobook/script-director.md` | `script` | Parse to lines JSON, speakable text rules, speaker/emotion assignment |
+| Asset Director | `pipelines/audiobook/asset-director.md` | `assets` | Voice anchors (design/clone), verified bulk synthesis, weak-line review |
+| Compose Director | `pipelines/audiobook/compose-director.md` | `compose` | Gaps, loudnorm, m4b chapter markers, mp3, verification |
+| Publish Director | `pipelines/audiobook/publish-director.md` | `publish` | Local export package, AI-narration disclosure, rights reminder |
+
 ### Podcast Repurpose Pipeline (`pipelines/podcast-repurpose/`) — v2.0
 
 | Skill | File | Stage | Key Capabilities |

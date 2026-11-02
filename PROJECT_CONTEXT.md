@@ -103,6 +103,7 @@ Each tool's `agent_skills[]` field bridges Layer 1 → Layer 3. See `skills/INDE
 | `avatar-spokesperson` | `pipeline_defs/avatar-spokesperson.yaml` | Avatar presenter |
 | `localization-dub` | `pipeline_defs/localization-dub.yaml` | Localization and dubbing |
 | `novel-to-video` | `pipeline_defs/novel-to-video.yaml` | Long-form text to episodic video with character consistency |
+| `audiobook` | `pipeline_defs/audiobook.yaml` | EPUB/TXT/MD to multi-voice chaptered audiobook (m4b/mp3), VoxCPM voice design/clone |
 | `framework-smoke` | `pipeline_defs/framework-smoke.yaml` | Test harness |
 
 ## When Building New Pipelines

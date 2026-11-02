@@ -1,0 +1,145 @@
+name: audiobook
+version: "1.0"
+description: >
+  Audiobook factory. Takes a book file (EPUB / TXT / MD; PDF after text conversion)
+  and produces a multi-voice, chaptered audiobook (.m4b with chapter markers + .mp3)
+  using local VoxCPM voice design and cloning. Voices are fixed once as anchors
+  (designed from an English description or cloned from a supplied reference) and every
+  line is cloned from them, then verified by a Whisper round-trip, so the narrator and
+  characters stay identical across chapters. Audio-only: no images, no video render.
+category: custom
+stability: beta
+default_checkpoint_policy: guided
+
+orchestration:
+  mode: executive-producer
+  skill: pipelines/audiobook/idea-director
+  budget_default_usd: 0.00
+  max_revisions_per_stage: 3
+  max_send_backs: 3
+  max_wall_time_minutes: 600
+
+extensions:
+  custom_scripts: false
+  custom_playbooks: false
+  custom_skills: true
+  custom_tools: false
+
+required_skills:
+  - pipelines/audiobook/idea-director
+  - pipelines/audiobook/script-director
+  - pipelines/audiobook/asset-director
+  - pipelines/audiobook/compose-director
+  - pipelines/audiobook/publish-director
+  - meta/reviewer
+  - meta/checkpoint-protocol
+
+compatible_playbooks:
+  recommended: []
+  also_works: []
+  custom_allowed: true
+
+stages:
+  - name: idea
+    skill: pipelines/audiobook/idea-director
+    produces:
+      - brief
+      - decision_log
+    tools_available:
+      - audiobook_builder
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Source book format and rights confirmed (user's own or licensed/public-domain text)
+      - Chapter scope for this run chosen (one chapter first, then the rest)
+      - Cast plan - narrator, system voice, named characters - and voice source per speaker
+    success_criteria:
+      - Schema-valid brief artifact with target_duration_seconds estimated from character count
+      - Voice source for every planned speaker is stated (design vs clone)
+
+  - name: script
+    skill: pipelines/audiobook/script-director
+    required_artifacts_in:
+      - brief
+    produces:
+      - script
+    required_tools:
+      - audiobook_builder
+    tools_available:
+      - audiobook_builder
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Every line has the right speaker, kind (h1/h2/p/c) and emotion
+      - Numbers, English words and symbols are written as they should be spoken
+      - Chunks are short enough to stay stable (about 120 characters)
+    success_criteria:
+      - Schema-valid script artifact whose sections mirror the reviewed lines JSON
+      - Lines JSON saved with consecutive i, a speaker for every line
+
+  - name: assets
+    skill: pipelines/audiobook/asset-director
+    required_artifacts_in:
+      - script
+    optional_artifacts_in:
+      - brief
+    produces:
+      - asset_manifest
+    required_tools:
+      - audiobook_builder
+      - voxcpm_tts
+    tools_available:
+      - audiobook_builder
+      - voxcpm_tts
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Voice anchors auditioned and approved before bulk synthesis
+      - Weak lines (Whisper similarity under threshold) listed and re-generated or accepted
+      - Per-line WAV count equals line count
+    success_criteria:
+      - Schema-valid asset_manifest listing anchors and per-line WAVs
+      - All referenced files exist and results.json has no failed line
+
+  - name: compose
+    skill: pipelines/audiobook/compose-director
+    required_artifacts_in:
+      - asset_manifest
+      - script
+    produces:
+      - render_report
+      - final_review
+    required_tools:
+      - audiobook_builder
+    tools_available:
+      - audiobook_builder
+      - audio_enhance
+    checkpoint_required: true
+    human_approval_default: false
+    review_focus:
+      - One chapter marker per h1/h2 line, in order, in the m4b
+      - Loudness near -19 LUFS and true peak under -2 dB
+      - Gaps sound natural between paragraphs, headings and system lines
+    success_criteria:
+      - Schema-valid render_report artifact
+      - m4b and mp3 exist and pass ffprobe, chapter count matches headings
+
+  - name: publish
+    skill: pipelines/audiobook/publish-director
+    required_artifacts_in:
+      - render_report
+      - final_review
+    optional_artifacts_in:
+      - brief
+    produces:
+      - publish_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Export folder holds m4b, mp3, lines JSON and a chapter list
+      - Title, author and album metadata are set
+      - No external upload happens without explicit user approval
+    success_criteria:
+      - Schema-valid publish_log artifact
+      - Export directory contains all deliverables
