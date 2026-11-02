@@ -162,7 +162,10 @@ class BgmMontageLite(BaseTool):
         requested = os.environ.get(_PYTHON_ENV, "").strip() or sys.executable
         path = Path(requested).expanduser()
         if path.is_file():
-            return str(path.resolve())
+            # Do NOT resolve symlinks here: a venv's bin/python is a symlink to
+            # the base interpreter, and resolving it drops the venv (and its
+            # site-packages), so every runtime dependency would look missing.
+            return os.path.abspath(os.path.expanduser(str(path)))
         found = shutil.which(requested)
         if found:
             return found
