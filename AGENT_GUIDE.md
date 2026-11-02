@@ -43,6 +43,7 @@ This is a first-class workflow in OpenMontage.
 
 - **Reference-driven request:** "make me something like this" -> use `video-reference-analyst.md`
 - **Source-footage request:** "edit this footage" / "cut this into clips" -> use `source_media_review` and the appropriate footage-led pipeline
+- **App-benchmarking request:** an app tutorial video plus "build something better than this feature" / "benchmark this app" -> use `skills/meta/app-benchmarking.md` (tools `app_benchmark`, `market_price_summary`). The benchmark is research, not a video: if the user then wants a demo or explainer video of the improved feature, it goes through a normal pipeline (e.g. `screen-demo`, `animated-explainer`) under Rule Zero, with the benchmark report as the research input
 
 If a model misses this distinction, it will often fall back to plain search + guesswork. That is incorrect for OpenMontage.
 

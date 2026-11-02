@@ -321,6 +321,7 @@ Style playbooks (`styles/*.yaml`) define visual language, typography, motion, au
 |----------|----------|------|----------|
 | `clean-professional` | motion-graphics | polished, trustworthy | Corporate, educational, SaaS |
 | `premium-minimalist` | minimalist | calm, editorial | Investor updates, expert explainers, product narratives |
+| App Benchmarking | `meta/app-benchmarking.md` | App tutorial video → feature dossier → REA evidence → better-feature plan (`app_benchmark`, `market_price_summary`); hands off to `screen-demo`/explainer pipelines for a demo video |
 | `flat-motion-graphics` | motion-graphics | energetic, bold | Social media, TikTok, startups |
 | `minimalist-diagram` | whiteboard | focused, technical | Technical deep-dives, architecture |
 
