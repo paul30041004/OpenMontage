@@ -5,7 +5,7 @@ description: >
   presentation video production pipeline. Extracts melodic parts and 4-part SATB harmony,
   injects lyrics, models pitch/vibrato/breath expressions for Synthesizer V Pro, produces FreeShow
   broadcast slides, masters vocals with acoustics (-14 LUFS), and composes lyric videos.
-category: audio_led
+category: custom
 stability: production
 
 default_checkpoint_policy: guided
