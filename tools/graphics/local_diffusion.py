@@ -116,10 +116,20 @@ class LocalDiffusion(BaseTool):
         guidance = inputs.get("guidance_scale", 7.5)
 
         try:
-            device = "cuda" if torch.cuda.is_available() else "cpu"
-            dtype = torch.float16 if device == "cuda" else torch.float32
+            if torch.cuda.is_available():
+                device = "cuda"
+            elif torch.backends.mps.is_available():
+                device = "mps"
+            else:
+                device = "cpu"
+            dtype = torch.float16 if device in ("cuda", "mps") else torch.float32
 
-            pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=dtype)
+            if model_id.endswith((".safetensors", ".ckpt")):
+                pipe = StableDiffusionPipeline.from_single_file(
+                    model_id, torch_dtype=dtype, safety_checker=None
+                )
+            else:
+                pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=dtype)
             pipe = pipe.to(device)
 
             generator = None
