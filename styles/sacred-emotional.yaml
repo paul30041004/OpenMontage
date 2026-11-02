@@ -1,0 +1,106 @@
+identity:
+  name: "Sacred Emotional (성서 감성 시네마틱)"
+  category: custom
+  mood: "감성적, 영적, 위로, 희망 — 조용히 웅장하게"
+  pace: deliberate
+  best_for: "성서/영성/위로 테마 세로형 쇼츠, 감동 내레이션 중심 콘텐츠"
+
+visual_language:
+  color_palette:
+    primary: ["#1B3A4B", "#2E5D6E"]
+    accent: ["#C9A227", "#E8D9A8"]
+    background: "#0A141C"
+    text: "#F5EFE2"
+    muted: "#8FA8B5"
+  composition: "중앙 정렬 수직 구도, 방주/비둘기 같은 단일 주제 중심, 하단 1/3에 여백"
+  texture: "부드러운 회화적 질감, 물빛 반사, 입자 빛(particle), 비네트"
+
+typography:
+  headings:
+    font: "Noto Serif KR"
+    weight: 700
+    tracking: "0.01em"
+    line_height: 1.4
+  body:
+    font: "Noto Sans KR"
+    weight: 400
+    line_height: 1.6
+  scale_system: golden
+  weight_matrix:
+    title: 700
+    heading: 700
+    body: 400
+    caption: 300
+
+motion:
+  transitions: [fade, slow-crossfade, drift-up, cut]
+  animation_style: "ease(0.4, 0, 0.2, 1) — 천천히 가라앉고 떠오르는 움직임, 바운스 없음"
+  pacing_rules:
+    min_scene_hold_seconds: 1.8
+    max_scene_hold_seconds: 6
+    text_card_hold_seconds: 3.5
+    stat_card_hold_seconds: 3.0
+    transition_duration_seconds: 0.6
+  entrance: "fade + slow drift up (scale 0.98 -> 1.0)"
+  exit: "slow fade"
+
+audio:
+  voice_style: "따뜻하고 낮은 한국어 감성 내레이션, 느리고 고요한 톤"
+  music_mood: "잔잔한 피아노 + 스트링 스웰, 희망적 오케스트라 빌드, 신성한 분위기"
+  music_volume: 0.18
+  sfx_style: "비 소리(인트로), 물결, 나무 조각 소리 — 자극적 SFX 금지"
+  ducking_threshold_db: -6
+  voice_variation_allowed: true
+  hero_moment_voice_shift: "더 느리고 더 낮게, 속삭이듯 — s05/s06 클라이맥스"
+  transition_voice_shift: "짧은 정적 후 이어서, 에너지 유지"
+
+asset_generation:
+  image_prompt_prefix: "cinematic emotional illustration, painterly, deep teal and gold palette, soft volumetric light, biblical antiquity mood, "
+  image_negative_prompt: "neon colors, purple, modern city, text, watermark, cartoon exaggerated, glitch"
+  diagram_style: "n/a (다이어그램 미사용 스타일)"
+  scene_type: "generated"
+  multi_image_per_scene: false
+  default_particles: "dust"
+  default_particle_color: "#E8D9A8"
+  default_vignette: true
+  consistency_anchors:
+    - "딥 틸(#1B3A4B~#2E5D6E) 배경이 모든 장면의 기조"
+    - "골드(#C9A227)는 희망/빛/약속 장면에서만 액센트로"
+    - "회화적 시네마틱 일러스트 톤 통일 (사진이 아닌 그림)"
+    - "비둘기는 흰색, 올리브 잎은 연한 녹-골드 — 장면마다 동일"
+    - "빛은 항상 위에서 아래로 (그레이스 라이트)"
+
+overlays:
+  hero_title:
+    bg: "transparent"
+    text: "#F5EFE2"
+    highlight: "#C9A227"
+
+quality_rules:
+  - "모든 텍스트 대비비 4.5:1 이상 (어두운 배경 위 크림 텍스트)"
+  - "한 화면 최대 3색 (배경/주제/골드 액센트)"
+  - "720p 모바일에서 가독 가능한 큰 자막 (48pt 이상)"
+  - "모든 장면에 최소 1개의 은은한 움직임(드리프트/빛 변화)"
+  - "2-4초 리듬의 시각 전환 유지, 4초 이상 정지 화면 금지"
+  - "카라오케 자막은 하단 safe zone(하단 300px 위)에 배치"
+
+taste_profile:
+  design_read: "창세기 8장의 홍수-기다림-올리브 잎 서사를 60초 감성 쇼츠로. 힘든 시기를 겪는 시청자에게 위로를 주는 영적 콘텐츠. 화려한 자극이 아니라 고요한 웅장함으로 감동을 만든다."
+  visual_variance: 6
+  motion_intensity: 3
+  information_density: 3
+  palette_discipline: "딥 틸 기조 유지, 골드는 클라이맥스 이후에만 등장"
+  layout_variation: "와이드 풍경 → 중앙 인물 → 클로즈업 → 텍스트 카드로 리듬 변화"
+  reference_strategy: "성서 고증(아라라트, 올리브 잎, 제단)을 준수하되 회화적 재해석"
+  anti_patterns:
+    - "네온/보라 팔레트, Gen-Z 자극 스타일"
+    - "빠른 바운스 애니메이션"
+    - "과밀한 정보 카드"
+  quality_gates:
+    - "각 장면이 대본 감정 곡선(무거움→고요→감동→약속→위로)과 일치"
+    - "감정 피크(s05/s06)는 hero_moment=true, 최고 품질 에셋 사용"
+
+color_rules:
+  harmony_type: analogous
+  contrast_validation: true
+  colorblind_safe: true
