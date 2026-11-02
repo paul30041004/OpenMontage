@@ -41,7 +41,7 @@ class MLXLMWriter(BaseTool):
         "pip install mlx mlx-lm\n"
         "Requires: macOS with Apple Silicon (M1/M2/M3/M4)"
     )
-    agent_skills = ["storytelling", "video-toolkit"]
+    agent_skills = ["video-toolkit"]
 
     capabilities = [
         "script_generation",
