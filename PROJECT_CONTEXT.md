@@ -72,6 +72,8 @@ Each tool's `agent_skills[]` field bridges Layer 1 → Layer 3. See `skills/INDE
 | `tools/video/video_stitch.py` | Multi-clip assembly (stitch, spatial, validate, preview) |
 | `tools/video/video_compose.py` | Runtime-aware composition orchestrator — routes to Remotion / HyperFrames / FFmpeg based on `edit_decisions.render_runtime` |
 | `tools/video/hyperframes_compose.py` | HyperFrames runtime — templated workspace materialization plus authored-workspace unified `check`/`render`, FFmpeg floor check |
+| `tools/video/longform_scene_assembler.py` | 2-hour narrative scene breakdown & chunked Remotion assembly (HEPHAESTUS-METATRON engine) |
+| `tools/graphics/threejs_proxy.py` | CodeVideoModel-style Three.js proxy video + reference still generator for motion control |
 | `tools/graphics/threejs_world.py` | Local semantic 3D-world authoring with explicit blockout/production fidelity tiers, region-aware terrain, diagnostics, and HyperFrames atelier workspaces |
 | `tools/graphics/threejs_asset_catalog.py` | CC0 GLTF/GLB catalog acquisition, inventory, and provenance for production-fidelity world builds |
 | `tools/graphics/atlas_3d.py` | Atlas Cloud Tripo H3.1 text-to-3D for unique textured/PBR GLB assets |

@@ -167,12 +167,14 @@ stages:
     tools_available:
       - threejs_world
       - blender_world
+      - longform_scene_assembler
     checkpoint_required: true
     human_approval_default: false
     review_focus:
       - Cinematic coverage grammar applied (Master, Medium, Close-up, OTS, Dutch)
       - Camera motion syntax explicitly defined (Dolly, Pan, Orbit, Tracking, Crane)
       - Lighting setups, color temperature, and LUT tokens assigned per scene
+      - Scene boundary root reset enforced across all scene transitions to prevent H3 latent drift
     success_criteria:
       - Schema-valid scene_plan artifact
       - Every cut specifies camera_direction, lens_focal_length, and lighting_token
@@ -186,6 +188,7 @@ stages:
       - asset_manifest
     tools_available:
       - video_selector
+      - comfyui_video
       - seedance_video
       - gemini_omni_video
       - minimax_h3_video
@@ -200,6 +203,7 @@ stages:
       - stem_separator
       - upscale
       - face_restore
+      - longform_scene_assembler
     checkpoint_required: true
     human_approval_default: true
     review_focus:
@@ -246,6 +250,7 @@ stages:
       - video_trimmer
       - video_stitch
       - audio_mixer
+      - longform_scene_assembler
     checkpoint_required: true
     human_approval_default: false
     review_focus:
@@ -266,6 +271,7 @@ stages:
       - video_compose
       - chunk_render
       - ffmpeg
+      - longform_scene_assembler
     checkpoint_required: true
     human_approval_default: false
     review_focus:

@@ -147,7 +147,7 @@ Pipeline type skills provide production guidance for specific video formats, ind
 | Skill | File | When to Use |
 |-------|------|-------------|
 | Short-Form | `creative/short-form.md` | TikTok, Reels, Shorts â€" vertical 9:16, under 60s |
-| Long-Form | `creative/long-form.md` | YouTube 10+ min â€" chapters, retention, end screens |
+| Long-Form | `creative/long-form.md` | YouTube 10+ min and 2-Hour feature film architecture (HEPHAESTUS-METATRON engine) — Act/Sequence/Scene breakdown, Scene Boundary Root Reset, MiniMax H3 ComfyUI latent chaining, and Remotion chunked assembly |
 | Screen Recording | `creative/screen-recording.md` | Code walkthroughs, tutorials, software demos |
 | Animation Pipeline | `creative/animation-pipeline.md` | Motion graphics, easing, transitions, composition |
 | 3D World Generation | `creative/3d-world-generation.md` | Continuous Three.js terrain worlds with semantic regions, explicit blockout/production tiers, licensed GLTF/PBR assets, diagnostics, and deterministic camera paths |

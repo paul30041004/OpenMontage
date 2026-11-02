@@ -237,3 +237,94 @@ When building long-form content:
 11:20-11:40 Outro: tease next content, do NOT say goodbye
 11:40-12:00 End screen (last 20 seconds), 1-2 elements
 ```
+
+---
+
+## 2-Hour Feature Film & Narrative Long-Form (HEPHAESTUS-METATRON Architecture)
+
+> Coherence blueprint for adapting long-form novels, screenplays, and multi-act narratives
+> up to 120+ minutes using OpenMontage orchestration and MiniMax H3 long-form generation.
+
+### 1. Fundamental Principle: Orchestrator vs. Generator
+
+- **OpenMontage is the Supreme Orchestrator**: Manages Story Bible, 3-Act / 8-Sequence breakdown, scene budgets, cast visual anchors (Ref2VA), human approval gates, and multi-track master assembly.
+- **MiniMax H3 / ComfyUI is the Shot Generator**: Produces continuous, high-motion 30–90 second shots via latent chaining (`ComfyUI-H3-Long-Video`, `Herrgotts`).
+- **The 2-Hour Trap**: Generating a single 2-hour continuous shot without cuts causes latent drift, visual collapse, VRAM exhaustion, and narrative death. Real cinema works through **scene breakdown and montage assembly**.
+
+### 2. The 120-Minute Mathematical Hierarchy
+
+A 120-minute film is budgeted into four nested structural layers:
+
+```
+[120-Min Master Film]
+  └── 3 Acts (Act 1: 30m, Act 2A: 30m, Act 2B: 30m, Act 3: 30m)
+        └── 8 Sequences (~15 min each, Frank Daniel 8-sequence model)
+              └── 40–80 Scenes (avg 90–180s per scene)
+                    └── 120–300 Shots (30–90s chained shots or 5–15s cut coverage)
+```
+
+| Layer | Duration | Purpose | State Management |
+| :--- | :--- | :--- | :--- |
+| **Act** | 25–35 min | Major dramatic movement | Story Bible thematic tokens |
+| **Sequence** | 12–18 min | Self-contained 15-minute dramatic unit | Sequence chunk render boundary |
+| **Scene (씬)** | 60–180 sec | Single dramatic goal in one time/location | **Root Latent Boundary (Hard Reset)** |
+| **Shot (샷)** | 30–90 sec | Continuous camera motion / character beat | Latent chained in-scene only |
+
+### 3. The Inviolable Law of "Scene Boundary Root Reset"
+
+1. **Within a Scene (In-Scene Chaining)**:
+   - Use H3 latent chaining (`ComfyUI-H3-Long-Video`) to produce continuous 30–90s camera movements (dolly, orbit, tracking, room walkthroughs).
+   - Apply FL2VA keyframe injection every 2–3 segments to prevent facial distortion and detail degradation.
+2. **Across Scene Boundaries (Hard Root Reset)**:
+   - **NEVER** chain latents across different scenes, locations, or times of day.
+   - When entering a new scene, OpenMontage forces a **Hard Root Reset**:
+     - Latent history is cleared.
+     - New root generation starts from the locked **Ref2VA Character Anchor** and **Style Bible Lighting Tokens**.
+     - This guarantees zero error propagation or character identity drift between scenes.
+
+### 4. ComfyUI H3 Long-Form API Workflow Integration
+
+Use `comfyui_video` with `longform_scene_assembler`:
+
+```python
+# 1. Plan hierarchy and scene boundaries
+plan = longform_scene_assembler.execute({
+    "operation": "plan_hierarchy",
+    "target_duration_minutes": 120.0,
+    "pacing": "cinematic_standard",
+    "title": "Feature Title"
+})
+
+# 2. Build scene-by-scene ComfyUI API payloads with Scene Boundary Root Reset
+payloads = longform_scene_assembler.execute({
+    "operation": "build_comfyui_h3_payloads",
+    "scene_list": plan.data["sequences"][0]["scenes"],
+    "workflow_template_path": "tools/_comfyui/workflows/h3-longform-api.template.json",
+    "output_node_id": "16",
+    "story_bible": story_bible
+})
+
+# 3. Invoke ComfyUI via comfyui_video with workflow_json and output_node
+for scene in payloads.data["scenes"]:
+    for shot in scene["shot_payloads"]:
+        comfyui_video.execute({
+            "prompt": shot["prompt"],
+            "model_family": "minimax_h3_local",
+            "workflow_path": shot["workflow_path"],
+            "output_node": shot["output_node"],
+            "reference_image_path": shot["reference_image_path"]
+        })
+```
+
+### 5. Deterministic Chunked Assembly (Remotion + FFmpeg)
+
+- **Chunked Rendering**: Never render 120 minutes in a single memory pass.
+  - Render by **Sequence Chunks** (8 chunks of 10–15 minutes each).
+  - OpenMontage's `longform_scene_assembler.assemble_timeline_chunks()` builds multi-track Remotion timelines.
+- **Audio Stem Architecture**:
+  - `Dialogue Stem`: Multi-speaker TTS (VoxCPM / Edge-TTS / Chatterbox) normalized to **-3 dB**.
+  - `SFX / Foley Stem`: Room tone, footsteps, doors, impacts mixed at **-12 dB**.
+  - `BGM Bed`: Dynamic cinematic score at **-18 dB**, auto-ducked to **-24 dB** under speech.
+- **Master Concat**:
+  - Rendered sequence MP4s are joined with FFmpeg's lossless concat demuxer without re-encoding:
+    `ffmpeg -f concat -safe 0 -i sequence_list.txt -c copy master_120m.mp4`
