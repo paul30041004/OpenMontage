@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "palette": {
+      "red": "#B8312A",
+      "cream": "#F1E6D0",
+      "paper": "#FBF7EE",
+      "navy": "#14213D",
+      "yellow": "#F2C230"
+    },
+    "sans": "'Archivo Narrow','Arial Narrow','Helvetica Neue Condensed','Helvetica Neue',Arial,'Apple SD Gothic Neo','Noto Sans KR','Nanum Gothic','Malgun Gothic',sans-serif",
+    "mono": "'SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace",
+    "corner": "API 키 유출",
+    "minShot": 2.2
+  },
+  "audio": {
+    "tts": "voxcpm",
+    "voice": "ko-KR-InJoonNeural",
+    "rate": "+0%",
+    "voiceDesign": "(calm, authoritative male Korean documentary narrator, low deep voice, measured pace)",
+    "emotion": "차분하고 단호한 보안 다큐 내레이터 톤으로, 숫자 앞에서 잠시 멈추며 또렷하게",
+    "atempo": 1.12,
+    "pad": 0.35,
+    "lead": 0.15,
+    "score": true
+  },
+  "shots": [
+    {
+      "type": "kinetic",
+      "dur": 2.5,
+      "narration": "API 키는 왜 유출될까요?",
+      "lines": [
+        { "text": "API 키는", "color": "navy", "y": 0.38, "size": 150 },
+        { "text": "왜 유출될까요?", "color": "red", "y": 0.6, "size": 158, "at": 0.55 }
+      ]
+    },
+    {
+      "type": "kinetic",
+      "dur": 3.2,
+      "narration": "키도 결국 텍스트입니다. 텍스트는 복사되죠.",
+      "card": true,
+      "lines": [
+        { "text": "키도 결국 텍스트입니다.", "color": "navy", "size": 112 },
+        { "text": "텍스트는 복사되죠.", "color": "red", "size": 132, "at": 1.05 }
+      ]
+    },
+    {
+      "type": "counter",
+      "dur": 3.6,
+      "narration": "2025년, 공개 GitHub 커밋에서 이천팔백육십오만 개의 하드코딩 시크릿이 발견됐습니다.",
+      "value": 2865,
+      "suffix": "만",
+      "y": 0.42,
+      "size": 280,
+      "caption": ["공개 GitHub 커밋에서 발견된", "하드코딩 시크릿 — 2025"],
+      "captionColors": ["navy", "red"],
+      "captionsAt": [1.5, 1.7],
+      "source": "출처: GitGuardian · Secrets Sprawl 2026"
+    },
+    {
+      "type": "grid",
+      "dur": 3.6,
+      "narration": "매일 삼만 오천 개 이상이 노출됩니다.",
+      "cols": 12,
+      "rows": 4,
+      "caption": ["매일 3만 5천 개 이상", "노출됩니다"],
+      "captionColors": ["navy", "red"],
+      "captionsAt": [1.2, 1.4],
+      "source": "출처: gitguardian.com/secrets-sprawl"
+    },
+    {
+      "type": "code",
+      "dur": 3.4,
+      "narration": "시작은 한 줄입니다. 코드에 키를 그대로 적는 것.",
+      "code": [
+        { "text": "db = connect(DATABASE_URL)", "color": "cream" },
+        { "text": "", "color": "cream" },
+        { "text": "API_KEY = \"sk-live-9f3a...71c2\"", "color": "yellow" },
+        { "text": "commit → push → public repo", "color": "rgba(241,230,208,0.6)" }
+      ],
+      "marker": { "x": 0.585, "y": 0.44, "r": 150 },
+      "caption": "코드에 키를 그대로 적었습니다",
+      "captionAt": 1.1
+    },
+    {
+      "type": "beforeafter",
+      "dur": 3.6,
+      "narration": "도요타. 실제 키가 공개 저장소에 오 년 가까이 방치됐습니다.",
+      "title": "도요타",
+      "left": "2017",
+      "right": "2022",
+      "caption": "실제 키가 공개 저장소에",
+      "sub": "5년 가까이 방치",
+      "source": "출처: GitGuardian · 2022-10-07 공개"
+    },
+    {
+      "type": "counter",
+      "dur": 3.6,
+      "narration": "우버. GitHub에서 찾은 자격 증명으로 오천칠백만 개 계정이 열렸습니다.",
+      "value": 5700,
+      "suffix": "만",
+      "y": 0.46,
+      "size": 280,
+      "capSize": 62,
+      "captionY": 0.68,
+      "caption": ["GitHub에서 찾은 자격 증명으로", "열린 계정"],
+      "captionColors": ["navy", "navy"],
+      "captionsAt": [1.4, 1.6],
+      "source": "출처: Huntress · Uber 침해, 2016-10"
+    },
+    {
+      "type": "cards",
+      "dur": 3.2,
+      "narration": "이제는 새로운 통로. AI 도구에 시크릿을 붙여넣는 것.",
+      "title": "새로운 통로",
+      "left": { "lines": ["소스", "코드"] },
+      "right": { "lines": ["시크릿", "붙여넣기"] },
+      "caption": "AI 도구에 시크릿을 붙여넣기",
+      "captionAt": 1.1
+    },
+    {
+      "type": "headline",
+      "dur": 3.6,
+      "narration": "삼성은 소스 코드가 ChatGPT로 유출된 뒤, 직원용 챗봇을 금지했습니다.",
+      "brand": "SAMSUNG",
+      "sub": "직원용 챗봇 금지",
+      "chip": "2023년 5월 2일",
+      "bottom": "소스 코드가 ChatGPT로 유출된 뒤",
+      "source": "출처: Forbes · 2023-05-02"
+    },
+    {
+      "type": "badge",
+      "dur": 3.8,
+      "narration": "2025년 유출된 AI 서비스 시크릿은 백이십칠만 오천백오 건. 일 년 만에 팔십일 퍼센트 급증했습니다.",
+      "title": "유출된 AI 서비스 시크릿",
+      "value": 1275105,
+      "size": 210,
+      "sub": "2025년",
+      "badge": { "value": "+81%", "label": "1년 만에" },
+      "source": "출처: GitGuardian · Secrets Sprawl 2026"
+    },
+    {
+      "type": "kinetic",
+      "dur": 2.8,
+      "narration": "한 가지 이유. 편의는 언제나 규정을 이깁니다.",
+      "lines": [
+        { "text": "편의는 규정을 이깁니다.", "color": "navy", "size": 126 },
+        { "text": "언제나.", "color": "red", "size": 168, "at": 0.9 }
+      ]
+    },
+    {
+      "type": "counter",
+      "dur": 3.2,
+      "narration": "평균 침해 비용은 사백팔십팔만 달러입니다.",
+      "title": "평균 침해 비용",
+      "value": 488,
+      "y": 0.5,
+      "size": 300,
+      "caption": ["만 달러"],
+      "captionColors": ["red"],
+      "captionsAt": [1.5],
+      "captionY": 0.68,
+      "capSize": 84,
+      "source": "출처: IBM · Cost of a Data Breach 2024"
+    },
+    {
+      "type": "kinetic",
+      "dur": 2.8,
+      "narration": "한 번 새면, 영원히 노출됩니다.",
+      "lines": [
+        { "text": "한 번 새면,", "color": "navy", "y": 0.4, "size": 158 },
+        { "text": "영원히 노출됩니다.", "color": "red", "y": 0.62, "size": 150, "at": 0.8 }
+      ]
+    }
+  ]
+}
