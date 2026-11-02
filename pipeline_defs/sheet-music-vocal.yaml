@@ -20,6 +20,7 @@ required_skills:
   - musescore-synthv-freeshow
   - pipelines/sheet-music-vocal/executive-producer
   - pipelines/sheet-music-vocal/score-director
+  - pipelines/sheet-music-vocal/proposal-director
   - pipelines/sheet-music-vocal/vocal-director
   - pipelines/sheet-music-vocal/subtitles-director
   - pipelines/sheet-music-vocal/mastering-director
@@ -58,6 +59,23 @@ stages:
     success_criteria:
       - Valid score structure identified
       - Target melodic parts and harmony roles resolved
+
+  - name: proposal
+    skill: pipelines/sheet-music-vocal/proposal-director
+    produces:
+      - proposal_packet
+      - decision_log
+    tools_available: []
+    checkpoint_required: true
+    human_approval_default: true
+    review_focus:
+      - Deliverable (solo vs SATB choir) and voice database per part confirmed with the user
+      - Both Remotion and HyperFrames runtimes presented with tradeoffs
+      - Output format (16:9 or 9:16) and -14 LUFS master target stated
+    success_criteria:
+      - Schema-valid proposal_packet artifact
+      - render_runtime_selection logged in decision_log with both runtimes considered
+      - Human gate approval logged in decision_log
 
   - name: vocal_generation
     skill: pipelines/sheet-music-vocal/vocal-director
