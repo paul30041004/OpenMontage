@@ -45,6 +45,12 @@ output/
 pipeline/
 tests/qa/output/
 
+# Local model weights, generated media and the personal local tool hub.
+# Anchored to the repo root: schemas/checkpoints/ holds tracked schema files.
+/checkpoints/
+/local-webui/
+/template_library/vox-explainer/out/
+
 # Project workspaces (generated assets, renders — all regenerable)
 projects/
 
