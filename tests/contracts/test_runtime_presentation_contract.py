@@ -76,6 +76,10 @@ assert ALL_MANIFESTS, "No pipeline manifests found"
 # an explicit reason. Everything else is required to follow the contract.
 _EXCLUDED_PIPELINES = {
     "framework-smoke": "minimal 2-stage smoke test, no compose stage",
+    "audiobook": (
+        "audio-only deliverable (m4b/mp3): compose joins line WAVs with "
+        "audiobook_builder, no video render, so there is no render_runtime"
+    ),
 }
 
 
