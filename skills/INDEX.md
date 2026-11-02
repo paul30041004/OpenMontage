@@ -311,6 +311,7 @@ Cross-cutting skills that apply to all pipelines:
 | Taste Direction | `meta/taste-direction.md` | Convert a brief into taste dials, anti-patterns, and reference strategy for proposal/playbook/atelier work |
 | Bespoke Composition (Atelier) | `meta/bespoke-composition.md` | Hand-author a composition from scratch (hero work) — no stock scene-types; routes art-direction → motion principles → engine mechanics → atelier render |
 | Voice Performance | `meta/voice-performance-director.md` | Narration delivery contract (pace, emphasis, pauses) for TTS — see also Layer 3 `tts-sample-unification` |
+| App Benchmarking | `meta/app-benchmarking.md` | App tutorial video → feature dossier → REA evidence → better-feature plan (`app_benchmark`, `market_price_summary`); hands off to `screen-demo`/explainer pipelines for a demo video |
 | TTS Sample Unification | `.agents/skills/tts-sample-unification/SKILL.md` | Multi-segment narration must be unified to the FIRST anchor sample (clone mode) so the whole voiceover is one voice |
 
 ## Style Playbooks
@@ -321,7 +322,6 @@ Style playbooks (`styles/*.yaml`) define visual language, typography, motion, au
 |----------|----------|------|----------|
 | `clean-professional` | motion-graphics | polished, trustworthy | Corporate, educational, SaaS |
 | `premium-minimalist` | minimalist | calm, editorial | Investor updates, expert explainers, product narratives |
-| App Benchmarking | `meta/app-benchmarking.md` | App tutorial video → feature dossier → REA evidence → better-feature plan (`app_benchmark`, `market_price_summary`); hands off to `screen-demo`/explainer pipelines for a demo video |
 | `flat-motion-graphics` | motion-graphics | energetic, bold | Social media, TikTok, startups |
 | `minimalist-diagram` | whiteboard | focused, technical | Technical deep-dives, architecture |
 
